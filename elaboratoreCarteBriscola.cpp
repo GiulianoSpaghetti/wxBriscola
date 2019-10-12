@@ -27,13 +27,13 @@ elaboratoreCarteBriscola::elaboratoreCarteBriscola(bool punti):inizio(true), bri
 }
 
 /* Restituisce la carta elaborata */
-size_t elaboratoreCarteBriscola::getCarta() throw (overflow_error) {
+size_t elaboratoreCarteBriscola::getCarta() {
 	size_t fine=rand()%numeroCarte, //indice per verificare se sono state elaborate tutte le carte o no
 		carta=(fine+1)%numeroCarte; //carta da salvare
 	while(doppione[carta] && carta!=fine) //fin quando non si trova uno spazio libero o non si finisce il ciclo
 		carta=(carta+1)%numeroCarte; //si aumenta il valore della carta d 1, non si può elaborare un nuovo valore se no si rischia di finire in ciclo infinito
 	if (doppione[carta]) //se non è stato trovato uno spazio libero
-		throw overflow_error("Chiamato elaboratoreCarteItaliane::getCarta() quando non ci sono più carte da elaborare");
+		throw overflow_error("Chiamato elaboratoreCarteItaliane::getCarta() quando non ci sono piu' carte da elaborare");
 	else {
 		if (inizio) { //bisogna salvare il valore della carta di briscola
 			size_t valore=carta%10;

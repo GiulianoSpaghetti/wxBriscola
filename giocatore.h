@@ -48,16 +48,16 @@ class giocatore {
 		void setNome(wxString n) {nome=n;}
 		bool getFlagOrdina() {return ordinaMano;} //se la mano deve essere ordinata o meno
 		void setFlagOrdina(bool ordina) {ordinaMano=ordina;}
-		void addCarta(mazzo *m) throw (overflow_error, underflow_error); //aggiunge una carta alla mano del giocatore
-		carta *getCartaGiocata() throw (range_error); //restituisce la carta giocata
+		void addCarta(mazzo *m); //aggiunge una carta alla mano del giocatore
+		carta *getCartaGiocata(); //restituisce la carta giocata
 		size_t getPunteggio() {return punteggio;}
 		wxString getPunteggioStr() {return stringHelper::IntToWxStr(punteggio);} //restituisce il punteggio sotto forma di stringa
 		void gioca(int i); //gioca una carta col giocatore primo di mano
 		void gioca(giocatore *g1, int i); //gioca una carta col giocatore secondo di mano
 		bool hasCartaGiocata() {return iCartaGiocata!=NESSUNA_CARTA_GIOCATA;} //se il giocatore ha giocato
-		void aggiornaPunteggio(giocatore *g) throw (range_error);
+		void aggiornaPunteggio(giocatore *g);
 		wxPoint paint(wxPaintDC &dc) {return helper->paint(dc, nome, mano, iCartaGiocata);} //disegna i dati del giocatore sul frame
-		bool stessoSemeCartaGiocata(giocatore *g)  throw (invalid_argument); //se la carta giocata dal giocatore ha lo stesso seme
-		bool stessoSeme(carta *c)throw (invalid_argument); //confronta due carte per sapere se hanno lo stesso seme
+		bool stessoSemeCartaGiocata(giocatore *g); //se la carta giocata dal giocatore ha lo stesso seme
+		bool stessoSeme(carta *c); //confronta due carte per sapere se hanno lo stesso seme
 };
 #endif

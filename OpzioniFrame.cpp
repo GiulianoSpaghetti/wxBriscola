@@ -40,7 +40,8 @@ OpzioniFrame::OpzioniFrame(wxWindow *parent, wxString& nUser, wxString& nCpu, bo
 	abilitaCartaAlta=new wxCheckBox(this, ID_ABILITA_CARTA_ALTA, _("Fai il gioco della carta piu' alta all'avvio"));
 	abilitaCartaAlta->SetValue(cartaAlta);
 	abilitaAggiornamenti=new wxCheckBox(this, ID_ABILITA_AGGIORNAMENTO, _("Notifica nuove versioni all'avvio"));
-    abilitaAggiornamenti->SetValue(aggiornamenti);
+    abilitaAggiornamenti->SetValue(false);
+	abilitaAggiornamenti->Enable(false);
 	boxLabel->Add(new wxStaticText(this, wxID_ANY, _("Nome utente: ")), 0, wxALL, 4);
 	boxLabel->Add(new wxStaticText(this, wxID_ANY, _("Nome cpu: ")), 0, wxALL, 4);
 	boxLabel->Add(new wxStaticText(this, wxID_ANY, _("Secondi in cui mostrare le giocate")), 0, wxALL, 4);

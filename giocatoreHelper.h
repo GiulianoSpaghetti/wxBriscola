@@ -31,9 +31,9 @@
 class giocatoreHelper {
 	public:
 		giocatoreHelper() {;}
-		virtual size_t gioca(const vector<carta *> &v, int i) throw (range_error)=0; //il giocatore gioca da primo di mano
-		virtual size_t gioca(const vector<carta *> &v, carta *c, int iCarta) throw (range_error)=0; //il giocatore gioca da secondo di mano
-		virtual size_t getPunteggio(carta *c, carta *c1) throw (range_error)=0; //deve restituire i punteggi delle due carte
+		virtual size_t gioca(const vector<carta *> &v, size_t i)=0; //il giocatore gioca da primo di mano
+		virtual size_t gioca(const vector<carta *> &v, carta *c, size_t iCarta)=0; //il giocatore gioca da secondo di mano
+		virtual size_t getPunteggio(carta *c, carta *c1)=0; //deve restituire i punteggi delle due carte
 		virtual wxPoint paint(wxPaintDC &dc, const wxString nome, const vector<carta *> mano, const size_t iCartaGiocata)=0; //disegna il giocatore sullo schermo
 		virtual ~giocatoreHelper() {};
 };

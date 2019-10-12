@@ -28,14 +28,14 @@
 class mazzo {
 	private:
 		vector<size_t> carte; //vettore delle carte
-		void mischia() throw (invalid_argument); //mischia il mazzo
+		void mischia(); //mischia il mazzo
 		elaboratoreCarte *elaboratore; //helper per personalizzare il comportamento
 	public:
-		mazzo(elaboratoreCarte *e) throw (invalid_argument);
+		mazzo(elaboratoreCarte *e);
 		size_t getNumeroCarte() {return carte.size();} //restituisce il numero di carte presenti nel mazzo
 		wxString getNumeroCarteStr() {return stringHelper::IntToWxStr(carte.size());} //restituisce il numero di carte presenti nel mazzo sotto forma di stringa
-		size_t getCarta() throw (underflow_error); //restituisce la prima carta sulla cima del mazzo
-		size_t getCarta(size_t quale) throw (range_error); //prene una carta a caso nel mazzo
+		size_t getCarta(); //restituisce la prima carta sulla cima del mazzo
+		size_t getCarta(size_t quale); //prene una carta a caso nel mazzo
 		~mazzo();
 };
 

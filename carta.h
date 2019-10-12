@@ -61,7 +61,7 @@ class carta {
 		 Lancia l'eccezione logic_error se viene chiamata per istanziare un nuovo mazzo di carte o se il parametro h è null.
 		 Rilancia l'eccezione invalid_argument se il parametro nomeMazzo non è valido.
 		 */
-		static void inizializza(size_t n, cartaHelper *h, wxString nomeMazzo) throw (logic_error, invalid_argument);
+		static void inizializza(size_t n, cartaHelper *h, wxString nomeMazzo);
 		/*
 		 Restituisce una carta dal mazzo senza toglierla dal vettore
 		 Parametri:
@@ -69,7 +69,7 @@ class carta {
 				n: posizione della carta da prendere
 		 Lancia un overflow_error se la posizione indicata non esiste
 		 */
-		static carta *const getCarta(size_t quale) throw (overflow_error);
+		static carta *const getCarta(size_t quale);
 		/*
 		 Carica le immagini delle carte.
 		 PARAMETRI:
@@ -77,7 +77,7 @@ class carta {
 				mazzo: cartella all'interno della quale si trovano le carte
 		 Lancia un invalid_argument se il parametro mazzo non è valido
 		 */
-		static void caricaImmagini(wxString mazzo) throw (invalid_argument);
+		static void caricaImmagini(wxString mazzo);
 		//dealloca tutte le carte esistenti. Da chiamare prima di una nuova chiamata ad inzializza
 		static void dealloca();
 		//restituisce il seme della carta

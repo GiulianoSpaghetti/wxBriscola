@@ -88,7 +88,7 @@ void CartaAltaFrame::onOk(wxCommandEvent &evt) {
 void CartaAltaFrame::onPaint(wxPaintEvent &event) {
 	wxPaintDC dc(this);
 	dc.SetFont(GetFont());
-	wxCoord x, y, x1, y1, coord;
+	wxCoord x, y, x1, y1;
 	wxString msg=_("Carta tua"), msg1=_("Carta del pc");
 	GetTextExtent(msg, &x, &y);
 	GetTextExtent(msg1, &x1, &y1);
@@ -100,10 +100,6 @@ void CartaAltaFrame::onPaint(wxPaintEvent &event) {
 		dc.DrawText(msg, 0,y*2);
 		dc.DrawBitmap(wxBitmap(*c->getImmagine()), 0, y*3);
 	}
-	if (c1->getLarghezzaImmagine()>x)
-        coord=c1->getLarghezzaImmagine()+x;
-    else
-        coord=x;
 	if (c1!=NULL) {
 		dc.DrawText(msg1, x, y1*2);
 		dc.DrawBitmap(wxBitmap(*c1->getImmagine()), x, y1*3);

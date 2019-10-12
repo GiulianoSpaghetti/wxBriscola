@@ -21,8 +21,25 @@
 #include "BriscoApp.h"
 
 bool BriscoApp::OnInit() {
+    wxLocale locale;
+    int loc;
+    wxString s=wxFileName::GetPathSeparator();
+    wxString pathTraduzioni=wxPathOnly(argv[0])+s+wxT("locale");
+    wxConfig *config=new wxConfig(GetAppName()); //lettura delle opzioni
+
+    if (!config->Read(wxT("locale"), &loc))
+        loc=wxLANGUAGE_ITALIAN;
+
+
+    if (!locale.Init(loc, wxLOCALE_DONT_LOAD_DEFAULT)) {
+        wxMessageBox("Si e' verificato un errore nel settaggio del locale.");
+    }
+    wxLocale::AddCatalogLookupPathPrefix(pathTraduzioni);
+    locale.AddCatalog(GetAppName());
+
+
     try {
-        f=new BriscoFrame();
+        f=new BriscoFrame(loc, config, pathTraduzioni);
     } catch (invalid_argument &e) {
         return false;
     }

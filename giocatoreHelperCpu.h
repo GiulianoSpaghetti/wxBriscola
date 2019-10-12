@@ -37,14 +37,14 @@ class giocatoreHelperCpu: public giocatoreHelper {
 		size_t getBriscola(const vector<carta *> &mano); //cerca la più piccola carta di briscola
 		size_t getSoprataglio(const vector<carta *> &mano, carta *c, bool maggiore); //Cerca la più grande carta dello stesso seme che prende, o la più piccola che non prende
 public:
-		giocatoreHelperCpu(size_t b) throw(invalid_argument) {
+		giocatoreHelperCpu(size_t b) {
 			srand(time(NULL));
 			briscola=carta::getCarta(b);
 			img=NULL;
 			caricaImmagine();
 		}
 		//carica l'immagine da mostrare al posto delle carte
-		void caricaImmagine() throw(invalid_argument) {
+		void caricaImmagine() {
 			wxString s=carta::getPathCarte()+wxT("retro carte pc")+wxT(".jpg");
 			if (img!=NULL)
 				delete img;
@@ -55,9 +55,9 @@ public:
 				img=new wxBitmap(wxImage(s));
 		}
 
-		virtual size_t gioca(const vector<carta *> &mano, int iCarta) throw (range_error);
-		virtual size_t gioca(const vector<carta *> &mano, carta *c, int iCarta) throw (range_error);
-		virtual size_t getPunteggio(carta *c, carta *c1) throw (range_error);
+		virtual size_t gioca(const vector<carta *> &mano, size_t iCarta);
+		virtual size_t gioca(const vector<carta *> &mano, carta *c, size_t iCarta);
+		virtual size_t getPunteggio(carta *c, carta *c1);
 		virtual wxPoint paint(wxPaintDC &dc, const wxString nome, const vector<carta *> mano, const size_t iCartaGiocata);
 };
 

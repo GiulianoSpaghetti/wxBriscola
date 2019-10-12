@@ -4,8 +4,7 @@ BEGIN_EVENT_TABLE(IntValidator, wxValidator)
 EVT_CHAR(IntValidator::OnChar)
 END_EVENT_TABLE()
 
-IntValidator::IntValidator(wxString *v, long min, long max)
-    throw (range_error*, invalid_argument*) {
+IntValidator::IntValidator(wxString *v, long min, long max) {
     if (!v)
         throw new invalid_argument("");
     if (min>max)

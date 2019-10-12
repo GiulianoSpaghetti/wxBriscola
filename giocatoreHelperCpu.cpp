@@ -67,7 +67,7 @@ size_t giocatoreHelperCpu::getSoprataglio(const vector<carta *> &mano, carta *c,
 	iCarta: puramente fittizio e non serve
  retituisce l'indice della carta da giocare
  */
-size_t giocatoreHelperCpu::gioca(const vector<carta *> &mano, int iCarta) throw (range_error) {
+size_t giocatoreHelperCpu::gioca(const vector<carta *> &mano, size_t iCarta) {
 	size_t i;
     if (mano.size()==0)
         throw range_error("Chiamata a giocatoreHelperCpu::gioca con mano.size(mano)==0");
@@ -84,7 +84,7 @@ size_t giocatoreHelperCpu::gioca(const vector<carta *> &mano, int iCarta) throw 
 	c: carta giocata dall'laro giocatore
 	iCarta: puramente fittizio. Non serve.
  */
-size_t giocatoreHelperCpu::gioca(const vector<carta *> &mano, carta *c, int iCarta) throw (range_error){
+size_t giocatoreHelperCpu::gioca(const vector<carta *> &mano, carta *c, size_t iCarta) {
 	if (mano.size()==0)
 		throw range_error("Chiamata a giocatoreHelperCpu::gioca(mano, c) con mano.size()==0");
 	if (c==NULL)
@@ -113,7 +113,7 @@ size_t giocatoreHelperCpu::gioca(const vector<carta *> &mano, carta *c, int iCar
 	lancia un range error se una delle due carte è null
 	restituisce la somma die punteggi.
  */
-size_t giocatoreHelperCpu::getPunteggio(carta *c, carta *c1) throw (range_error) {
+size_t giocatoreHelperCpu::getPunteggio(carta *c, carta *c1) {
 	if (c==NULL)
 		throw range_error("Chiamata a giocatoreHelperUtente::getPunteggio con c==NULL");
 	if (c1==NULL)

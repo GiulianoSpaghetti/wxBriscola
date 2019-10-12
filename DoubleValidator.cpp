@@ -4,12 +4,11 @@ BEGIN_EVENT_TABLE(DoubleValidator, wxValidator)
 EVT_CHAR(DoubleValidator::OnChar)
 END_EVENT_TABLE()
 
-DoubleValidator::DoubleValidator(wxString *v, double min, double max)
-    throw (range_error*, invalid_argument*) {
+DoubleValidator::DoubleValidator(wxString *v, double min, double max) {
     if (!v)
-        throw new invalid_argument("");
+        throw invalid_argument("");
     if (min>max)
-        throw new range_error("");
+        throw range_error("");
     valore=v;
     this->min=min;
     this->max=max;

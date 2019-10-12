@@ -40,7 +40,7 @@ class elaboratoreCarteBriscola : public elaboratoreCarte {
 	public:
 		elaboratoreCarteBriscola(bool punti=true);
 		virtual ~elaboratoreCarteBriscola() {;}
-		virtual size_t getCarta() throw (overflow_error); //elabora la carta, restituisce un overflow error se è stato chiamato più volte del numero previsto
+		virtual size_t getCarta(); //elabora la carta, restituisce un overflow error se è stato chiamato più volte del numero previsto
 		size_t getCartaBriscola() {return cartaBriscola;} //restituisce il valore della carta di briscola
 };
 

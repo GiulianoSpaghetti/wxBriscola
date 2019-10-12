@@ -27,7 +27,7 @@
 	Restituisce l'indice della carta da giocare (banalmente iCarta).
 	Lancia un range_error se iCarta non è un valore accettabile
 */
-size_t giocatoreHelperUtente::gioca(const vector<carta *> &v, int iCarta) throw (range_error) {
+size_t giocatoreHelperUtente::gioca(const vector<carta *> &v, size_t iCarta) {
 	if (v.size()==0)
 		throw range_error("Chiamata a giocatoreHelperUtente::gioca(vector<carta *>, int iCarta) con v.size()==0");
 	if (iCarta>=v.size() || iCarta<0)
@@ -43,7 +43,7 @@ size_t giocatoreHelperUtente::gioca(const vector<carta *> &v, int iCarta) throw 
 	Restituisce l'indice della carta da giocare (banalmente iCarta)
 	Lancia un range_error se iCarta non è un valore accettabile
  */
-size_t giocatoreHelperUtente::gioca(const vector<carta *> &v, carta *c, int iCarta) throw (range_error) {
+size_t giocatoreHelperUtente::gioca(const vector<carta *> &v, carta *c, size_t iCarta) {
 	if (iCarta>v.size() || iCarta<0)
 		throw range_error("Chiamata a giocatoreHelperUtente::gioca con iCarta>mano.size");
 	return static_cast<size_t> (iCarta);
@@ -54,7 +54,7 @@ size_t giocatoreHelperUtente::gioca(const vector<carta *> &v, carta *c, int iCar
 		c, c1: le due carte giocate
 	Lancia un range_error se c o c1 sono NULL
  */
-size_t giocatoreHelperUtente::getPunteggio(carta *c, carta *c1) throw (range_error) {
+size_t giocatoreHelperUtente::getPunteggio(carta *c, carta *c1) {
 	if (c==NULL)
 		throw range_error("Chiamata a giocatoreHelperUtente::getPunteggio con c==NULL");
 	if (c1==NULL)

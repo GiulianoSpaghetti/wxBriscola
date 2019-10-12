@@ -28,7 +28,7 @@ class DoubleValidator : public wxValidator {
             Lancia un range error se min>max
             Lancia un invalid argument se v e' null
         */
-        DoubleValidator(wxString* v, double min, double max) throw (range_error*, invalid_argument*);
+        DoubleValidator(wxString* v, double min, double max);
         DoubleValidator(const DoubleValidator& val);
         virtual DoubleValidator* Clone(void) const {return (new DoubleValidator(*this));};
         virtual bool TransferToWindow(void);

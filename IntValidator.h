@@ -30,7 +30,7 @@ class IntValidator : public wxValidator {
             Lancia un range error se min>max
             Lancia un invalid argument se v e' null
         */
-        IntValidator(wxString* v, long min, long max) throw (range_error*, invalid_argument*);
+        IntValidator(wxString* v, long min, long max);
         IntValidator(const IntValidator& val);
         virtual IntValidator* Clone(void) const {return (new IntValidator(*this));};
         virtual bool TransferToWindow(void);

@@ -27,7 +27,7 @@ EVT_LEFT_DOWN(BriscoPanel::onClick)
 EVT_TIMER(ID_TIMER, BriscoPanel::onTimer)
 END_EVENT_TABLE()
 
-BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f)  throw (invalid_argument) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(600,500)) {
+BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f)  : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(600,500)) {
 	e=el;
 	b=br;
 	avvisatoFineTallone=false;

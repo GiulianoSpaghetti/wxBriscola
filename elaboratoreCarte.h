@@ -31,7 +31,7 @@ class elaboratoreCarte {
 	protected:
 		elaboratoreCarte() {}
 	public:
-		virtual size_t getCarta() throw (overflow_error)=0;
+		virtual size_t getCarta()=0;
 		virtual ~elaboratoreCarte() {};
 };
 

@@ -41,7 +41,7 @@ giocatore::~giocatore() {
 		m: mazzo da cui prendere la carta
 	Lancia un overflow_error se il numero di carte che ha in mano è già il massimo, rilancia un underflow error se il mazzo non ha più carte ed il giocatore ha finito le carte.
  */
-void giocatore::addCarta(mazzo *m) throw (overflow_error, underflow_error) {
+void giocatore::addCarta(mazzo *m) {
 	if (mano.size()==numeroCarte && iCartaGiocata==NESSUNA_CARTA_GIOCATA)
 		throw overflow_error("Chiamato giocatore::setCarta con mano.size()==numeroCarte=="+stringHelper::IntToStr(numeroCarte));
 	carta *c;
@@ -90,10 +90,9 @@ void giocatore::gioca(giocatore *g1, int i) {
 /*Restituisce la carta giocata dal giocatore
 	Lancia un range error se il giocatore non ha giocato
 */
-carta *giocatore::getCartaGiocata() throw (range_error) {
+carta *giocatore::getCartaGiocata() {
 	if (iCartaGiocata==NESSUNA_CARTA_GIOCATA)
 		throw range_error("Chiamato giocatre::getCartaGiocata() quando non ci sono carte giocate");
-	vector<carta *>::iterator i=mano.begin();
 	return mano[iCartaGiocata];
 }
 
@@ -101,7 +100,7 @@ carta *giocatore::getCartaGiocata() throw (range_error) {
 	PARAMETRI DI INPUT:
 		g: il giocatore avversario, viene usato per sapere la carta giocata dall'altro giocatore. Non dev'essere NULL, pena un range_error.
 	Lancia un range_error se uno dei due giocatori non ha giocato */
-void giocatore::aggiornaPunteggio(giocatore *g) throw (range_error) {
+void giocatore::aggiornaPunteggio(giocatore *g) {
 	if (g==NULL)
 		throw range_error("Chiamata a giocatore::aggiornaPunteggio con g==NULL");
 	if (iCartaGiocata==NESSUNA_CARTA_GIOCATA)
@@ -112,7 +111,7 @@ void giocatore::aggiornaPunteggio(giocatore *g) throw (range_error) {
 /* Per sapere se le due carte giocate hanno lo stesso seme.
 	Lancia un invalid argument se uno dei due giocatori non ha giocato
  Restituisce true se le due carte giocate hanno lo stesso seme, false altrimenti*/
-bool giocatore::stessoSemeCartaGiocata(giocatore *g) throw (invalid_argument) {
+bool giocatore::stessoSemeCartaGiocata(giocatore *g) {
 	if (iCartaGiocata==NESSUNA_CARTA_GIOCATA || g->iCartaGiocata==NESSUNA_CARTA_GIOCATA)
 		throw invalid_argument("Chiamata a giocatore::stessoSemeCartaGiocata con almeno 1 carta giocata mancante");
 	return stessoSeme(g->getCartaGiocata());
@@ -124,7 +123,7 @@ bool giocatore::stessoSemeCartaGiocata(giocatore *g) throw (invalid_argument) {
  Lancia un invalid argument se il giocatore non ha giocato.
  Restituisce true se le due carte hanno lo stesso seme, false altrimenti.
 */
-bool giocatore::stessoSeme(carta *c)throw (invalid_argument) {
+bool giocatore::stessoSeme(carta *c) {
 	if (iCartaGiocata==NESSUNA_CARTA_GIOCATA)
 		throw invalid_argument("Chiamata a giocatore::stessoSeme con carta giocata mancante");
 	return mano[iCartaGiocata]->getSeme()==c->getSeme();

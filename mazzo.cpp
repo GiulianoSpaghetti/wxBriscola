@@ -24,7 +24,7 @@
 	PARAMETRI DI INPUT:
 		e: helper per personalizzare il comportamento
  */
-mazzo::mazzo(elaboratoreCarte *e) throw (invalid_argument) {
+mazzo::mazzo(elaboratoreCarte *e) {
 	if (e==NULL)
 		throw invalid_argument("Chiamata a mazzo::mazzo() con e==NULL");
 	elaboratore=e;
@@ -39,7 +39,7 @@ mazzo::~mazzo() {
 /* Restituisce il valore numerico della prima carta presente nel mazzo
 	Lancia un underflow error se il mazzo è vuoto
  */
-size_t mazzo::getCarta() throw (underflow_error) {
+size_t mazzo::getCarta() {
 	if (carte.size()==0)
 		throw underflow_error("Chiamato mazzo::getCarta con carte.size()==0");
 	size_t c=*(carte.end()-1);
@@ -50,7 +50,7 @@ size_t mazzo::getCarta() throw (underflow_error) {
 /* Mischia il mazzo sfruttando l'algoritmo dell'helper.
 	Restituisce invalid_argument se il mazzo no è vuoto
  */
-void mazzo::mischia() throw (invalid_argument) {
+void mazzo::mischia() {
 	if (carte.size()!=0)
 		throw invalid_argument("Chiamato mazzo::mischia con carte.size()=="+stringHelper::IntToStr(carte.size()));
 	else
@@ -58,7 +58,7 @@ void mazzo::mischia() throw (invalid_argument) {
 			while(true) {
 				carte.push_back(elaboratore->getCarta());
 			}
-		} catch (overflow_error e) { //sono finite le carte
+		} catch (overflow_error &e) { //sono finite le carte
 			;
 		}
 }
@@ -66,7 +66,7 @@ void mazzo::mischia() throw (invalid_argument) {
 /* Restituisce la carta di indice quale presente nel mazzo
 	Restituisce un range_error se quale non è nei valori accettabili
  */
-size_t mazzo::getCarta(size_t quale) throw (range_error) {
+size_t mazzo::getCarta(size_t quale) {
 	size_t c, j;
 	vector<size_t>::iterator i;
 	if (quale>=carte.size() || carte.size()==0)

@@ -55,7 +55,7 @@ class BriscoFrame: public wxFrame {
 		cartaHelperBriscola *br;
         wxHTTP client;
         wxLocale *traduzione;
-        long loc;
+        int loc;
 
 		void aggiungiMenu();
 		void onEsci(wxCommandEvent& WXUNUSED(evt));
@@ -65,15 +65,15 @@ class BriscoFrame: public wxFrame {
 		void onFont(wxCommandEvent& WXUNUSED(evt));
 		void getMenuMazzi(wxMenu *menu);
 		void onMenuMazzi(wxCommandEvent& evt);
-		void onAggiornamenti(wxCommandEvent& evt);
+		//void onAggiornamenti(wxCommandEvent& evt);
 		void onSitoWeb(wxCommandEvent& evt);
 		void OnMenuTraduzioni(wxCommandEvent &evt);
 		void leggiFont();
-		bool Aggiornamenti(wxString& nuovaVersione) throw (std::domain_error);
+		//bool Aggiornamenti(wxString& nuovaVersione) throw (std::domain_error);
 		void getMenuTraduzioni(wxMenu *menu);
 		DECLARE_EVENT_TABLE()
 	public:
-		BriscoFrame();
+		BriscoFrame(int l, wxConfig *c, wxString path);
 		~BriscoFrame();
 		void giocoCartaAlta();
 };

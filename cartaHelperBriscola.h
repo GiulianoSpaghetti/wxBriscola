@@ -40,17 +40,17 @@ class cartaHelperBriscola : public cartaHelper {
 		size_t cartaBriscola; //numero della carta di briscola uscita durante la mescolazione delle carte
 	public:
 	cartaHelperBriscola(elaboratoreCarteBriscola *e) : cartaBriscola(e->getCartaBriscola()) {;}
-	virtual size_t getSeme(size_t carta) throw (invalid_argument) {
+	virtual size_t getSeme(size_t carta) {
 		if (carta>39)
 			throw invalid_argument("Chiamato cartaHelperBriscola::getSeme() con carta="+stringHelper::IntToStr(carta));
 		return carta/10; //recuperiamo il seme
 	}
-	virtual size_t getValore(size_t carta) throw (invalid_argument)  {
+	virtual size_t getValore(size_t carta) {
 		if (carta>39)
 			throw invalid_argument("Chiamato cartaHelperBriscola::getSeme() con carta="+stringHelper::IntToStr(carta));
 		return carta%10; //recuperiamo il valore nominale
 	}
-	virtual size_t getPunteggio(size_t carta) throw (invalid_argument)  {
+	virtual size_t getPunteggio(size_t carta) {
 		if (carta>39)
 			throw invalid_argument("Chiamato cartaHelperBriscola::getSeme() con carta="+stringHelper::IntToStr(carta));
 		size_t valore=0;
@@ -63,7 +63,7 @@ class cartaHelperBriscola : public cartaHelper {
 		}
 		return valore;
 	}
-	virtual wxString getSemeStr(size_t carta) throw (invalid_argument)  {
+	virtual wxString getSemeStr(size_t carta) {
 		if (carta>39)
 			throw invalid_argument("Chiamato cartaHelperBriscola::getSeme() con carta="+stringHelper::IntToStr(carta));
 		wxString s;
@@ -76,7 +76,7 @@ class cartaHelperBriscola : public cartaHelper {
 		return s;
 	}
 
-	virtual size_t getNumero(size_t seme, size_t valore) throw(invalid_argument) {
+	virtual size_t getNumero(size_t seme, size_t valore) {
 		if (seme>4 || valore>9)
 			throw logic_error("Chiamato cartaHelperBriscola::getNumero con seme="+stringHelper::IntToStr(seme)+" e valore "+stringHelper::IntToStr(valore));
 		return seme*10+valore;

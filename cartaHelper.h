@@ -41,32 +41,32 @@ class cartaHelper {
 				Input: carta - è un intero che rappresenta il numero della carta. Sarà anche l'indice a cui corrisponderà l'elemento carta nel vettore
 						delle carte
 			Restituisce un invalid_argument se il numero risulta non valido.*/
-		virtual size_t getSeme(size_t carta) throw (invalid_argument)=0;
+		virtual size_t getSeme(size_t carta) =0;
 		/* Restituisce valore facciale della carta
 		 PARAMETRI:
 		 Input: carta - è un intero che rappresenta il numero della carta. Sarà anche l'indice a cui corrisponderà l'elemento carta nel vettore
 		 delle carte
 		 Restituisce un invalid_argument se il numero risulta non valido.*/
-		virtual size_t getValore(size_t carta) throw (invalid_argument)=0;
+		virtual size_t getValore(size_t carta) =0;
 		/* Restituisce il punteggio associato alla carta
 		 PARAMETRI:
 		 Input: carta - è un intero che rappresenta il numero della carta. Sarà anche l'indice a cui corrisponderà l'elemento carta nel vettore
 		 delle carte
 		 Restituisce un invalid_argument se il numero risulta non valido.*/
-		virtual size_t getPunteggio(size_t carta) throw (invalid_argument)=0;
+		virtual size_t getPunteggio(size_t carta) =0;
 		/* Restituisce il seme della carta sotto forma di stringa.
 		 PARAMETRI:
 		 Input: carta - è un intero che rappresenta il numero della carta. Sarà anche l'indice a cui corrisponderà l'elemento carta nel vettore
 		 delle carte
 		 Restituisce un invalid_argument se il numero risulta non valido.*/
-		virtual wxString getSemeStr(size_t carta) throw (invalid_argument)=0;
+		virtual wxString getSemeStr(size_t carta) =0;
 		/* Restituisce il numero corrispondente ad una carta
 		 PARAMETRI:
 		 Input:
 			seme - intero associato al seme di una carta
 			valore - valore facciale di una carta
 		 Restituisce un invalid_argument se seme o valore risulta non valido.*/
-		virtual size_t getNumero(size_t seme, size_t valore) throw (invalid_argument)=0;
+		virtual size_t getNumero(size_t seme, size_t valore) =0;
 		/* Compara il numero di una carta col numero di un'altra
 			PARAMETRI:
 				Input:

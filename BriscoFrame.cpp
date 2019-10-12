@@ -27,13 +27,13 @@ EVT_MENU(ID_OPZIONI, BriscoFrame::onOpzioni)
 EVT_MENU(ID_FONT, BriscoFrame::onFont)
 EVT_MENU(wxID_ABOUT, BriscoFrame::onInfo)
 EVT_MENU(ID_SITOWEB, BriscoFrame::onSitoWeb)
-EVT_MENU(ID_AGGIORNAMENTO, BriscoFrame::onAggiornamenti)
+//EVT_MENU(ID_AGGIORNAMENTO, BriscoFrame::onAggiornamenti)
 END_EVENT_TABLE()
 
 
-BriscoFrame::BriscoFrame() : wxFrame(NULL, wxID_ANY, wxT("wxBriscola"), wxDefaultPosition,wxSize(600,450),wxMINIMIZE_BOX | wxRESIZE_BORDER | wxSYSTEM_MENU | wxCAPTION | wxCLOSE_BOX | wxCLIP_CHILDREN) {
+BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID_ANY, wxT("wxBriscola"), wxDefaultPosition,wxSize(600,450),wxMINIMIZE_BOX | wxRESIZE_BORDER | wxSYSTEM_MENU | wxCAPTION | wxCLOSE_BOX | wxCLIP_CHILDREN) {
     wxString nomeUtente, nomeCpu;
-	config=new wxConfig(wxT("wxBriscola")); //lettura delle opzioni
+	config=c; //lettura delle opzioni
     bool briscolaDaPunti, ordinaCarte, avvisaFineTallone;
     int millisecondi;
 	if (!config->Read(wxT("faiGiocoCartaAlta"), &cartaAlta))
@@ -58,21 +58,14 @@ BriscoFrame::BriscoFrame() : wxFrame(NULL, wxID_ANY, wxT("wxBriscola"), wxDefaul
         nomeCpu=wxT("Cpu");
     if (!config->Read(wxT("nomeUtente"), &nomeUtente))
         nomeUtente=wxT("Utente");
-    if (!config->Read(wxT("locale"), &loc))
-        loc=wxLANGUAGE_ITALIAN;
+    loc=l;
 	paginaWeb=wxT("http://numerone.altervista.org/blog/2013/06/wxbriscola/");
-	versione=wxT("0.3");
+	versione=wxT("0.3.1");
     leggiFont();
-    wxString s=wxFileName::GetPathSeparator();
-    pathTraduzioni=wxT(".")+s+wxT("locale");
-    wxLocale::AddCatalogLookupPathPrefix(pathTraduzioni);
-    traduzione= new wxLocale(loc);
-    if (!traduzione->AddCatalog(wxT("wxBriscola")) || !traduzione->IsOk())
-        wxMessageBox(wxT("Si e' verificato un errore nel caricamento della traduzione. Verra' usato l'italiano."), wxT("Errore"), wxOK|wxICON_ERROR);
-
+    pathTraduzioni=path;
 	client.SetHeader(_T("Content-type"), _T("text/html; charset=utf-8"));
     client.SetTimeout(10);
-    if (aggiornamenti) {
+/*    if (aggiornamenti) {
         wxString s;
 	try {
         	if (Aggiornamenti(s)) {
@@ -82,7 +75,7 @@ BriscoFrame::BriscoFrame() : wxFrame(NULL, wxID_ANY, wxT("wxBriscola"), wxDefaul
         } catch (domain_error e) {
             wxMessageBox(e.what(), _("Errore"), wxOK|wxICON_ERROR);
         }
-    }
+    */
 	el=new elaboratoreCarteBriscola(true);
 	br=new cartaHelperBriscola(el);
 	try {
@@ -116,7 +109,7 @@ void BriscoFrame::aggiungiMenu() {
 	m->Append(menuMazzi, _("Mazzi"));
 	getMenuTraduzioni(menuTraduzioni);
 	m->Append(menuTraduzioni, _("Traduzioni"));
-    menu1->Append(ID_AGGIORNAMENTO, _("&Verifica aggiornamenti")+wxT("\tALT+A"), _("Verifica aggiornamenti per il programma"));
+    //menu1->Append(ID_AGGIORNAMENTO, _("&Verifica aggiornamenti")+wxT("\tALT+A"), _("Verifica aggiornamenti per il programma"));
     menu1->Append(ID_SITOWEB, _("&Sito web del gioco")+wxT("\tALT+S"), _("Apre il sito web ufficiale"));
     menu1->Append(wxID_ABOUT, _("&Informazioni")+wxT("\tALT+I"), _("Per segnalare un bug o contattare l'autore"));
     m->Append(menu1, wxT("?"));
@@ -130,8 +123,8 @@ void BriscoFrame::onEsci(wxCommandEvent& WXUNUSED(evt)) {
 void BriscoFrame::onInfo(wxCommandEvent& WXUNUSED(evt)) {
 	wxAboutDialogInfo info;
 	info.AddDeveloper(wxT("Giulio Sorrentino <gsorre84@gmail.com>"));
-	info.SetCopyright(wxT("\u00a9 2015 Giulio Sorrentino"));
-	info.SetLicense(_("LGPL v3 o (a tua discrezione) qualsiasi versione successiva.\nLe immagini delle carte sono di proprieta' della Modiano"));
+	info.SetCopyright(wxT("\u00a9 2019 Giulio Sorrentino"));
+	info.SetLicense(_("GPL v3 o (a tua discrezione) qualsiasi versione successiva.\nLe immagini delle carte sono di proprieta' della Modiano"));
 	info.SetName(wxT("wxBriscola"));
 	info.SetVersion(versione);
 	info.SetWebSite(wxT("http://numerone.altervista.org"));
@@ -176,7 +169,7 @@ void BriscoFrame::onSitoWeb(wxCommandEvent& WXUNUSED(evt)) {
     wxLaunchDefaultBrowser(wxT("http://numerone.altervista.org"));
 }
 
-bool BriscoFrame::Aggiornamenti(wxString &nuovaVersione) throw (std::domain_error) {
+/*bool BriscoFrame::Aggiornamenti(wxString &nuovaVersione) throw (std::domain_error) {
     bool aggiornamenti=false;
     wxString errore=wxEmptyString;
     if (client.Connect(wxT("numerone.altervista.org"))) {
@@ -214,7 +207,7 @@ void BriscoFrame::onAggiornamenti(wxCommandEvent& WXUNUSED(evt)) {
 	} catch (std::domain_error e) {
 	        wxMessageBox(wxString(e.what())+wxT(". ")+_("Riprovare piu' tardi"), _("Errore"), wxOK|wxICON_ERROR);
 	}
-}
+}*/
 
 void BriscoFrame::getMenuMazzi(wxMenu *menu) {
 	wxDir dir(carta::getPathMazzi());
@@ -241,10 +234,10 @@ void BriscoFrame::getMenuTraduzioni(wxMenu *menu) {
     wxString nome;
     wxDir dir(pathTraduzioni);
     const wxLanguageInfo *lang;
-    if (!dir.IsOpened())
+	if (!dir.IsOpened())
         return;
     bool continua=dir.GetFirst(&nome, wxEmptyString, wxDIR_DIRS);
-    while (continua) {
+	while (continua) {
         lang=wxLocale::FindLanguageInfo(nome);
         if (lang!=NULL && wxFileExists(dir.GetName()+wxFileName::GetPathSeparator()+nome+wxFileName::GetPathSeparator()+wxT("LC_MESSAGES")+wxFileName::GetPathSeparator()+wxT("wxBriscola.mo")))
         {
@@ -272,17 +265,9 @@ void BriscoFrame::onMenuMazzi(wxCommandEvent& evt) {
 }
 
 void BriscoFrame::OnMenuTraduzioni(wxCommandEvent &evt) {
-    if (traduzione!=NULL)
-        delete traduzione;
-    traduzione= new wxLocale(idTraduzioni[idMenuTraduzioni.Index(evt.GetId())]);
-    if (!traduzione->AddCatalog(wxT("wxBriscola")) || !traduzione->IsOk()) {
-        wxMessageBox(wxT("Si e' verificato un errore nel caricamento della traduzione. Provare con un altro linguaggio."), wxT("Errore"), wxOK|wxICON_ERROR);
-
-    } else {
-        loc=idTraduzioni[idMenuTraduzioni.Index(evt.GetId())];
-        wxMessageBox(_("Il programma si chiudera'. Riaprirlo di nuovo per cambiare il linguaggio."), _("Attenzione"), wxICON_INFORMATION | wxOK);
-        Close();
-    }
+    loc=idTraduzioni[idMenuTraduzioni.Index(evt.GetId())];
+    wxMessageBox(_("Il programma si chiudera'. Riaprirlo di nuovo per cambiare il linguaggio."), _("Attenzione"), wxICON_INFORMATION | wxOK);
+    Close();
 }
 
 
@@ -303,7 +288,7 @@ void BriscoFrame::leggiFont() {
 		defaultFont=!font->SetNativeFontInfo(f);
 	}
 	if (defaultFont)
-		font=new wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTSTYLE_NORMAL);
+		font=new wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD);
 }
 
 BriscoFrame::~BriscoFrame() {
@@ -319,7 +304,6 @@ BriscoFrame::~BriscoFrame() {
 	config->Write(wxT("nomeMazzo"), nomeMazzo);
 	config->Write(wxT("font"), p->GetFont().GetNativeFontInfoDesc());
 	config->Write(wxT("locale"), loc);
-	delete traduzione;
     delete config;
 	delete font;
 }

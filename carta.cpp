@@ -33,7 +33,7 @@ carta::carta(size_t n) {
 	img=NULL; //l'immagine andrà caricata appositamente
 }
 
-void carta::inizializza(size_t n, cartaHelper *h, wxString nomeMazzo) throw (logic_error, invalid_argument) {
+void carta::inizializza(size_t n, cartaHelper *h, wxString nomeMazzo) {
 	wxInitAllImageHandlers(); //inizializzamo i gestori d'immagini
 	if (carte.size()>0) //se il vettore delle carte non è vuoto
 		throw logic_error("Chiamato carta::inizializza con carte.size()=="+stringHelper::IntToStr(carte.size()));
@@ -46,13 +46,13 @@ void carta::inizializza(size_t n, cartaHelper *h, wxString nomeMazzo) throw (log
 	caricaImmagini(nomeMazzo); //carichiamo le immagini
 }
 
-carta * const carta::getCarta(size_t quale) throw (overflow_error) {
+carta * const carta::getCarta(size_t quale) {
 	if (quale>=carte.size()) //se la carta non è presente nel mazzo
 		throw overflow_error("Chiamato carta::getCarta con quale>carte.size. quale="+stringHelper::IntToStr(quale)+" carte.size()="+stringHelper::IntToStr(carte.size()));
 	return carte[quale];
 }
 
-void carta::caricaImmagini(wxString mazzo) throw (invalid_argument) {
+void carta::caricaImmagini(wxString mazzo) {
 	path=wxGetCwd()+wxFileName::GetPathSeparator()+wxT("Mazzi")+wxFileName::GetPathSeparator(); //recuperiamo la path completa della cartella mazzi
 	nomeMazzo=mazzo;
 	wxString pathCompleta=path+mazzo+wxFileName::GetPathSeparator(); //recuperiamo la path completa delle immagini

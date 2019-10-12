@@ -75,7 +75,7 @@ class BriscoPanel : public wxPanel {
 		void onClick(wxMouseEvent& evt) ; //gestisce il click sull'immagine
 		DECLARE_EVENT_TABLE()
 	public:
-		BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f) throw (invalid_argument);
+		BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f);
 		wxString& getNomeUtente() {return utente->getNome();}
 		wxString& getNomeCpu() {return cpu->getNome();}
 		bool getFlagBriscola() {return briscolaDaPunti;}

@@ -26,9 +26,9 @@
 class giocatoreHelperUtente : public giocatoreHelper {
 	public:
 	giocatoreHelperUtente() {;}
-	virtual size_t gioca(const vector<carta *> &v, int i) throw (range_error);
-	virtual size_t gioca(const vector<carta *> &v, carta * c, int i) throw (range_error);
-	virtual size_t getPunteggio(carta *c, carta *c1) throw (range_error);
+	virtual size_t gioca(const vector<carta *> &v, size_t i);
+	virtual size_t gioca(const vector<carta *> &v, carta * c, size_t i);
+	virtual size_t getPunteggio(carta *c, carta *c1);
 	virtual wxPoint paint(wxPaintDC &dc, const wxString nome, const vector<carta *> mano, const size_t iCartaGiocata);
 };
 
