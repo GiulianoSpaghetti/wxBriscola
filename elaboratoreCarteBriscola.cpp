@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2019 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU Lesser General Public License as published by  *
+ *   it under the terms of the GNU General Public License as published by         *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -31,8 +31,8 @@ size_t elaboratoreCarteBriscola::getCarta() {
 	size_t fine=rand()%numeroCarte, //indice per verificare se sono state elaborate tutte le carte o no
 		carta=(fine+1)%numeroCarte; //carta da salvare
 	while(doppione[carta] && carta!=fine) //fin quando non si trova uno spazio libero o non si finisce il ciclo
-		carta=(carta+1)%numeroCarte; //si aumenta il valore della carta d 1, non si può elaborare un nuovo valore se no si rischia di finire in ciclo infinito
-	if (doppione[carta]) //se non è stato trovato uno spazio libero
+		carta=(carta+1)%numeroCarte; //si aumenta il valore della carta d 1, non si puo' elaborare un nuovo valore se no si rischia di finire in ciclo infinito
+	if (doppione[carta]) //se non e' stato trovato uno spazio libero
 		throw overflow_error("Chiamato elaboratoreCarteItaliane::getCarta() quando non ci sono piu' carte da elaborare");
 	else {
 		if (inizio) { //bisogna salvare il valore della carta di briscola

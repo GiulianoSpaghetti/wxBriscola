@@ -24,7 +24,7 @@ class IntValidator : public wxValidator {
         DECLARE_EVENT_TABLE()
     public:
         /*Parameri:
-           INPUT v: stringa che conterrà il valore dopo la validazione
+           INPUT v: stringa che conterra' il valore dopo la validazione
                  min: minimo valore accettabile
                  max: massimo valore accettabile
             Lancia un range error se min>max

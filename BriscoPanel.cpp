@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2019 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU Lesser General Public License as published by  *
+ *   it under the terms of the GNU General Public License as published by         *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -27,9 +27,10 @@ EVT_LEFT_DOWN(BriscoPanel::onClick)
 EVT_TIMER(ID_TIMER, BriscoPanel::onTimer)
 END_EVENT_TABLE()
 
-BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f)  : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(600,500)) {
+BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour c)  : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(600,500)) {
 	e=el;
 	b=br;
+	colore=c;
 	avvisatoFineTallone=false;
     primaPartita=true;
     primaUtente=primaUt;
@@ -46,7 +47,7 @@ BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHe
 	utente=new giocatore(new giocatoreHelperUtente(), nomeUtente, ordinaCarte);
 	cpu=new giocatore(motoreCpu,nomeCpu);
 
-	if (primaUtente) {//se dal gioco della carta alta è risultato prima l'utente o se non si è fatto proprio
+	if (primaUtente) {//se dal gioco della carta alta e' risultato prima l'utente o se non si e' fatto proprio
 		primo=utente;
 		secondo=cpu;
 	} else {
@@ -59,11 +60,12 @@ BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHe
 		secondo->addCarta(m);
 	}
 	immagineBriscola=new wxBitmap(*(carta::getImmagine(e->getCartaBriscola()))); //caricamento delle immagini
-	immagineTallone=new wxBitmap(wxImage(carta::getPathCarte()+wxT("retro carte mazzo.jpg")));
+	immagineTallone=new wxBitmap(wxImage(carta::getPathCarte()+"retro carte mazzo.jpg"));
 	t=new wxTimer(this, ID_TIMER); //inizializzazione del timer
 	if (primo==cpu) //se deve giocare prima la cpu
 		primo->gioca(0);
 	SetFont(*f);
+	SetBackgroundColour(wxColour(0,124,0));
 }
 
 BriscoPanel::~BriscoPanel() {
@@ -80,12 +82,12 @@ void BriscoPanel::getDimensioni(wxCoord &x, wxCoord & y) {
 	wxString s=_("Nel mazzo rimangono ")+m->getNumeroCarteStr()+_(" carte.");
 	wxPoint dimStringa, dimNome; //dimensioni della stringa del mazzo e del nome dell'utente
 	wxCoord temp;
-	GetTextExtent(s, &dimStringa.x, &dimStringa.y);//si vede quanto è grande la scritta del mazzo
-	GetTextExtent(utente->getNome(), &dimNome.x, &dimNome.y); //e quanto è grande il nome dell'utente
+	GetTextExtent(s, &dimStringa.x, &dimStringa.y);//si vede quanto e' grande la scritta del mazzo
+	GetTextExtent(utente->getNome(), &dimNome.x, &dimNome.y); //e quanto e' grande il nome dell'utente
 	x=carta::getLarghezzaImmagine()*3+80+dimStringa.x; //si calcola la dimensione delle immahini
 	y=carta::getAltezzaImmagine()*3+dimStringa.y*2;
 	temp=carta::getLarghezzaImmagine()*3+110+dimStringa.x;
-	if( x<temp) //si vede dove si può disegnare
+	if( x<temp) //si vede dove si puo' disegnare
 		x=temp;
 	temp=30+dimNome.y*4+carta::getAltezzaImmagine()-carta::getLarghezzaImmagine();
 	if (y<temp)
@@ -94,6 +96,7 @@ void BriscoPanel::getDimensioni(wxCoord &x, wxCoord & y) {
 
 void BriscoPanel::onPaint(wxPaintEvent &event) {
 	wxPaintDC dc(this);
+	dc.SetTextForeground(colore);
 	wxString s=_("Nel mazzo rimangono ")+m->getNumeroCarteStr()+_(" carte.");
 	wxPoint p, p1; //punti in cui disegnare
 	wxCoord len, y; //dimensione della stringa del mazzo e punto di disegno
@@ -105,8 +108,8 @@ void BriscoPanel::onPaint(wxPaintEvent &event) {
 	p.x+=50;
 	p1.x+=50;
 	y=30+dc.GetCharHeight()*4+carta::getAltezzaImmagine()-carta::getLarghezzaImmagine(); //calcolo del punto di disegno
-	dc.DrawText(_("Punti di ")+utente->getNome()+wxT(": ")+utente->getPunteggioStr(), p.x,30); //disegno delle stringhe
-	dc.DrawText(_("Punti di ")+cpu->getNome()+wxT(": ")+cpu->getPunteggioStr(), p.x,30+dc.GetCharHeight());
+	dc.DrawText(_("Punti di ")+utente->getNome()+_(": ")+utente->getPunteggioStr(), p.x,30); //disegno delle stringhe
+	dc.DrawText(_("Punti di ")+cpu->getNome()+_(": ")+cpu->getPunteggioStr(), p.x,30+dc.GetCharHeight());
 	dc.DrawText(s, p.x,30+dc.GetCharHeight()*2);
 	dc.DrawText(_("Il seme di briscola e': ")+carta::getSemeStr(e->getCartaBriscola()), p.x, 30+dc.GetCharHeight()*3);
 	if (m->getNumeroCarte()>0) { //disegno del tallone
@@ -175,17 +178,18 @@ void BriscoPanel::onTimer(wxTimerEvent &evt) {
 		}
 		Refresh();
 		if (!flagNuovaPartita) {//se non si deve giocare ad una nuova parita
-			wxMessageBox(_("La partita e' finita.")+wxT("\n")+s, _("Partita finita"), wxOK | wxICON_INFORMATION); //si mostra l'esito sullo schermo
+			wxMessageBox(wxString(_("La partita e' finita."))=+"\n"+s, _("Partita finita"), wxOK | wxICON_INFORMATION); //si mostra l'esito sullo schermo
 			GetParent()->Close(); //il programma si chiude
 			return;
 		}
-		if (wxMessageBox(_("La partita e' finita.")+wxT("\n")+s+_("Vuoi effettuare una nuova partita?"), _("Partita finita"), wxYES_NO | wxICON_QUESTION)==wxNO)
+		if (wxMessageBox(wxString(_("La partita e' finita."))+"\n"+s+_("Vuoi effettuare una nuova partita?"), _("Partita finita"), wxYES_NO | wxICON_QUESTION)==wxNO)
 			GetParent()->Close();
-		else
+		else {
 			nuovaPartita(false, true);
 			return;
+        }
 	}
-	if (m->getNumeroCarte()==2 && !avvisatoFineTallone && avvisaFineTallone) { //se è finito il tallone
+	if (m->getNumeroCarte()==2 && !avvisatoFineTallone && avvisaFineTallone) { //se e' finito il tallone
 		wxBell(); //si avvisa
 		avvisatoFineTallone=true;
 	}
@@ -202,8 +206,8 @@ void BriscoPanel::nuovaPartita(bool avvisa, bool inizializza) {
 	if (inizializza) { //se bisogna inizializzare le componenti (l'utente ha deciso di chiudere la partita precedente
 		punteggioUtente=0; //inizializzazione dei punteggi
 		punteggioCpu=0;
-		primaPartita=true;//è una nuova prima partita
-	} else { //non bisogna inizializzare le componenti perché è una seconda partita
+		primaPartita=true;//e' una nuova prima partita
+	} else { //non bisogna inizializzare le componenti perche' e' una seconda partita
 		punteggioUtente=utente->getPunteggio(); //salvataggio dei punteggi
 		punteggioCpu=cpu->getPunteggio();
 		primaPartita=false;
@@ -243,8 +247,8 @@ void BriscoPanel::nuovaPartita(bool avvisa, bool inizializza) {
 }
 
 /*
- Err indica che si è verificato un errore al caricamento del mazzo precedente
- restituisce true se si è verificato un errore nel caricamento
+ Err indica che si e' verificato un errore al caricamento del mazzo precedente
+ restituisce true se si e' verificato un errore nel caricamento
  */
 bool BriscoPanel::caricaImmagini(wxString mazzo, bool err) {
 	bool errore=false;
@@ -254,18 +258,18 @@ bool BriscoPanel::caricaImmagini(wxString mazzo, bool err) {
 	try {
 		carta::caricaImmagini(mazzo); //si caricano le immagini delle carte
 		motoreCpu->caricaImmagine(); //si carica l'immagine della cpu
-	} catch (invalid_argument &e) { //non è riuscito il caricamento
+	} catch (invalid_argument &e) { //non e' riuscito il caricamento
 		s=wxString(e.what(), wxConvUTF8);
 		errore=true;
 	}
-	if (!errore) { //il caricamento è riuscito correttamente
+	if (!errore) { //il caricamento e' riuscito correttamente
 		delete immagineBriscola;
 		delete immagineTallone;
 		immagineBriscola=new wxBitmap(*(carta::getImmagine(e->getCartaBriscola()))); //si carica l'immagine della briscola
-		wxString s=carta::getPathCarte()+wxT("retro carte mazzo.jpg");
+		wxString s=carta::getPathCarte()+_("retro carte mazzo.jpg");
 		if (!wxFileExists(s)) {
 			errore=true;
-			s=_("Il file ")+s+_(" non esiste."), _("Errore");
+			s=_("Il file ")+s+_(" non esiste.");
 		} else { //se non ci sono errori
 			immagineTallone=new wxBitmap(wxImage(s)); //si carica l'immagine del tallone
 			nomeMazzo=mazzo; //si assegna il nuovo nome al mazzo
@@ -278,6 +282,11 @@ bool BriscoPanel::caricaImmagini(wxString mazzo, bool err) {
 			wxMessageBox(_("Non e' stato possibile caricare il mazzo precedente: uscire dal programma significa non poterlo avviare piu'. Caricare un mazzo completo prima di uscire."), _("Attenzione"), wxOK | wxICON_EXCLAMATION);
 	}
 	return !errore;
+}
+
+void BriscoPanel::SetColour(wxColour &c) {
+    colore=c;
+    Refresh();
 }
 
 void BriscoPanel::onClick(wxMouseEvent& evt) {

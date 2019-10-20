@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2019 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU Lesser General Public License as published by  *
+ *   it under the terms of the GNU General Public License as published by         *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -20,7 +20,7 @@
 
 #include "mazzo.h"
 
-/*	Lancia un invalid argument se e é NULL
+/*	Lancia un invalid argument se e e' NULL
 	PARAMETRI DI INPUT:
 		e: helper per personalizzare il comportamento
  */
@@ -37,7 +37,7 @@ mazzo::~mazzo() {
 }
 
 /* Restituisce il valore numerico della prima carta presente nel mazzo
-	Lancia un underflow error se il mazzo è vuoto
+	Lancia un underflow error se il mazzo e' vuoto
  */
 size_t mazzo::getCarta() {
 	if (carte.size()==0)
@@ -48,7 +48,7 @@ size_t mazzo::getCarta() {
 }
 
 /* Mischia il mazzo sfruttando l'algoritmo dell'helper.
-	Restituisce invalid_argument se il mazzo no è vuoto
+	Restituisce invalid_argument se il mazzo no e' vuoto
  */
 void mazzo::mischia() {
 	if (carte.size()!=0)
@@ -64,7 +64,7 @@ void mazzo::mischia() {
 }
 
 /* Restituisce la carta di indice quale presente nel mazzo
-	Restituisce un range_error se quale non è nei valori accettabili
+	Restituisce un range_error se quale non e' nei valori accettabili
  */
 size_t mazzo::getCarta(size_t quale) {
 	size_t c, j;

@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2019 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU Lesser General Public License as published by  *
+ *   it under the terms of the GNU General Public License as published by         *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -32,10 +32,12 @@
 #include <wx/sstream.h>
 #include <wx/app.h>
 #include <wx/intl.h>
+#include <wx/colordlg.h>
+#include <wx/colourdata.h>
 
 class BriscoFrame: public wxFrame {
 	private:
-		enum {ID_NUOVA_PARTITA=10001, ID_OPZIONI, ID_FONT, ID_AGGIORNAMENTO, ID_SITOWEB};
+		enum {ID_NUOVA_PARTITA=10001, ID_OPZIONI, ID_FONT, ID_AGGIORNAMENTO, ID_SITOWEB, ID_COLORE};
 		BriscoPanel *p;
 		wxConfig *config;
 		wxMenu *menuMazzi,
@@ -55,6 +57,8 @@ class BriscoFrame: public wxFrame {
 		cartaHelperBriscola *br;
         wxHTTP client;
         wxLocale *traduzione;
+        wxColour colore;
+        wxColourData d;
         int loc;
 
 		void aggiungiMenu();
@@ -71,6 +75,7 @@ class BriscoFrame: public wxFrame {
 		void leggiFont();
 		//bool Aggiornamenti(wxString& nuovaVersione) throw (std::domain_error);
 		void getMenuTraduzioni(wxMenu *menu);
+		void OnColour(wxCommandEvent &evt);
 		DECLARE_EVENT_TABLE()
 	public:
 		BriscoFrame(int l, wxConfig *c, wxString path);

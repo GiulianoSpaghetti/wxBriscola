@@ -16,13 +16,13 @@ class DoubleValidator : public wxValidator {
             PARAMETRI:
                 INPUT: v: nuovo valore da validare
                        valida: true se si sta effettuando la validazione non in real time
-                restituisce true se il valore è accettabile, false altrimenti
+                restituisce true se il valore e' accettabile, false altrimenti
         */
         virtual bool controllaValore(const wxString& v, bool valida);
         DECLARE_EVENT_TABLE()
     public:
         /*Parameri:
-           INPUT v: stringa che conterrà il valore dopo la validazione
+           INPUT v: stringa che conterra' il valore dopo la validazione
                  min: minimo valore accettabile
                  max: massimo valore accettabile
             Lancia un range error se min>max

@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2019 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU Lesser General Public License as published by  *
+ *   it under the terms of the GNU General Public License as published by         *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -61,21 +61,22 @@ class BriscoPanel : public wxPanel {
 		wxTimer *t;
 		wxString nomeMazzo;
 		int spaziaturaNome; //per decidere la spaziatura tra i nomi
-		bool avvisaFineTallone, //se deve avvisare che il tallone è finito
-			 avvisatoFineTallone, //se si è stati avvisati che il tallone è finito
+		bool avvisaFineTallone, //se deve avvisare che il tallone e' finito
+			 avvisatoFineTallone, //se si e' stati avvisati che il tallone e' finito
 			 primaUtente, //se deve giocare prima l'utente
-			 primaPartita, //se è la prima o la seconda partita
-			 briscolaDaPunti, //se l'ultima briscola può dare punti
+			 primaPartita, //se e' la prima o la seconda partita
+			 briscolaDaPunti, //se l'ultima briscola puo' dare punti
 			 ordinaCarte; //se le carte del giocatore umano devono essere ordinate
+        wxColour colore;
 		void onKey(wxKeyEvent &evt); //pressione di un tasto
 		void onTimer(wxTimerEvent &evt); //scade il timer
 		void gioca(int codice); //l'utente deve giocare
-		void giocoCartaAlta(); //dà inizio al gioco della carta alta
+		void giocoCartaAlta(); //da' inizio al gioco della carta alta
 		void onPaint(wxPaintEvent &event);
 		void onClick(wxMouseEvent& evt) ; //gestisce il click sull'immagine
 		DECLARE_EVENT_TABLE()
 	public:
-		BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f);
+		BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour c);
 		wxString& getNomeUtente() {return utente->getNome();}
 		wxString& getNomeCpu() {return cpu->getNome();}
 		bool getFlagBriscola() {return briscolaDaPunti;}
@@ -97,6 +98,7 @@ class BriscoPanel : public wxPanel {
 		void nuovaPartita(bool avvisa, bool inizializza);
 		void getDimensioni(wxCoord &x, wxCoord & y);
 		bool caricaImmagini(wxString mazzo, bool err=false);
+		void SetColour(wxColour &c);
 		virtual ~BriscoPanel();
 };
 

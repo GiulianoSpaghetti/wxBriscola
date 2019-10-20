@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2019 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU Lesser General Public License as published by  *
+ *   it under the terms of the GNU General Public License as published by         *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -38,7 +38,7 @@ CartaAltaFrame::CartaAltaFrame(wxWindow *parent, wxString nomeMazzo, wxFont *f) 
 	box=new wxBoxSizer(wxVERTICAL);
 	boxPulsanti=new wxBoxSizer(wxHORIZONTAL);
 	IntValidator v=IntValidator(&valore, 1, 40); //inizializziamo il validatore indicando che deve prendere un numero da 1 a 40
-	cartaUtente=new wxTextCtrl(this, ID_TEXTFIELD_CARTA, wxT(""), wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER, v);
+	cartaUtente=new wxTextCtrl(this, ID_TEXTFIELD_CARTA, "", wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER, v);
 	cartaUtente->SetMaxLength(2);
 	s->Add(new wxStaticText(this, wxID_ANY, _("Numero della carta da prendere: ")), 0, wxALL, 4);
 	s->Add(cartaUtente, 0, wxALL, 4);
@@ -46,10 +46,10 @@ CartaAltaFrame::CartaAltaFrame(wxWindow *parent, wxString nomeMazzo, wxFont *f) 
 	boxPulsanti->Add(ok, 0, wxALL, 4);
 	cancella=new wxButton(this, wxID_CANCEL, _("Annulla"));
 	boxPulsanti->Add(cancella, 0, wxALL, 4);
-	inizio=new wxStaticText(this, wxID_ANY, _("Il gioco della carta alta permette di stabilire chi gioca per primo.")+wxT("\n")+str+wxT("\n")+_("Il computer ne scegliera' un'altra e chi avra' il valore maggiore comincera'.")+wxT("\n\n\n"));
+	inizio=new wxStaticText(this, wxID_ANY, wxString(_("Il gioco della carta alta permette di stabilire chi gioca per primo."))+"\n"+str+"\n"+_("Il computer ne scegliera' un'altra e chi avra' il valore maggiore comincera'.")+"\n\n\n");
 	box->Add(inizio,0,wxALL,4);
 	box->Add(s);
-	msg=new wxStaticText(this, wxID_ANY, wxT("\n\n\n"));
+	msg=new wxStaticText(this, wxID_ANY, "\n\n\n");
 	box->Add(msg, 0, wxALL, 4);
 	box->Add(boxPulsanti);
 	SetSizer(box);
@@ -61,13 +61,13 @@ CartaAltaFrame::CartaAltaFrame(wxWindow *parent, wxString nomeMazzo, wxFont *f) 
 
 void CartaAltaFrame::onOk(wxCommandEvent &evt) {
 	wxString st;
-	if (c!=NULL) { //se la carta è già stata presa
+	if (c!=NULL) { //se la carta e' gia' stata presa
 		Close();
 		return;
 	}
 	long l;
 	valore=cartaUtente->GetValue();
-	if (valore==wxT("")) //se non è stato indicato nessun valore
+	if (valore=="") //se non e' stato indicato nessun valore
 		return;
 	valore.ToLong(&l);
 	c=carta::getCarta(m->getCarta(static_cast<size_t>(--l))); //prendiamo l'immagine della carta indicata dall'utente

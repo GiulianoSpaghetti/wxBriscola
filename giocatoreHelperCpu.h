@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2019 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU Lesser General Public License as published by  *
+ *   it under the terms of the GNU General Public License as published by         *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -34,8 +34,8 @@ class giocatoreHelperCpu: public giocatoreHelper {
 	private:
 		carta *briscola; //identifica la carta di briscola
 		wxBitmap *img; //immagine della carta da mostrare sullo schermo al posto di quella dei valori delle carte
-		size_t getBriscola(const vector<carta *> &mano); //cerca la più piccola carta di briscola
-		size_t getSoprataglio(const vector<carta *> &mano, carta *c, bool maggiore); //Cerca la più grande carta dello stesso seme che prende, o la più piccola che non prende
+		size_t getBriscola(const vector<carta *> &mano); //cerca la piu' piccola carta di briscola
+		size_t getSoprataglio(const vector<carta *> &mano, carta *c, bool maggiore); //Cerca la piu' grande carta dello stesso seme che prende, o la piu' piccola che non prende
 public:
 		giocatoreHelperCpu(size_t b) {
 			srand(time(NULL));
@@ -45,7 +45,7 @@ public:
 		}
 		//carica l'immagine da mostrare al posto delle carte
 		void caricaImmagine() {
-			wxString s=carta::getPathCarte()+wxT("retro carte pc")+wxT(".jpg");
+			wxString s=carta::getPathCarte()+_("retro carte pc")+_(".jpg");
 			if (img!=NULL)
 				delete img;
 			if (!wxFileExists(s)) {

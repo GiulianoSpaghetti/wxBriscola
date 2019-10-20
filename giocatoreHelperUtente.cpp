@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2019 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU Lesser General Public License as published by  *
+ *   it under the terms of the GNU General Public License as published by         *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -20,12 +20,12 @@
 
 #include "giocatoreHelperUtente.h"
 
-/* Richiamata quando il giocatore è primo di mano.
+/* Richiamata quando il giocatore e' primo di mano.
 	PARAMETRI IN INPUT:
 		v: vettore delle carte in mano al giocatore
 		iCarta: indice della carta da giocare
 	Restituisce l'indice della carta da giocare (banalmente iCarta).
-	Lancia un range_error se iCarta non è un valore accettabile
+	Lancia un range_error se iCarta non e' un valore accettabile
 */
 size_t giocatoreHelperUtente::gioca(const vector<carta *> &v, size_t iCarta) {
 	if (v.size()==0)
@@ -35,13 +35,13 @@ size_t giocatoreHelperUtente::gioca(const vector<carta *> &v, size_t iCarta) {
 	return static_cast<size_t> (iCarta);
 }
 
-/* Richiamata quando il giocatore è secondo di mano
+/* Richiamata quando il giocatore e' secondo di mano
 	PARAMETRI DI INPUT:
 		v: vettore delle carte da giocare
 		c: carta giocata dall'altro giocatore
 		iCarta: indice della carta da giocare
 	Restituisce l'indice della carta da giocare (banalmente iCarta)
-	Lancia un range_error se iCarta non è un valore accettabile
+	Lancia un range_error se iCarta non e' un valore accettabile
  */
 size_t giocatoreHelperUtente::gioca(const vector<carta *> &v, carta *c, size_t iCarta) {
 	if (iCarta>v.size() || iCarta<0)
@@ -74,10 +74,10 @@ size_t giocatoreHelperUtente::getPunteggio(carta *c, carta *c1) {
 wxPoint giocatoreHelperUtente::paint(wxPaintDC &dc, const wxString nome, const vector<carta *> mano, const size_t iCartaGiocata) {
 	wxCoord c=dc.GetCharHeight(),x,y;
 	wxPoint p;
-	p.x=3*(carta::getLarghezzaImmagine()+10); // si calcola dove si può scrivere successivamente
+	p.x=3*(carta::getLarghezzaImmagine()+10); // si calcola dove si puo' scrivere successivamente
 	c=c+(carta::getAltezzaImmagine()*2); //Dove disegnare le carte del giocatore
 	for (size_t i=0; i<mano.size(); i++) {
-		if (i!=iCartaGiocata) { //si calcolano le coordinate se non è la carta giocata
+		if (i!=iCartaGiocata) { //si calcolano le coordinate se non e' la carta giocata
 			x=i*(carta::getLarghezzaImmagine()+10);
 			y=c;
 		} else {

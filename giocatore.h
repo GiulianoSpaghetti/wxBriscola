@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2019 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU Lesser General Public License as published by  *
+ *   it under the terms of the GNU General Public License as published by         *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -35,14 +35,14 @@ class giocatore {
 	private:
 		wxString nome; //nome del giocatore
 		vector<carta *> mano; //carte in suo possesso
-		bool ordinaMano; //se le carte in mano al giocatore devono essere ordinate o se devono essere messe così come escono
+		bool ordinaMano; //se le carte in mano al giocatore devono essere ordinate o se devono essere messe cosi' come escono
 		size_t numeroCarte, //numero di carte in mano al giocatore
 			   iCartaGiocata, //indice della carta giocata dal giocatore
 			   punteggio; //punteggio costantemente aggiornato del giocatore
 		giocatoreHelper *helper; //helper per personalizzare il comportamento della classe
 	public:
-		enum CARTA_GIOCATA {NESSUNA_CARTA_GIOCATA=static_cast<size_t> (-1)}; //come indice per indicare che non è stata ancora effettuata la giocata si usa il massimo valore rappresentabile nel size_t
-		giocatore(giocatoreHelper *h, wxString n=wxT(""), bool ordina=true, size_t carte=3);
+		enum CARTA_GIOCATA {NESSUNA_CARTA_GIOCATA=static_cast<size_t> (-1)}; //come indice per indicare che non e' stata ancora effettuata la giocata si usa il massimo valore rappresentabile nel size_t
+		giocatore(giocatoreHelper *h, wxString n=_(""), bool ordina=true, size_t carte=3);
 		~giocatore();
 		wxString& getNome() {return nome;}
 		void setNome(wxString n) {nome=n;}

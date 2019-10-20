@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2019 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU Lesser General Public License as published by  *
+ *   it under the terms of the GNU General Public License as published by         *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -36,7 +36,7 @@
 class CartaAltaFrame: public wxDialog {
 private:
 	enum {ID_TEXTFIELD_CARTA=101, ID_BUTTON_OK};
-	bool primaUtente; //indica se è l'utente che deve giocare prima
+	bool primaUtente; //indica se e' l'utente che deve giocare prima
 	wxTextCtrl *cartaUtente;
 	mazzo *m; //mazzo per giocare
 	wxStaticText *inizio, *msg; //box di testo che contiene il numero della carta da scegliere

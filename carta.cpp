@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2019 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU Lesser General Public License as published by  *
+ *   it under the terms of the GNU General Public License as published by         *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -30,12 +30,12 @@ carta::carta(size_t n) {
 	valore=helper->getValore(n);
 	punteggio=helper->getPunteggio(n);
 	semeStr=helper->getSemeStr(n);
-	img=NULL; //l'immagine andrà caricata appositamente
+	img=NULL; //l'immagine andra' caricata appositamente
 }
 
 void carta::inizializza(size_t n, cartaHelper *h, wxString nomeMazzo) {
 	wxInitAllImageHandlers(); //inizializzamo i gestori d'immagini
-	if (carte.size()>0) //se il vettore delle carte non è vuoto
+	if (carte.size()>0) //se il vettore delle carte non e' vuoto
 		throw logic_error("Chiamato carta::inizializza con carte.size()=="+stringHelper::IntToStr(carte.size()));
 	if (h==NULL)
 		throw logic_error("Chiamato carta::inizializza con h==NULL");
@@ -47,18 +47,18 @@ void carta::inizializza(size_t n, cartaHelper *h, wxString nomeMazzo) {
 }
 
 carta * const carta::getCarta(size_t quale) {
-	if (quale>=carte.size()) //se la carta non è presente nel mazzo
+	if (quale>=carte.size()) //se la carta non e' presente nel mazzo
 		throw overflow_error("Chiamato carta::getCarta con quale>carte.size. quale="+stringHelper::IntToStr(quale)+" carte.size()="+stringHelper::IntToStr(carte.size()));
 	return carte[quale];
 }
 
 void carta::caricaImmagini(wxString mazzo) {
-	path=wxGetCwd()+wxFileName::GetPathSeparator()+wxT("Mazzi")+wxFileName::GetPathSeparator(); //recuperiamo la path completa della cartella mazzi
+	path=wxGetCwd()+wxFileName::GetPathSeparator()+_("Mazzi")+wxFileName::GetPathSeparator(); //recuperiamo la path completa della cartella mazzi
 	nomeMazzo=mazzo;
 	wxString pathCompleta=path+mazzo+wxFileName::GetPathSeparator(); //recuperiamo la path completa delle immagini
 	wxString s;
 	for (size_t i=0; i<carte.size(); i++) {
-		s=pathCompleta+stringHelper::IntToWxStr(i)+wxT(".jpg"); //recuperiamo la path completa della carta
+		s=pathCompleta+stringHelper::IntToWxStr(i)+_(".jpg"); //recuperiamo la path completa della carta
 		if (!wxFileExists(s)) {
             s=_("Il file ")+s+_(" non esiste.");
 			throw invalid_argument(string(s.mb_str()));
@@ -92,7 +92,7 @@ wxString carta::getSemeStr(size_t quale) {
 
 const wxString carta::getValoreStr() {
 	wxString s;
-	s.Printf(wxT("%d"), valore+1);
+	s.Printf(_("%d"), valore+1);
 	return s;
 }
 

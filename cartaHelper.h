@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2019 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU Lesser General Public License as published by  *
+ *   it under the terms of the GNU General Public License as published by         *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -26,7 +26,7 @@
 #include <wx/string.h>
 
 /* Questa classe rappresenta una classe che incapsula gli algoritmi di gioco specifici per il gioco scelto.
-	E' usata da carta per, ad esempio, restituire il seme sotto forma di stringa, per restituire il punteggio della carta e così via*/
+	e' usata da carta per, ad esempio, restituire il seme sotto forma di stringa, per restituire il punteggio della carta e cosi' via*/
 
 using namespace std;
 
@@ -38,25 +38,25 @@ class cartaHelper {
 		enum RISULTATI_COMPARAZIONE {UGUALI=0, MAGGIORE_LA_PRIMA=1, MAGGIORE_LA_SECONDA=2};
 		/* Restituisce il seme della carta sotto forma di numero intero.
 			PARAMETRI:
-				Input: carta - è un intero che rappresenta il numero della carta. Sarà anche l'indice a cui corrisponderà l'elemento carta nel vettore
+				Input: carta - e' un intero che rappresenta il numero della carta. Sara' anche l'indice a cui corrispondera' l'elemento carta nel vettore
 						delle carte
 			Restituisce un invalid_argument se il numero risulta non valido.*/
 		virtual size_t getSeme(size_t carta) =0;
 		/* Restituisce valore facciale della carta
 		 PARAMETRI:
-		 Input: carta - è un intero che rappresenta il numero della carta. Sarà anche l'indice a cui corrisponderà l'elemento carta nel vettore
+		 Input: carta - e' un intero che rappresenta il numero della carta. Sara' anche l'indice a cui corrispondera' l'elemento carta nel vettore
 		 delle carte
 		 Restituisce un invalid_argument se il numero risulta non valido.*/
 		virtual size_t getValore(size_t carta) =0;
 		/* Restituisce il punteggio associato alla carta
 		 PARAMETRI:
-		 Input: carta - è un intero che rappresenta il numero della carta. Sarà anche l'indice a cui corrisponderà l'elemento carta nel vettore
+		 Input: carta - e' un intero che rappresenta il numero della carta. Sara' anche l'indice a cui corrispondera' l'elemento carta nel vettore
 		 delle carte
 		 Restituisce un invalid_argument se il numero risulta non valido.*/
 		virtual size_t getPunteggio(size_t carta) =0;
 		/* Restituisce il seme della carta sotto forma di stringa.
 		 PARAMETRI:
-		 Input: carta - è un intero che rappresenta il numero della carta. Sarà anche l'indice a cui corrisponderà l'elemento carta nel vettore
+		 Input: carta - e' un intero che rappresenta il numero della carta. Sara' anche l'indice a cui corrispondera' l'elemento carta nel vettore
 		 delle carte
 		 Restituisce un invalid_argument se il numero risulta non valido.*/
 		virtual wxString getSemeStr(size_t carta) =0;

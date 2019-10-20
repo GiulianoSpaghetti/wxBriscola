@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2019 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU Lesser General Public License as published by  *
+ *   it under the terms of the GNU General Public License as published by         *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -28,19 +28,19 @@
 
 using namespace std;
 
-/* Un helper che elavora le care di briscola. Si può chiamare un massimo di 40 volte, vengono elaborati numeri pesudocasuali sempre diversi. */
+/* Un helper che elavora le care di briscola. Si puo' chiamare un massimo di 40 volte, vengono elaborati numeri pesudocasuali sempre diversi. */
 
 class elaboratoreCarteBriscola : public elaboratoreCarte {
 	private:
 		static const size_t numeroCarte=40; //numero di carte complessive da elaborare
-		vector<bool> doppione; //indice per verificare se la carta corrispettiva all'indice sia già uscito
+		vector<bool> doppione; //indice per verificare se la carta corrispettiva all'indice sia gia' uscito
 		size_t cartaBriscola; //indica la carta di briscola
 		bool inizio, //indica se la carta di briscola deve essere salvata o no
-			 briscolaDaPunti; //indica se la carta che esce come briscola può dare punti
+			 briscolaDaPunti; //indica se la carta che esce come briscola puo' dare punti
 	public:
 		elaboratoreCarteBriscola(bool punti=true);
 		virtual ~elaboratoreCarteBriscola() {;}
-		virtual size_t getCarta(); //elabora la carta, restituisce un overflow error se è stato chiamato più volte del numero previsto
+		virtual size_t getCarta(); //elabora la carta, restituisce un overflow error se e' stato chiamato piu' volte del numero previsto
 		size_t getCartaBriscola() {return cartaBriscola;} //restituisce il valore della carta di briscola
 };
 

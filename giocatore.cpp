@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2019 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU Lesser General Public License as published by  *
+ *   it under the terms of the GNU General Public License as published by         *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -24,7 +24,7 @@
 	h: helper per personalizzare i comportamenti della classe. Viene deallocato automaticamente alla cancellazione della classe. Non deve essere NULL
 	n: nome del giocatore
 	ordina: indica se le carte in mano devono essere ordinate in qualche modo
-	carte: numero massimo di carte che il giocatore può avere in mano */
+	carte: numero massimo di carte che il giocatore puo' avere in mano */
 giocatore::giocatore(giocatoreHelper *h, wxString n,  bool ordina, size_t carte) : ordinaMano(ordina), numeroCarte(carte), iCartaGiocata(NESSUNA_CARTA_GIOCATA), punteggio(0) {
 	helper=h;
 	nome=n;
@@ -39,7 +39,7 @@ giocatore::~giocatore() {
 /* Aggiunge una carta alla mano del giocatore.
 	PARAMETRI DI INPUT:
 		m: mazzo da cui prendere la carta
-	Lancia un overflow_error se il numero di carte che ha in mano è già il massimo, rilancia un underflow error se il mazzo non ha più carte ed il giocatore ha finito le carte.
+	Lancia un overflow_error se il numero di carte che ha in mano e' gia' il massimo, rilancia un underflow error se il mazzo non ha piu' carte ed il giocatore ha finito le carte.
  */
 void giocatore::addCarta(mazzo *m) {
 	if (mano.size()==numeroCarte && iCartaGiocata==NESSUNA_CARTA_GIOCATA)
@@ -54,7 +54,7 @@ void giocatore::addCarta(mazzo *m) {
 	}
 	try {
 		c=carta::getCarta(m->getCarta());
-	} catch (underflow_error &e) { //se il mazzo non ha più carte
+	} catch (underflow_error &e) { //se il mazzo non ha piu' carte
 		numeroCarte--;
 		if (numeroCarte==0) //se sono finite le carte
 			throw;
@@ -70,18 +70,18 @@ void giocatore::addCarta(mazzo *m) {
 
 }
 
-/* Da richiamare quando il giocatore che deve giocare è primo di mano.
+/* Da richiamare quando il giocatore che deve giocare e' primo di mano.
 	PARAMETRI DI INPUT:
- i è puramente fittizio e va impostato nell'indice della carta da giocare dal giocatore utente quando è primo di mano. Se è il pc non viene considerato
+ i e' puramente fittizio e va impostato nell'indice della carta da giocare dal giocatore utente quando e' primo di mano. Se e' il pc non viene considerato
  */
 void giocatore::gioca(int i) {
 	iCartaGiocata=helper->gioca(mano, i);
 }
 
-/* Da richiamare quando il giocatore che deve giocare è il secondo di mano.
+/* Da richiamare quando il giocatore che deve giocare e' il secondo di mano.
 	PARAMETRI DI INPUT:
 	g1: giocatore che ha giocato come primo di mano
- i è puramente fittizio e va impostato nell'indice della carta da giocare dal giocatore utente quando è primo di mano. Se è il pc non viene considerato
+ i e' puramente fittizio e va impostato nell'indice della carta da giocare dal giocatore utente quando e' primo di mano. Se e' il pc non viene considerato
  */
 void giocatore::gioca(giocatore *g1, int i) {
 	iCartaGiocata=helper->gioca(mano, g1->getCartaGiocata(), i);

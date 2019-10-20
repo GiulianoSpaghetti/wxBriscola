@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2019 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU Lesser General Public License as published by  *
+ *   it under the terms of the GNU General Public License as published by         *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -20,7 +20,7 @@
 
 #include "giocatoreHelperCpu.h"
 
-/* Cerca la più piccola carta di briscola
+/* Cerca la piu' piccola carta di briscola
  PARAMETRI DI INPUT:
 	mano: le carte in mano al giocatore da "aiutare"
  restituisce l'indice della carta di briscola
@@ -31,24 +31,24 @@ size_t giocatoreHelperCpu::getBriscola(const vector<carta *> &mano) {
 	return i;
 }
 
-/*Cerca la più grande carta dello stesso seme che prende, o la più piccola che non prende
+/*Cerca la piu' grande carta dello stesso seme che prende, o la piu' piccola che non prende
  PARAMETRI DI INPUT:
 	mano: le carte in mano al giocatore da "aiutare"
 	c: carta giocata dall'altro giocatore
-	maggiore: flag che identifica se bisogna trovare "la più grande che prende" (true) o "la più piccola che non prende" (false)
+	maggiore: flag che identifica se bisogna trovare "la piu' grande che prende" (true) o "la piu' piccola che non prende" (false)
  retituisce l'indice della carta da giocare
 */
 size_t giocatoreHelperCpu::getSoprataglio(const vector<carta *> &mano, carta *c, bool maggiore) {
     bool trovata=false;
     size_t i;
-    if (maggiore) { //si cerca la carta più grande che può prendere la carta giocata
+    if (maggiore) { //si cerca la carta piu' grande che puo' prendere la carta giocata
         for (i=mano.size()-1; i<mano.size(); i--)
             if (c->stessoSeme(mano[i]) && *c<*mano[i]) {
                 trovata=true;
                 break;
             } else if (c->stessoSeme(mano[i]) && *mano[i]<*c)
                 break;
-    } else { //si cerca la carta più piccola che non può prendere la carta giocata
+    } else { //si cerca la carta piu' piccola che non puo' prendere la carta giocata
         for (i=0; i<mano.size(); i++)
             if (c->stessoSeme(mano[i]) && *c<*mano[i]) {
                 trovata=true;
@@ -61,7 +61,7 @@ size_t giocatoreHelperCpu::getSoprataglio(const vector<carta *> &mano, carta *c,
         return mano.size();
 }
 
-/* Richiamata quando la cpu è prima di mano
+/* Richiamata quando la cpu e' prima di mano
 	PARAMETRI DI INPUT:
 	mano: carte in mano alla CPU,
 	iCarta: puramente fittizio e non serve
@@ -71,14 +71,14 @@ size_t giocatoreHelperCpu::gioca(const vector<carta *> &mano, size_t iCarta) {
 	size_t i;
     if (mano.size()==0)
         throw range_error("Chiamata a giocatoreHelperCpu::gioca con mano.size(mano)==0");
-    for (i=mano.size()-1; i<mano.size() && (mano[i]->getPunteggio()>4 || briscola->stessoSeme(mano[i])); i--); //cerca la più grande carta che non sia briscola e che non sia "carico"
-	if (i>mano.size()) //se non c'è gioca la carta più piccola
+    for (i=mano.size()-1; i<mano.size() && (mano[i]->getPunteggio()>4 || briscola->stessoSeme(mano[i])); i--); //cerca la piu' grande carta che non sia briscola e che non sia "carico"
+	if (i>mano.size()) //se non c'e' gioca la carta piu' piccola
 		i=0;
     return i;
 }
 
 
-/* Richiamata quando la cpu è seconda di mano
+/* Richiamata quando la cpu e' seconda di mano
 	PARAMETRI DI INPUT:
 	mano: carte in mano al giocatore da aiutare
 	c: carta giocata dall'laro giocatore
@@ -90,27 +90,27 @@ size_t giocatoreHelperCpu::gioca(const vector<carta *> &mano, carta *c, size_t i
 	if (c==NULL)
 		throw range_error("Chiamata a giocatoreHelperUtente::gioca(vector<carta *>, carta *) con carta==NULL");
 
-	size_t i=rand(); //aggiunge un comportamento un po' più casuale
-    if (!briscola->stessoSeme(c)) { //se la carta giocata non è dello stesso seme di briscola
-        if ((i=getSoprataglio(mano, c, true))<mano.size()) //se si può sopratagliare
+	size_t i=rand(); //aggiunge un comportamento un po' piu' casuale
+    if (!briscola->stessoSeme(c)) { //se la carta giocata non e' dello stesso seme di briscola
+        if ((i=getSoprataglio(mano, c, true))<mano.size()) //se si puo' sopratagliare
             return i; //soprataglia
-        if (c->getPunteggio()>0 && (i=getBriscola(mano))<mano.size()) {//se non si può sopratagliare e la carta ha un punteggio e si ha una carta di briscola
-            if (c->getPunteggio()>4) //se la carta giocata è un carico
+        if (c->getPunteggio()>0 && (i=getBriscola(mano))<mano.size()) {//se non si puo' sopratagliare e la carta ha un punteggio e si ha una carta di briscola
+            if (c->getPunteggio()>4) //se la carta giocata e' un carico
                 return i; //si gioca la briscola
-            if (mano[i]->getPunteggio()>0) //se la carta che si vuole giocare è briscola ed ha un punteggio
+            if (mano[i]->getPunteggio()>0) //se la carta che si vuole giocare e' briscola ed ha un punteggio
                 if (i%10<5) //il computer decide se giocarla o meno
                     return i;
         }
-    } else { //se è di briscola
-        if (i%10<5 && (i=getSoprataglio(mano, c, false))<mano.size()) //se il computer vuole giocarla e c'è un soprataglio della carta di briscola
+    } else { //se e' di briscola
+        if (i%10<5 && (i=getSoprataglio(mano, c, false))<mano.size()) //se il computer vuole giocarla e c'e' un soprataglio della carta di briscola
             return i; //si soprataglia
     }
-    i=0; //se non si può fare niente si gioca la carta più piccola
+    i=0; //se non si puo' fare niente si gioca la carta piu' piccola
 	return i;
 }
 
 /* Aggiorna i punteggi delle carte
-	lancia un range error se una delle due carte è null
+	lancia un range error se una delle due carte e' null
 	restituisce la somma die punteggi.
  */
 size_t giocatoreHelperCpu::getPunteggio(carta *c, carta *c1) {

@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2019 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU Lesser General Public License as published by  *
+ *   it under the terms of the GNU General Public License as published by         *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -35,7 +35,7 @@ using namespace std;
 
 /* Questa classe rappresenta una generica carta da gioco.
    Si basa su cartahelper al fine di ottenere alcuni algoritmi specifici per il gioco in questione (in questo caso la briscola).
-   Dato che le carte sono le stesse per ogni mazzo, questa classe non è istanziabile dall'esterno e l'unica cosa modificabile è l'immagine della stessa.
+   Dato che le carte sono le stesse per ogni mazzo, questa classe non e' istanziabile dall'esterno e l'unica cosa modificabile e' l'immagine della stessa.
 */
 
 class carta {
@@ -58,8 +58,8 @@ class carta {
 				n: numero delle carte da istanziare
 				h: classe aiutante che contiene gli algoritmi specifici per il tipo di gioco
 				nomeMazzo: nome che corrisponde alla cartella all'interno della quale si trovano le immagini
-		 Lancia l'eccezione logic_error se viene chiamata per istanziare un nuovo mazzo di carte o se il parametro h è null.
-		 Rilancia l'eccezione invalid_argument se il parametro nomeMazzo non è valido.
+		 Lancia l'eccezione logic_error se viene chiamata per istanziare un nuovo mazzo di carte o se il parametro h e' null.
+		 Rilancia l'eccezione invalid_argument se il parametro nomeMazzo non e' valido.
 		 */
 		static void inizializza(size_t n, cartaHelper *h, wxString nomeMazzo);
 		/*
@@ -75,7 +75,7 @@ class carta {
 		 PARAMETRI:
 			Input:
 				mazzo: cartella all'interno della quale si trovano le carte
-		 Lancia un invalid_argument se il parametro mazzo non è valido
+		 Lancia un invalid_argument se il parametro mazzo non e' valido
 		 */
 		static void caricaImmagini(wxString mazzo);
 		//dealloca tutte le carte esistenti. Da chiamare prima di una nuova chiamata ad inzializza
@@ -111,9 +111,9 @@ class carta {
 		bool stessoSeme(carta *c1) {return seme==c1->getSeme();}
 		friend ostream& operator<<(ostream &s, carta &c);
 		friend bool operator<(carta &c, carta &c1);
-		//Restitisce l'altezza dell'immagine di cui è dotata la carta
+		//Restitisce l'altezza dell'immagine di cui e' dotata la carta
 		static wxCoord getAltezzaImmagine() {return carte[0]->img->GetHeight();}
-		//restituisce la larghezza dell'immagine di cui è dotata la carta
+		//restituisce la larghezza dell'immagine di cui e' dotata la carta
 		static wxCoord getLarghezzaImmagine() {return carte[0]->img->GetWidth();}
 		//Restituisce l'indirizzo della cartella Mazzi
 		static wxString getPathMazzi() {return path;}

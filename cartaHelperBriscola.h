@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2019 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU Lesser General Public License as published by  *
+ *   it under the terms of the GNU General Public License as published by         *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -25,14 +25,14 @@
 
 /* Implementazione di cartaHelper specifica per il gioco della briscola a due giocatori
 	Per i valori numerali:
-	0-9 sono le carte in ordine crescente in cui 0 è l'1 ed il 9 è il 10
+	0-9 sono le carte in ordine crescente in cui 0 e' l'1 ed il 9 e' il 10
 	Per i semi:
 		1: bastoni
 		2: coppe
 		3: denari
 		4: spade
 
-	L'implementazione è semplice: il valore nominale sono le unità e le decine sono i semi
+	L'implementazione e' semplice: il valore nominale sono le unita' e le decine sono i semi
 	Pertanto essendo le carte 40, queste vanno da 0 39.
  */
 class cartaHelperBriscola : public cartaHelper {
@@ -90,7 +90,7 @@ class cartaHelperBriscola : public cartaHelper {
 			   semeBriscola=getSeme(cartaBriscola), //seme di briscola
 			   semeCarta=getSeme(carta), //seme della prima carta
 	       	   semeCarta1=getSeme(carta1); //seme della seconda carta
-		if (punteggio<punteggio1) //se le carte hanno punteggio diverso è maggiore chi ha punteggio più alto
+		if (punteggio<punteggio1) //se le carte hanno punteggio diverso e' maggiore chi ha punteggio piu' alto
 			return MAGGIORE_LA_SECONDA;
 		else if (punteggio>punteggio1)
 			return MAGGIORE_LA_PRIMA;
