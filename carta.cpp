@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2019 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2015 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU General Public License as published by         *
+ *   it under the terms of the GNU Lesser General Public License as published by  *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -53,12 +53,12 @@ carta * const carta::getCarta(size_t quale) {
 }
 
 void carta::caricaImmagini(wxString mazzo) {
-	path=wxGetCwd()+wxFileName::GetPathSeparator()+_("Mazzi")+wxFileName::GetPathSeparator(); //recuperiamo la path completa della cartella mazzi
+	path=wxGetCwd()+wxFileName::GetPathSeparator()+wxT("Mazzi")+wxFileName::GetPathSeparator(); //recuperiamo la path completa della cartella mazzi
 	nomeMazzo=mazzo;
 	wxString pathCompleta=path+mazzo+wxFileName::GetPathSeparator(); //recuperiamo la path completa delle immagini
 	wxString s;
 	for (size_t i=0; i<carte.size(); i++) {
-		s=pathCompleta+stringHelper::IntToWxStr(i)+_(".jpg"); //recuperiamo la path completa della carta
+		s=pathCompleta+stringHelper::IntToWxStr(i)+wxT(".jpg"); //recuperiamo la path completa della carta
 		if (!wxFileExists(s)) {
             s=_("Il file ")+s+_(" non esiste.");
 			throw invalid_argument(string(s.mb_str()));
@@ -92,7 +92,7 @@ wxString carta::getSemeStr(size_t quale) {
 
 const wxString carta::getValoreStr() {
 	wxString s;
-	s.Printf(_("%d"), valore+1);
+	s.Printf(wxT("%d"), valore+1);
 	return s;
 }
 

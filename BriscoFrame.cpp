@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2019 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2015 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU General Public License as published by         *
+ *   it under the terms of the GNU Lesser General Public License as published by  *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -71,8 +71,8 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
     colore=wxColour(r, g, b);
     d.SetColour(colore);
     loc=l;
-	paginaWeb=_("http://numerone.altervista.org/");
-	versione=_("0.3.2");
+	paginaWeb=wxT("http://numerone.altervista.org/");
+	versione=wxT("0.3.3");
     leggiFont();
     pathTraduzioni=path;
 	client.SetHeader("Content-type", "text/html; charset=utf-8");
@@ -141,6 +141,10 @@ void BriscoFrame::onInfo(wxCommandEvent& WXUNUSED(evt)) {
 	info.SetName("wxBriscola");
 	info.SetVersion(versione);
 	info.SetWebSite("http://numerone.altervista.org");
+    wxArrayString traduttori = wxArrayString();
+    traduttori.Add("Giulio Sorrentino <gsorre84@gmail.com>");
+    info.SetDescription(_("Il gioco della briscola a due giocatori"));
+    info.SetTranslators(traduttori);
 	wxAboutBox(info);
 }
 

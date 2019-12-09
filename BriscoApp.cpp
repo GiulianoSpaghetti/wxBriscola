@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2019 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2015 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU General Public License as published by         *
+ *   it under the terms of the GNU Lesser General Public License as published by  *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -21,7 +21,8 @@
 #include "BriscoApp.h"
 
 bool BriscoApp::OnInit() {
-    wxLocale *m_locale;
+    if (!wxApp::OnInit())
+        return false;
     int loc;
     wxString s=wxFileName::GetPathSeparator();
     wxString pathTraduzioni=wxPathOnly(argv[0])+s+"locale";
@@ -30,32 +31,14 @@ bool BriscoApp::OnInit() {
     if (!config->Read("locale", &loc))
         loc=wxLANGUAGE_ITALIAN;
 
-   if(wxLocale::IsAvailable(loc)) {
+    wxLocale *m_locale;
         m_locale=new wxLocale( loc, wxLOCALE_DONT_LOAD_DEFAULT );
-
-        #ifdef __WXGTK__
-            m_locale->AddCatalogLookupPathPrefix(wxT("/usr"));
-            m_locale->AddCatalogLookupPathPrefix(wxT("/usr/local"));
-            wxStandardPaths* paths = (wxStandardPaths*) &wxStandardPaths::Get();
-            wxString prefix = paths->GetInstallPrefix();
-            m_locale->AddCatalogLookupPathPrefix( prefix );
-        #endif
-
-        m_locale->AddCatalogLookupPathPrefix(pathTraduzioni);
-        m_locale->AddCatalog("wxBriscola");
-        m_locale->AddCatalog("wxstd");
-
-        if(!m_locale->IsOk()) {
-            wxMessageBox(_("Si e' verificato un errore nella selezione del linguaggio."), _("Errore"), wxICON_ERROR);
-            delete m_locale;
-            loc = wxLANGUAGE_ITALIAN;
-            m_locale = new wxLocale(loc);
-        }
-    } else {
-        wxMessageBox(_("Il linguaggio selezionato non e' supportato dal sistema. Verra' usato l'italiano."), _("Errore"), wxICON_ERROR);
-        loc = wxLANGUAGE_ITALIAN;
-        m_locale = new wxLocale(loc);
-    }
+        m_locale->AddCatalog("fileutils");
+       wxLocale::AddCatalogLookupPathPrefix(pathTraduzioni);
+       if (!m_locale->AddCatalog("wxBriscola"))
+           wxMessageBox(_("Impossibile trovare il catalogo del programma."), _("Attenzione"), wxICON_EXCLAMATION);
+       m_locale->AddCatalog("wxstd");
+       m_locale->AddCatalog("wxmsw");
 
     try {
         f=new BriscoFrame(loc, config, pathTraduzioni);

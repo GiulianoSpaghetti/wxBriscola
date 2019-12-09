@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2019 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2015 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU General Public License as published by         *
+ *   it under the terms of the GNU Lesser General Public License as published by  *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -22,7 +22,7 @@
 
 OpzioniFrame::OpzioniFrame(wxWindow *parent, wxString& nUser, wxString& nCpu, bool abilitaBriscolaAlta, bool ordina, bool avvisa, bool cartaAlta, double secs, bool aggiornamenti) : wxDialog(parent, wxID_ANY, _("Opzioni"), wxDefaultPosition) {
 	wxBoxSizer *boxLabel=new wxBoxSizer(wxVERTICAL), *boxText=new wxBoxSizer(wxVERTICAL),  *controlBox=new wxBoxSizer(wxHORIZONTAL), *mainBox=new wxBoxSizer(wxVERTICAL);
-	s.Printf(_("%f"), secs);
+	s.Printf(wxT("%f"), secs);
 	s.Truncate(5);
 	DoubleValidator v=DoubleValidator(&s, 1, 10);
 	nomeUtente=new wxTextCtrl(this, ID_TEXTFIELD_UTENTE, nUser);

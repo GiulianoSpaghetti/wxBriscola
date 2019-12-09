@@ -1,9 +1,9 @@
 /**********************************************************************************
- *   Copyright (C) 2019 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2015 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
- *   it under the terms of the GNU General Public License as published by         *
+ *   it under the terms of the GNU Lesser General Public License as published by  *
  *   the Free Software Foundation; either version 3 of the License, or            *
  *   (at your option) any later version.                                          *
  *                                                                                *
@@ -266,7 +266,7 @@ bool BriscoPanel::caricaImmagini(wxString mazzo, bool err) {
 		delete immagineBriscola;
 		delete immagineTallone;
 		immagineBriscola=new wxBitmap(*(carta::getImmagine(e->getCartaBriscola()))); //si carica l'immagine della briscola
-		wxString s=carta::getPathCarte()+_("retro carte mazzo.jpg");
+		wxString s=carta::getPathCarte()+wxT("retro carte mazzo.jpg");
 		if (!wxFileExists(s)) {
 			errore=true;
 			s=_("Il file ")+s+_(" non esiste.");

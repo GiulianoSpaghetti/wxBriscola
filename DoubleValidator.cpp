@@ -47,7 +47,7 @@ void DoubleValidator::OnChar(wxKeyEvent& event) {
 }
 
 bool DoubleValidator::controllaValore(const wxString& v, bool valida) {
-    if(!valida && v.Cmp(_("-")) == 0) { //se stiamo effettuando la validazione in real time ed il carattere e' solo un "-"
+    if(!valida && v.Cmp(wxT("-")) == 0) { //se stiamo effettuando la validazione in real time ed il carattere e' solo un "-"
         if(min >= 0.0)
             return false;
         else
@@ -66,7 +66,7 @@ bool DoubleValidator::controllaValore(const wxString& v, bool valida) {
     if(numero < min) { //se stiamo effettuando la validazione in real time dobbiamo verificare che il valore
         //inserito possa diventare con l'aggiunta di ulteriori caratteri il minimo
         wxString minStr;
-        minStr.Printf(_("%f"), min);
+        minStr.Printf(wxT("%f"), min);
         minStr.Truncate(v.Length());
         double tmpMin;
         if(minStr.ToDouble(&tmpMin)) {
