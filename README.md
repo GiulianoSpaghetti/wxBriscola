@@ -3,10 +3,10 @@ Il gioco della briscola a due giocatori scritto in c++ e wxwidgets.
 Non ha il multiplayer e supporta il caricamento di mazzi regionali ed arbitrari e il caricamento delle localizzazioni.
 
 Per compilare è necessario impostare le seguenti librerie di wxwidgets:
-*wxbase
-*wxbase net
-*wxmsw
-*wxmsw core
+
+wxbase
+
+wxmsw core
 
 Non viene fornito alcun metodo preimpostato di compilazione (make, cmake, codeblocks, template visual studio), sentitevi liberi di usare quello che più vi pare.
 
