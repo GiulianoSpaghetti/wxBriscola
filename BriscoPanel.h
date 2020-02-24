@@ -67,7 +67,7 @@ class BriscoPanel : public wxPanel {
 			 primaPartita, //se e' la prima o la seconda partita
 			 briscolaDaPunti, //se l'ultima briscola puo' dare punti
 			 ordinaCarte; //se le carte del giocatore umano devono essere ordinate
-        wxColour colore;
+        wxColour coloreTesto, coloreSfondo;
 		void onKey(wxKeyEvent &evt); //pressione di un tasto
 		void onTimer(wxTimerEvent &evt); //scade il timer
 		void gioca(int codice); //l'utente deve giocare
@@ -76,7 +76,7 @@ class BriscoPanel : public wxPanel {
 		void onClick(wxMouseEvent& evt) ; //gestisce il click sull'immagine
 		DECLARE_EVENT_TABLE()
 	public:
-		BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour c);
+		BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour coloreTesto, wxColour coloreSfondo);
 		wxString& getNomeUtente() {return utente->getNome();}
 		wxString& getNomeCpu() {return cpu->getNome();}
 		bool getFlagBriscola() {return briscolaDaPunti;}
@@ -98,7 +98,8 @@ class BriscoPanel : public wxPanel {
 		void nuovaPartita(bool avvisa, bool inizializza);
 		void getDimensioni(wxCoord &x, wxCoord & y);
 		bool caricaImmagini(wxString mazzo, bool err=false);
-		void SetColour(wxColour &c);
+		void setColoreTesto(wxColour &c);
+		void setColoreSfondo(wxColour& c);
 		virtual ~BriscoPanel();
 };
 

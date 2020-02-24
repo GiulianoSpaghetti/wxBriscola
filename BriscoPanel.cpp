@@ -1,5 +1,5 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2020 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
@@ -27,10 +27,11 @@ EVT_LEFT_DOWN(BriscoPanel::onClick)
 EVT_TIMER(ID_TIMER, BriscoPanel::onTimer)
 END_EVENT_TABLE()
 
-BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour c)  : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(600,500)) {
+BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour coloreTesto, wxColour coloreSfondo)  : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(600,500)) {
 	e=el;
 	b=br;
-	colore=c;
+	this->coloreTesto=coloreTesto;
+	this->coloreSfondo = coloreSfondo;
 	avvisatoFineTallone=false;
     primaPartita=true;
     primaUtente=primaUt;
@@ -65,7 +66,7 @@ BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHe
 	if (primo==cpu) //se deve giocare prima la cpu
 		primo->gioca(0);
 	SetFont(*f);
-	SetBackgroundColour(wxColour(0,124,0));
+	SetBackgroundColour(coloreSfondo);
 }
 
 BriscoPanel::~BriscoPanel() {
@@ -96,7 +97,7 @@ void BriscoPanel::getDimensioni(wxCoord &x, wxCoord & y) {
 
 void BriscoPanel::onPaint(wxPaintEvent &event) {
 	wxPaintDC dc(this);
-	dc.SetTextForeground(colore);
+	dc.SetTextForeground(coloreTesto);
 	wxString s=_("Nel mazzo rimangono ")+m->getNumeroCarteStr()+_(" carte.");
 	wxPoint p, p1; //punti in cui disegnare
 	wxCoord len, y; //dimensione della stringa del mazzo e punto di disegno
@@ -153,19 +154,18 @@ void BriscoPanel::gioca(int codice) {
 }
 
 void BriscoPanel::onTimer(wxTimerEvent &evt) {
-	bool flagNuovaPartita=true;
-	primo->aggiornaPunteggio(secondo);
-	try {
+	bool mostraRichiesta = true;
+	primo->aggiornaPunteggio(secondo);	try {
 		primo->addCarta(m);
 		secondo->addCarta(m);
 	} catch (underflow_error &e) { //sono finite le carte
 		if (primaPartita) {//se e' la prima partita
-			if (wxMessageBox(_("Vuoi effettuare la seconda partita?"), _("Continuare?"), wxYES_NO | wxICON_INFORMATION)  == wxYES) {
+			if (wxMessageBox(_("Vuoi effettuare la seconda partita?"), _("Continuare?"), wxYES_NO | wxICON_INFORMATION) == wxYES) {
 				nuovaPartita(false, false); //se l'utente dice di si se ne comincia un'altra
 				return;
-			} else
-				flagNuovaPartita=false; //finisce la partita se l'utente ha detto di no
-		}
+			}
+			else mostraRichiesta = false;
+        }
 		wxString s; //si mette insieme la stringa dell'esito
 		if (utente->getPunteggio()+punteggioUtente==cpu->getPunteggio()+punteggioCpu)
 			s=_("La partita e' patta.");
@@ -177,17 +177,19 @@ void BriscoPanel::onTimer(wxTimerEvent &evt) {
 			s=_("Hai ")+s+_(" per ")+stringHelper::IntToWxStr(labs(utente->getPunteggio()+punteggioUtente-cpu->getPunteggio()-punteggioCpu))+_(" punti.");
 		}
 		Refresh();
-		if (!flagNuovaPartita) {//se non si deve giocare ad una nuova parita
-			wxMessageBox(wxString(_("La partita e' finita."))=+"\n"+s, _("Partita finita"), wxOK | wxICON_INFORMATION); //si mostra l'esito sullo schermo
-			GetParent()->Close(); //il programma si chiude
+		if (mostraRichiesta)
+			if (wxMessageBox(wxString(_("La partita e' finita.")) + "\n" + s + "\n" + _("Vuoi effettuare una nuova partita?"), _("Partita finita"), wxYES_NO | wxICON_QUESTION) == wxNO) {
+				GetParent()->Close();
+				return;
+			} else {
+				nuovaPartita(false, true);
+				return;
+			}
+		else {
+			wxMessageBox(wxString(_("La partita e' finita.")) + "\n" + s, _("Partita finita"), wxOK | wxICON_INFORMATION);
+			GetParent()->Close();
 			return;
 		}
-		if (wxMessageBox(wxString(_("La partita e' finita."))+"\n"+s+_("Vuoi effettuare una nuova partita?"), _("Partita finita"), wxYES_NO | wxICON_QUESTION)==wxNO)
-			GetParent()->Close();
-		else {
-			nuovaPartita(false, true);
-			return;
-        }
 	}
 	if (m->getNumeroCarte()==2 && !avvisatoFineTallone && avvisaFineTallone) { //se e' finito il tallone
 		wxBell(); //si avvisa
@@ -284,9 +286,14 @@ bool BriscoPanel::caricaImmagini(wxString mazzo, bool err) {
 	return !errore;
 }
 
-void BriscoPanel::SetColour(wxColour &c) {
-    colore=c;
+void BriscoPanel::setColoreTesto(wxColour &c) {
+    coloreTesto=c;
     Refresh();
+}
+
+void BriscoPanel::setColoreSfondo(wxColour& c) {
+	SetBackgroundColour(c);
+	Refresh();
 }
 
 void BriscoPanel::onClick(wxMouseEvent& evt) {

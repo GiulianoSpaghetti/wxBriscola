@@ -1,5 +1,5 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2020 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
@@ -27,7 +27,8 @@ EVT_MENU(ID_OPZIONI, BriscoFrame::onOpzioni)
 EVT_MENU(ID_FONT, BriscoFrame::onFont)
 EVT_MENU(wxID_ABOUT, BriscoFrame::onInfo)
 EVT_MENU(ID_SITOWEB, BriscoFrame::onSitoWeb)
-EVT_MENU(ID_COLORE, BriscoFrame::OnColour)
+EVT_MENU(ID_COLORE_TESTO, BriscoFrame::OnColoreTesto)
+EVT_MENU(ID_COLORE_SFONDO, BriscoFrame::OnColoreSfondo)
 //EVT_MENU(ID_AGGIORNAMENTO, BriscoFrame::onAggiornamenti)
 END_EVENT_TABLE()
 
@@ -68,15 +69,23 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
         g=80;
     if (!config->Read("blu", &b))
         b=0;
-    colore=wxColour(r, g, b);
-    d.SetColour(colore);
+    coloreTesto = wxColour(r, g, b);
+    if (!config->Read("sfondoRosso", &r))
+        r = 0;
+    if (!config->Read("sfondoVerde", &g))
+        g = 124;
+    if (!config->Read("sfondoBlu", &b))
+        b = 0;
+    coloreSfondo = wxColour(r, g, b);
+    d.SetColour(coloreTesto);
+    d1.SetColour(coloreSfondo);
     loc=l;
 	paginaWeb=wxT("http://numerone.altervista.org/");
 	versione=wxT("0.3.3");
     leggiFont();
     pathTraduzioni=path;
-	client.SetHeader("Content-type", "text/html; charset=utf-8");
-    client.SetTimeout(10);
+	//client.SetHeader("Content-type", "text/html; charset=utf-8");
+    //client.SetTimeout(10);
 /*    if (aggiornamenti) {
         wxString s;
 	try {
@@ -88,6 +97,7 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
             wxMessageBox(e.what(), _("Errore"), wxOK|wxICON_ERROR);
         }
     */
+  	wxInitAllImageHandlers(); //inizializzamo i gestori d'immagini
 	el=new elaboratoreCarteBriscola(true);
 	br=new cartaHelperBriscola(el);
 	try {
@@ -99,7 +109,7 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
 		return;
 	}
 	giocoCartaAlta();
-	p=new BriscoPanel(this, el, br, primaUtente,briscolaDaPunti, ordinaCarte, millisecondi, avvisaFineTallone, nomeMazzo, nomeUtente, nomeCpu, font, colore);
+	p=new BriscoPanel(this, el, br, primaUtente,briscolaDaPunti, ordinaCarte, millisecondi, avvisaFineTallone, nomeMazzo, nomeUtente, nomeCpu, font, coloreTesto, coloreSfondo);
 	p->SetFocus();
 	aggiungiMenu();
 	p->getDimensioni(dim.x, dim.y);
@@ -109,19 +119,21 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
 
 void BriscoFrame::aggiungiMenu() {
     wxMenuBar *m=new wxMenuBar();
-    wxMenu *menu=new wxMenu(), *menu1=new wxMenu();
+    wxMenu *menu=new wxMenu(), *menu1=new wxMenu(), *menu2=new wxMenu();
 	menuMazzi=new wxMenu();
 	menuTraduzioni=new wxMenu();
     menu->Append(ID_NUOVA_PARTITA, wxString(_("&Nuova Partita"))+"\tALT+N", _("Inizia una nuova partita senza concludere l'attuale"));
     menu->Append(ID_OPZIONI, wxString(_("&Opzioni"))+"\tALT+O", _("Imposta le opzioni del programma"));
 	menu->Append(ID_FONT, wxString(_("&Font"))+"\tALT+F", _("Imposta il font utilizzato"));
-    menu->Append(ID_COLORE, wxString(_("Colore del testo"))+"\tALT+C", _("Imposta il colore del testo"));
     menu->Append(wxID_EXIT, wxString(_("&Esci"))+"\tALT+Q", _("Chiudi il programma"));
     m->Append(menu, _("&File"));
-	getMenuMazzi(menuMazzi);
-	m->Append(menuMazzi, _("Mazzi"));
+    menu2->Append(ID_COLORE_TESTO, wxString(_("&Testo")) + "\tALT+T", _("Imposta il colore del testo"));
+    menu2->Append(ID_COLORE_SFONDO, wxString(_("S&fondo")) + "\tALT+N", _("Imposta il colore dello sfondo"));
+    m->Append(menu2, _("&Colori"));
+    getMenuMazzi(menuMazzi);
+	m->Append(menuMazzi, _("&Mazzi"));
 	getMenuTraduzioni(menuTraduzioni);
-	m->Append(menuTraduzioni, _("Traduzioni"));
+	m->Append(menuTraduzioni, _("&Localizzazioni"));
     //menu1->Append(ID_AGGIORNAMENTO, _("&Verifica aggiornamenti")+_("\tALT+A"), _("Verifica aggiornamenti per il programma"));
     menu1->Append(ID_SITOWEB, wxString(_("&Sito web del gioco"))+"\tALT+S", _("Apre il sito web ufficiale"));
     menu1->Append(wxID_ABOUT, wxString(_("&Informazioni"))+"\tALT+I", _("Per segnalare un bug o contattare l'autore"));
@@ -136,13 +148,14 @@ void BriscoFrame::onEsci(wxCommandEvent& WXUNUSED(evt)) {
 void BriscoFrame::onInfo(wxCommandEvent& WXUNUSED(evt)) {
 	wxAboutDialogInfo info;
 	info.AddDeveloper("Giulio Sorrentino <gsorre84@gmail.com>");
-	info.SetCopyright("(c) 2019 Giulio Sorrentino");
+	info.SetCopyright("(c) 2020 Giulio Sorrentino");
 	info.SetLicense(_("GPL v3 o (a tua discrezione) qualsiasi versione successiva.\nLe immagini delle carte sono di proprieta' della Modiano"));
 	info.SetName("wxBriscola");
 	info.SetVersion(versione);
 	info.SetWebSite("http://numerone.altervista.org");
     wxArrayString traduttori = wxArrayString();
     traduttori.Add("Giulio Sorrentino <gsorre84@gmail.com>");
+    traduttori.Add("Alice Victoria");
     info.SetDescription(_("Il gioco della briscola a due giocatori"));
     info.SetTranslators(traduttori);
 	wxAboutBox(info);
@@ -251,10 +264,10 @@ void BriscoFrame::getMenuTraduzioni(wxMenu *menu) {
     wxString nome;
     wxDir dir(pathTraduzioni);
     const wxLanguageInfo *lang;
-	if (!dir.IsOpened())
+    if (!dir.IsOpened())
         return;
     bool continua=dir.GetFirst(&nome, wxEmptyString, wxDIR_DIRS);
-	while (continua) {
+    while (continua) {
         lang=wxLocale::FindLanguageInfo(nome);
         if (lang!=NULL && wxFileExists(dir.GetName()+wxFileName::GetPathSeparator()+nome+wxFileName::GetPathSeparator()+"LC_MESSAGES"+wxFileName::GetPathSeparator()+"wxBriscola.mo"))
         {
@@ -308,12 +321,22 @@ void BriscoFrame::leggiFont() {
 		font=new wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD);
 }
 
-void BriscoFrame::OnColour(wxCommandEvent &evt) {
-    d.SetColour(colore);
-    wxColourDialog *coloredlg=new wxColourDialog(this, &d);
+void BriscoFrame::OnColoreTesto(wxCommandEvent &evt) {
+    d.SetColour(coloreTesto);
+    wxColourDialog *coloredlg= new wxColourDialog(this, &d);
     if (coloredlg->ShowModal() == wxID_OK) {
-        colore=coloredlg->GetColourData().GetColour();
-        p->SetColour(colore);
+        coloreTesto=coloredlg->GetColourData().GetColour();
+        p->setColoreTesto(coloreTesto);
+    }
+    delete coloredlg;
+}
+
+void BriscoFrame::OnColoreSfondo(wxCommandEvent& evt) {
+    d1.SetColour(coloreSfondo);
+    wxColourDialog *coloredlg = new wxColourDialog(this, &d);
+    if (coloredlg->ShowModal() == wxID_OK) {
+        coloreSfondo = coloredlg->GetColourData().GetColour();
+        p->setColoreSfondo(coloreSfondo);
     }
     delete coloredlg;
 }
@@ -331,9 +354,12 @@ BriscoFrame::~BriscoFrame() {
 	config->Write("nomeMazzo", nomeMazzo);
 	config->Write("font", p->GetFont().GetNativeFontInfoDesc());
 	config->Write("locale", loc);
-	config->Write("rosso", colore.Red());
-	config->Write("verde", colore.Green());
-	config->Write("blu", colore.Blue());
+	config->Write("rosso", coloreTesto.Red());
+	config->Write("verde", coloreTesto.Green());
+	config->Write("blu", coloreTesto.Blue());
+    config->Write("sfondoRosso", coloreSfondo.Red());
+    config->Write("sfondoVerde", coloreSfondo.Green());
+    config->Write("sfondoBlu", coloreSfondo.Blue());
     delete config;
 	delete font;
 }

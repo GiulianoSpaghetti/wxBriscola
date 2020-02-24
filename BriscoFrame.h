@@ -1,5 +1,8 @@
+#ifndef HEADER_EC648212512BB37D
+#define HEADER_EC648212512BB37D
+
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2020 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
@@ -37,7 +40,7 @@
 
 class BriscoFrame: public wxFrame {
 	private:
-		enum {ID_NUOVA_PARTITA=10001, ID_OPZIONI, ID_FONT, ID_AGGIORNAMENTO, ID_SITOWEB, ID_COLORE};
+		enum {ID_NUOVA_PARTITA=10001, ID_OPZIONI, ID_FONT, ID_AGGIORNAMENTO, ID_SITOWEB, ID_COLORE_TESTO, ID_COLORE_SFONDO};
 		BriscoPanel *p;
 		wxConfig *config;
 		wxMenu *menuMazzi,
@@ -55,10 +58,10 @@ class BriscoFrame: public wxFrame {
 			 aggiornamenti;
 		elaboratoreCarteBriscola *el;
 		cartaHelperBriscola *br;
-        wxHTTP client;
+       // wxHTTP client;
         wxLocale *traduzione;
-        wxColour colore;
-        wxColourData d;
+        wxColour coloreTesto, coloreSfondo;
+        wxColourData d, d1;
         int loc;
 
 		void aggiungiMenu();
@@ -75,7 +78,8 @@ class BriscoFrame: public wxFrame {
 		void leggiFont();
 		//bool Aggiornamenti(wxString& nuovaVersione) throw (std::domain_error);
 		void getMenuTraduzioni(wxMenu *menu);
-		void OnColour(wxCommandEvent &evt);
+		void OnColoreTesto(wxCommandEvent& evt);
+		void OnColoreSfondo(wxCommandEvent& evt);
 		DECLARE_EVENT_TABLE()
 	public:
 		BriscoFrame(int l, wxConfig *c, wxString path);
@@ -84,3 +88,5 @@ class BriscoFrame: public wxFrame {
 };
 
 #endif
+#endif // header guard 
+

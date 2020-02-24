@@ -1,5 +1,5 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2020 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
@@ -34,7 +34,6 @@ carta::carta(size_t n) {
 }
 
 void carta::inizializza(size_t n, cartaHelper *h, wxString nomeMazzo) {
-	wxInitAllImageHandlers(); //inizializzamo i gestori d'immagini
 	if (carte.size()>0) //se il vettore delle carte non e' vuoto
 		throw logic_error("Chiamato carta::inizializza con carte.size()=="+stringHelper::IntToStr(carte.size()));
 	if (h==NULL)

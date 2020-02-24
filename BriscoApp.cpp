@@ -1,5 +1,5 @@
 /**********************************************************************************
- *   Copyright (C) 2015 by Giulio Sorrentino                                      *
+ *   Copyright (C) 2020 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
  *                                                                                *
  *   This program is free software; you can redistribute it and/or modify         *
@@ -32,13 +32,13 @@ bool BriscoApp::OnInit() {
         loc=wxLANGUAGE_ITALIAN;
 
     wxLocale *m_locale;
-        m_locale=new wxLocale( loc, wxLOCALE_DONT_LOAD_DEFAULT );
-        m_locale->AddCatalog("fileutils");
-       wxLocale::AddCatalogLookupPathPrefix(pathTraduzioni);
-       if (!m_locale->AddCatalog("wxBriscola"))
-           wxMessageBox(_("Impossibile trovare il catalogo del programma."), _("Attenzione"), wxICON_EXCLAMATION);
-       m_locale->AddCatalog("wxstd");
-       m_locale->AddCatalog("wxmsw");
+    m_locale=new wxLocale( loc, wxLOCALE_DONT_LOAD_DEFAULT );
+    m_locale->AddCatalog("fileutils");
+    wxLocale::AddCatalogLookupPathPrefix(pathTraduzioni);
+    if (!m_locale->AddCatalog("wxBriscola"))
+       wxMessageBox(_("Impossibile trovare il catalogo del programma. Il programma si avviera' in italiano."), _("Attenzione"), wxICON_EXCLAMATION);
+     m_locale->AddCatalog("wxstd");
+     m_locale->AddCatalog("wxmsw");
 
     try {
         f=new BriscoFrame(loc, config, pathTraduzioni);

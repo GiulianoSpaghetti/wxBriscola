@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wxBriscola 0.3.3\n"
-"POT-Creation-Date: 2019-12-09 03:29+0100\n"
-"PO-Revision-Date: 2019-12-09 03:30+0100\n"
+"POT-Creation-Date: 2020-02-24 15:37+0100\n"
+"PO-Revision-Date: 2020-02-24 15:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: Giulio Sorrentino <gsorre84@gmail.com>\n"
 "Language: en\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2.4\n"
-"X-Poedit-Basepath: ../Visual Studio/wxBriscola/wxBriscola\n"
+"X-Poedit-Basepath: D:/Giulio/Visual Studio/wxBriscola/wxBriscola\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: _\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -47,94 +47,108 @@ msgstr ""
 "X-Poedit-SearchPath-30: OpzioniFrame.cpp\n"
 
 #: BriscoApp.cpp:39
-msgid "Impossibile trovare il catalogo del programma."
-msgstr "The catalagos of the program could not be found."
+msgid ""
+"Impossibile trovare il catalogo del programma. Il programma si avviera' in "
+"italiano."
+msgstr "Unable to find program catalog. The program will start in italian."
 
-#: BriscoApp.cpp:39 BriscoFrame.cpp:287 BriscoPanel.cpp:282
+#: BriscoApp.cpp:39 BriscoFrame.cpp:299 BriscoPanel.cpp:284
 msgid "Attenzione"
 msgstr "Warning"
 
-#: BriscoFrame.cpp:96
+#: BriscoFrame.cpp:106
 msgid " Il programma verra' chiuso."
 msgstr " The program will be closed."
 
-#: BriscoFrame.cpp:96 BriscoFrame.cpp:276 BriscoPanel.cpp:280
+#: BriscoFrame.cpp:106 BriscoFrame.cpp:288 BriscoPanel.cpp:282
 msgid "Errore"
 msgstr "Error"
 
-#: BriscoFrame.cpp:115
+#: BriscoFrame.cpp:125
 msgid "&Nuova Partita"
 msgstr "&New Game"
 
-#: BriscoFrame.cpp:115
+#: BriscoFrame.cpp:125
 msgid "Inizia una nuova partita senza concludere l'attuale"
-msgstr "Start a new game without exit from the actual"
+msgstr "Start a new game without exit from the current"
 
-#: BriscoFrame.cpp:116
+#: BriscoFrame.cpp:126
 msgid "&Opzioni"
 msgstr "&Options"
 
-#: BriscoFrame.cpp:116
+#: BriscoFrame.cpp:126
 msgid "Imposta le opzioni del programma"
 msgstr "Set program options"
 
-#: BriscoFrame.cpp:117
+#: BriscoFrame.cpp:127
 msgid "&Font"
 msgstr "&Font"
 
-#: BriscoFrame.cpp:117
+#: BriscoFrame.cpp:127
 msgid "Imposta il font utilizzato"
 msgstr "Set the used font"
 
-#: BriscoFrame.cpp:118
-msgid "Colore del testo"
-msgstr "Text colour"
-
-#: BriscoFrame.cpp:118
-msgid "Imposta il colore del testo"
-msgstr "Set the text colour"
-
-#: BriscoFrame.cpp:119
+#: BriscoFrame.cpp:128
 msgid "&Esci"
 msgstr "&Exit"
 
-#: BriscoFrame.cpp:119
+#: BriscoFrame.cpp:128
 msgid "Chiudi il programma"
 msgstr "Exit from the program"
 
-#: BriscoFrame.cpp:120
+#: BriscoFrame.cpp:129
 msgid "&File"
 msgstr "&File"
 
-#: BriscoFrame.cpp:122
-msgid "Mazzi"
-msgstr "Decks"
+#: BriscoFrame.cpp:130
+msgid "&Testo"
+msgstr "&Text"
 
-#: BriscoFrame.cpp:124
-msgid "Traduzioni"
-msgstr "Translations"
+#: BriscoFrame.cpp:130
+msgid "Imposta il colore del testo"
+msgstr "Set the text colour"
 
-#: BriscoFrame.cpp:126
+#: BriscoFrame.cpp:131
+msgid "S&fondo"
+msgstr "&Background"
+
+#: BriscoFrame.cpp:131
+msgid "Imposta il colore dello sfondo"
+msgstr "Set the background colour"
+
+#: BriscoFrame.cpp:132
+msgid "&Colori"
+msgstr "&Colours"
+
+#: BriscoFrame.cpp:134
+msgid "&Mazzi"
+msgstr "&Decks"
+
+#: BriscoFrame.cpp:136
+msgid "&Localizzazioni"
+msgstr "&Localizations"
+
+#: BriscoFrame.cpp:138
 msgid "&Sito web del gioco"
 msgstr "&Web site of the game"
 
-#: BriscoFrame.cpp:126
+#: BriscoFrame.cpp:138
 msgid "Apre il sito web ufficiale"
 msgstr "Open the official web site"
 
-#: BriscoFrame.cpp:127
+#: BriscoFrame.cpp:139
 msgid "&Informazioni"
-msgstr "Sett&ings"
+msgstr "&About"
 
-#: BriscoFrame.cpp:127
+#: BriscoFrame.cpp:139
 msgid "Per segnalare un bug o contattare l'autore"
 msgstr "For reporting a bug or for contacting the author"
 
-#: BriscoFrame.cpp:128
+#: BriscoFrame.cpp:140
 msgid "?"
 msgstr "?"
 
-#: BriscoFrame.cpp:140
+#: BriscoFrame.cpp:152
 msgid ""
 "GPL v3 o (a tua discrezione) qualsiasi versione successiva.\n"
 "Le immagini delle carte sono di proprieta' della Modiano"
@@ -142,45 +156,45 @@ msgstr ""
 "GPL v3 or (at your opinion) any later version.\n"
 "The images of the card are property of Modiano"
 
-#: BriscoFrame.cpp:147
+#: BriscoFrame.cpp:159
 msgid "Il gioco della briscola a due giocatori"
 msgstr "The trump game with two players"
 
-#: BriscoFrame.cpp:242
+#: BriscoFrame.cpp:254
 msgid "Carica il mazzo corrispondente"
 msgstr "Load the corresponding deck"
 
-#: BriscoFrame.cpp:263
+#: BriscoFrame.cpp:275
 msgid "Carica il file del linguaggio corrispondente"
 msgstr "Load the correspoinding language"
 
-#: BriscoFrame.cpp:276
+#: BriscoFrame.cpp:288
 msgid "Impossibile portare a termine l'operazione"
 msgstr "Unable to complete the operation"
 
-#: BriscoFrame.cpp:287
+#: BriscoFrame.cpp:299
 msgid ""
 "Il programma si chiudera'. Riaprirlo di nuovo per cambiare il linguaggio."
 msgstr ""
-"The program will close now. Open it again manually for chaning Language."
+"The program will be closed. Open it again manually for chaning Language."
 
-#: BriscoPanel.cpp:82 BriscoPanel.cpp:100
+#: BriscoPanel.cpp:83 BriscoPanel.cpp:101
 msgid "Nel mazzo rimangono "
 msgstr "In the deck remains "
 
-#: BriscoPanel.cpp:82 BriscoPanel.cpp:100
+#: BriscoPanel.cpp:83 BriscoPanel.cpp:101
 msgid " carte."
 msgstr " cards."
 
-#: BriscoPanel.cpp:111 BriscoPanel.cpp:112
+#: BriscoPanel.cpp:112 BriscoPanel.cpp:113
 msgid "Punti di "
 msgstr "Point of "
 
-#: BriscoPanel.cpp:111 BriscoPanel.cpp:112
+#: BriscoPanel.cpp:112 BriscoPanel.cpp:113
 msgid ": "
 msgstr ": "
 
-#: BriscoPanel.cpp:114
+#: BriscoPanel.cpp:115
 msgid "Il seme di briscola e': "
 msgstr "The trump seed is: "
 
@@ -216,39 +230,39 @@ msgstr " for "
 msgid " punti."
 msgstr " points."
 
-#: BriscoPanel.cpp:181 BriscoPanel.cpp:185
+#: BriscoPanel.cpp:181 BriscoPanel.cpp:189
 msgid "La partita e' finita."
 msgstr "The game is over."
 
-#: BriscoPanel.cpp:181 BriscoPanel.cpp:185
-msgid "Partita finita"
-msgstr "Game over"
-
-#: BriscoPanel.cpp:185
+#: BriscoPanel.cpp:181
 msgid "Vuoi effettuare una nuova partita?"
 msgstr "Do you want to game again?"
 
-#: BriscoPanel.cpp:204
-msgid "La partita correntemente in corso verra' interrotta. Continuare?"
-msgstr "The actual game will be stopped. Do you wish to continue?"
+#: BriscoPanel.cpp:181 BriscoPanel.cpp:189
+msgid "Partita finita"
+msgstr "Game over"
 
-#: BriscoPanel.cpp:204
+#: BriscoPanel.cpp:206
+msgid "La partita correntemente in corso verra' interrotta. Continuare?"
+msgstr "The current game will be stopped. Do you wish to continue?"
+
+#: BriscoPanel.cpp:206
 msgid "Richiesta conferma"
 msgstr "Confirmation request"
 
-#: BriscoPanel.cpp:272 carta.cpp:63
+#: BriscoPanel.cpp:274 carta.cpp:62
 msgid "Il file "
 msgstr "The file "
 
-#: BriscoPanel.cpp:272 carta.cpp:63
+#: BriscoPanel.cpp:274 carta.cpp:62
 msgid " non esiste."
 msgstr " does not exists."
 
-#: BriscoPanel.cpp:280
+#: BriscoPanel.cpp:282
 msgid " Il programma provera' a ricaricare il mazzo precedente."
 msgstr " The program will try to reload the previous deck."
 
-#: BriscoPanel.cpp:282
+#: BriscoPanel.cpp:284
 msgid ""
 "Non e' stato possibile caricare il mazzo precedente: uscire dal programma "
 "significa non poterlo avviare piu'. Caricare un mazzo completo prima di "
@@ -259,7 +273,7 @@ msgstr ""
 
 #: CartaAltaFrame.cpp:30
 msgid "Gioco della carta alta"
-msgstr "Most valuable game card"
+msgstr "Most valuable card game"
 
 #: CartaAltaFrame.cpp:32
 msgid ""
@@ -358,6 +372,15 @@ msgstr "suits"
 #: cartaHelperBriscola.h:74
 msgid "spade"
 msgstr "swords"
+
+#~ msgid "Continuare"
+#~ msgstr "Do you wish to continue?"
+
+#~ msgid "Traduzioni"
+#~ msgstr "Translations"
+
+#~ msgid "Colore del testo"
+#~ msgstr "Text colour"
 
 #~ msgid "Questo linguaggio non e' supportato dal sistema operativo."
 #~ msgstr "THis Language is not supported by operating system."
