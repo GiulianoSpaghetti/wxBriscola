@@ -22,7 +22,7 @@ Sentitevi liberi di contribuire con localizzazioni e mazzi regionali.>
 
 # Problemi di localizzazione
 Ho provveduto a localizzare la wxbriscola in italiano, spagnolo e inglese.
-Su windows non tutto il programma esce localizzato. I files di localizzazione delle librerie wxwidgets sono inclusi e le chiamate alle librerie di sistema si basano sulla lingua di sistema, per cui se si prova a mettere la lingua spagnola, la schermata del font non sarà tradotta in spagnolo e per averla bisogna cambiare la linga del sistema operativo.
+Su windows non tutto il programma esce localizzato. I files di localizzazione delle librerie wxwidgets sono inclusi e le chiamate alle librerie di sistema si basano sulla lingua di sistema, per cui se si prova a mettere la lingua spagnola, la schermata del font non sarà tradotta in spagnolo e per averla bisogna cambiare la lingua del sistema operativo.
 
 Su GNU/Linux c'è bisogno del package di localizzazione di wxwidgets (wxwidgets-i18n) ma il programma risulterà tutto correttamente localizzato.
 Potrebbe comparire il messaggio d'errore all'inizio "Locale xx_xx cannot be set) ed è perché il sistema non in uso non ha installate tutte le librerie di traduzioni (tipicamente quelle di gnome), però il programma risulterà lo stesso correttamente localizzato.
