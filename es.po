@@ -160,7 +160,7 @@ msgstr ""
 
 #: BriscoFrame.cpp:159
 msgid "Il gioco della briscola a due giocatori"
-msgstr "El juego de la briscola a dos jugadores"
+msgstr "El juego de la briscola de dos jugadores"
 
 #: BriscoFrame.cpp:254
 msgid "Carica il mazzo corrispondente"
