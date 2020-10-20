@@ -25,7 +25,8 @@ bool BriscoApp::OnInit() {
         return false;
     int loc;
     wxString s=wxFileName::GetPathSeparator();
-    wxString pathTraduzioni=wxPathOnly(argv[0])+s+"locale";
+    //wxString pathTraduzioni=wxPathOnly(argv[0])+s+"locale";
+	wxString path=wxT("/usr/share/wxBriscola");
     wxConfig *config=new wxConfig(GetAppName()); //lettura delle opzioni
 
     if (!config->Read("locale", &loc))
@@ -34,14 +35,14 @@ bool BriscoApp::OnInit() {
     wxLocale *m_locale;
     m_locale=new wxLocale( loc, wxLOCALE_DONT_LOAD_DEFAULT );
     m_locale->AddCatalog("fileutils");
-    wxLocale::AddCatalogLookupPathPrefix(pathTraduzioni);
-    if (!m_locale->AddCatalog("wxBriscola"))
+//    wxLocale::AddCatalogLookupPathPrefix(pathTraduzioni);
+    if (!m_locale->AddCatalog("wxbriscola"))
        wxMessageBox(_("Impossibile trovare il catalogo del programma. Il programma si avviera' in italiano."), _("Attenzione"), wxICON_EXCLAMATION);
      m_locale->AddCatalog("wxstd");
      m_locale->AddCatalog("wxmsw");
 
     try {
-        f=new BriscoFrame(loc, config, pathTraduzioni);
+        f=new BriscoFrame(loc, config, path);
     } catch (invalid_argument &e) {
         return false;
     }

@@ -63,11 +63,10 @@ class BriscoFrame: public wxFrame {
         wxColour coloreTesto, coloreSfondo;
         wxColourData d, d1;
         int loc;
-
 		void aggiungiMenu();
 		void onEsci(wxCommandEvent& WXUNUSED(evt));
 		void onInfo(wxCommandEvent& WXUNUSED(evt));
-        void onNuovaPartita(wxCommandEvent& WXUNUSED(evt));
+        	void onNuovaPartita(wxCommandEvent& WXUNUSED(evt));
 		void onOpzioni(wxCommandEvent& WXUNUSED(evt));
 		void onFont(wxCommandEvent& WXUNUSED(evt));
 		void getMenuMazzi(wxMenu *menu);
@@ -80,6 +79,7 @@ class BriscoFrame: public wxFrame {
 		void getMenuTraduzioni(wxMenu *menu);
 		void OnColoreTesto(wxCommandEvent& evt);
 		void OnColoreSfondo(wxCommandEvent& evt);
+		void CreaVoceTraduzione(wxMenu* menu, const wxLanguageInfo* lang);
 		DECLARE_EVENT_TABLE()
 	public:
 		BriscoFrame(int l, wxConfig *c, wxString path);

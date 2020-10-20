@@ -83,7 +83,7 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
 	paginaWeb=wxT("http://numerone.altervista.org/");
 	versione=wxT("0.3.3");
     leggiFont();
-    pathTraduzioni=path;
+//    pathTraduzioni=path;
 	//client.SetHeader("Content-type", "text/html; charset=utf-8");
     //client.SetTimeout(10);
 /*    if (aggiornamenti) {
@@ -240,7 +240,7 @@ void BriscoFrame::onAggiornamenti(wxCommandEvent& WXUNUSED(evt)) {
 }*/
 
 void BriscoFrame::getMenuMazzi(wxMenu *menu) {
-	wxDir dir(carta::getPathMazzi());
+    wxDir dir(carta::getPathMazzi());
     wxString nome;
     if ( !dir.IsOpened() ) {
         return;
@@ -260,25 +260,19 @@ void BriscoFrame::getMenuMazzi(wxMenu *menu) {
 }
 
 
+void BriscoFrame::CreaVoceTraduzione(wxMenu* menu, const wxLanguageInfo* lang) {
+    idMenuTraduzioni.Add(wxNewId());
+    menu->AppendRadioItem(idMenuTraduzioni.Last(), lang->Description, _("Carica il file del linguaggio corrispondente"));
+    menu->Check(idMenuTraduzioni.Last(), lang->Language==loc);
+    idTraduzioni.Add(lang->Language);
+    Connect(idMenuTraduzioni.Last(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(BriscoFrame::OnMenuTraduzioni));
+}
+
 void BriscoFrame::getMenuTraduzioni(wxMenu *menu) {
-    wxString nome;
-    wxDir dir(pathTraduzioni);
-    const wxLanguageInfo *lang;
-    if (!dir.IsOpened())
-        return;
-    bool continua=dir.GetFirst(&nome, wxEmptyString, wxDIR_DIRS);
-    while (continua) {
-        lang=wxLocale::FindLanguageInfo(nome);
-        if (lang!=NULL && wxFileExists(dir.GetName()+wxFileName::GetPathSeparator()+nome+wxFileName::GetPathSeparator()+"LC_MESSAGES"+wxFileName::GetPathSeparator()+"wxBriscola.mo"))
-        {
-            idMenuTraduzioni.Add(wxNewId());
-            menu->AppendRadioItem(idMenuTraduzioni.Last(), lang->Description, _("Carica il file del linguaggio corrispondente"));
-            menu->Check(idMenuTraduzioni.Last(), lang->Language==loc);
-            idTraduzioni.Add(lang->Language);
-            Connect(idMenuTraduzioni.Last(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(BriscoFrame::OnMenuTraduzioni));
-        }
-        continua=dir.GetNext(&nome);
-    }
+    CreaVoceTraduzione(menu, wxLocale::FindLanguageInfo("EN_us"));
+    CreaVoceTraduzione(menu, wxLocale::FindLanguageInfo("es"));
+    CreaVoceTraduzione(menu, wxLocale::FindLanguageInfo("IT_it"));
+
 }
 
 void BriscoFrame::onMenuMazzi(wxCommandEvent& evt) {

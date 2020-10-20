@@ -52,9 +52,10 @@ carta * const carta::getCarta(size_t quale) {
 }
 
 void carta::caricaImmagini(wxString mazzo) {
-	path=wxGetCwd()+wxFileName::GetPathSeparator()+wxT("Mazzi")+wxFileName::GetPathSeparator(); //recuperiamo la path completa della cartella mazzi
+	wxString pathCompleta=wxT("/usr/share/wxBriscola");
+	path=pathCompleta+wxFileName::GetPathSeparator()+wxT("Mazzi")+wxFileName::GetPathSeparator(); //recuperiamo la path completa della cartella mazzi
 	nomeMazzo=mazzo;
-	wxString pathCompleta=path+mazzo+wxFileName::GetPathSeparator(); //recuperiamo la path completa delle immagini
+	pathCompleta=path+mazzo+wxFileName::GetPathSeparator(); //recuperiamo la path completa delle immagini
 	wxString s;
 	for (size_t i=0; i<carte.size(); i++) {
 		s=pathCompleta+stringHelper::IntToWxStr(i)+wxT(".jpg"); //recuperiamo la path completa della carta
