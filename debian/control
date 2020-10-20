@@ -6,8 +6,119 @@ Section: games
 
 Package: wxbriscola
 Priority: extra  
-Architecture: arm64
+Architecture: arm64 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}  
 Description: Simulatore del gioco della briscola a 2 giocatori.
  Non è (ancora) previsto il multiplayer
 
+Package: wxbriscola-mazzi-bergamasco
+Section: toys
+Architecture: all
+Depends:
+ wxbriscola
+Provides: wxbriscola-mazzi-bergamasco
+Description: Mazzo bergamasco per la wxBriscola e la JBriscola
+
+Package: wxbriscola-mazzi-bolognese
+Section: toys
+Architecture: all
+Depends:
+ wxbriscola
+Provides: wxbriscola-mazzi-bolognese
+Description: Mazzo bolognese per la wxBriscola e la JBriscola
+
+Package: wxbriscola-mazzi-bresciano
+Section: toys
+Architecture: all
+Depends:
+ wxbriscola
+Provides: wxbriscola-mazzi-bresciano
+Description: Mazzo bresciano per la wxBriscola e la JBriscola
+
+Package: wxbriscola-mazzi-genovese
+Section: toys
+Architecture: all
+Depends:
+ wxbriscola
+Provides: wxbriscola-mazzi-genovese
+Description: Mazzo genovese per la wxBriscola e la JBriscola
+
+Package: wxbriscola-mazzi-lombardo
+Section: toys
+Architecture: all
+Depends:
+ wxbriscola
+Provides: wxbriscola-mazzi-lombardo
+Description: Mazzo lombardo per la wxBriscola e la JBriscola
+
+Package: wxbriscola-mazzi-piacentino
+Section: toys
+Architecture: all
+Depends:
+ wxbriscola
+Provides: wxbriscola-mazzi-piacentino
+Description: Mazzo piacentino per la wxBriscola e la JBriscola
+
+Package: wxbriscola-mazzi-romagnolo
+Section: toys
+Architecture: all
+Depends:
+ wxbriscola
+Provides: wxbriscola-mazzi-romagnolo
+Description: Mazzo romagnolo per la wxBriscola e la JBriscola
+
+Package: wxbriscola-mazzi-sardo
+Section: toys
+Architecture: all
+Depends:
+ wxbriscola
+Provides: wxbriscola-mazzi-sardo
+Description: Mazzo sardo per la wxBriscola e la JBriscola
+
+Package: wxbriscola-mazzi-siciliano
+Section: toys
+Architecture: all
+Depends:
+ wxbriscola
+Provides: wxbriscola-mazzi-siciliano
+Description: Mazzo siciliano per la wxBriscola e la JBriscola
+
+Package: wxbriscola-mazzi-toscano
+Section: toys
+Architecture: all
+Depends:
+ wxbriscola
+Provides: wxbriscola-mazzi-toscano
+Description: Mazzo toscano per la wxBriscola e la JBriscola
+
+Package: wxbriscola-mazzi-trentino
+Section: toys
+Architecture: all
+Depends:
+ wxbriscola
+Provides: wxbriscola-mazzi-trentino
+Description: Mazzo trentino per la wxBriscola e la JBriscola
+
+Package: wxbriscola-mazzi-trevigiano
+Section: toys
+Architecture: all
+Depends:
+ wxbriscola
+Provides: wxbriscola-mazzi-trevigiano
+Description: Mazzo trevigiano per la wxBriscola e la JBriscola
+
+Package: wxbriscola-mazzi-triestino
+Section: toys
+Architecture: all
+Depends:
+ wxbriscola
+Provides: wxbriscola-mazzi-triestino
+Description: Mazzo triestino per la wxBriscola e la JBriscola
+
+Package: wxbriscola-i18n
+Section: toys
+Architecture: all
+Depends:
+ wxbriscola, wx3.0-i18n
+Provides: wxbriscola-i18n
+Description: File di traduzione linguistica per wxbriscola

@@ -1,0 +1,2 @@
+find /home -name ".wxbriscola" -exec rm {} \;
+
