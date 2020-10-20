@@ -35,7 +35,7 @@ bool BriscoApp::OnInit() {
     wxLocale *m_locale;
     m_locale=new wxLocale( loc, wxLOCALE_DONT_LOAD_DEFAULT );
     m_locale->AddCatalog("fileutils");
-//    wxLocale::AddCatalogLookupPathPrefix(pathTraduzioni);
+    wxLocale::AddCatalogLookupPathPrefix(wxT("/usr/local/share/locale"));
     if (!m_locale->AddCatalog("wxbriscola"))
        wxMessageBox(_("Impossibile trovare il catalogo del programma. Il programma si avviera' in italiano."), _("Attenzione"), wxICON_EXCLAMATION);
      m_locale->AddCatalog("wxstd");
