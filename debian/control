@@ -73,6 +73,14 @@ Provides: wxbriscola-mazzi-hd-piacentino
 Replaces: wxbriscola-mazzi-piacentino
 Description: Mazzo piacentino per la wxBriscola e la JBriscola
 
+Package: wxbriscola-mazzi-hd-playing-mario
+Section: toys
+Architecture: all
+Depends:
+ wxbriscola
+Provides: wxbriscola-mazzi-hd-playing-mario
+Description: Mazzo di Mario Bros per la wxBriscola e la JBriscola
+
 Package: wxbriscola-mazzi-hd-romagnolo
 Section: toys
 Architecture: all
