@@ -6,7 +6,7 @@ Section: games
 
 Package: wxbriscola
 Priority: extra  
-Architecture: arm64 amd64
+Architecture: arm64 amd64 armhf i386
 Depends: ${shlibs:Depends}, ${misc:Depends}  
 Description: Simulatore del gioco della briscola a 2 giocatori.
  Non è (ancora) previsto il multiplayer
