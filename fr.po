@@ -1,0 +1,333 @@
+# French translations for wxbriscola package.
+# Copyright (C) 2020 THE wxbriscola'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the wxbriscola package.
+# Automatically generated, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wxbriscola\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-26 03:52+0100\n"
+"PO-Revision-Date: 2020-10-26 04:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#: BriscoApp.cpp:40
+msgid "Impossibile trovare il catalogo del programma. Il programma si avviera' in italiano."
+msgstr "Impossible de trouver le catalogue de programmes. Le programme commencera en italien"
+
+#: BriscoApp.cpp:40 BriscoFrame.cpp:293 BriscoPanel.cpp:285
+msgid "Attenzione"
+msgstr "Attention"
+
+#: BriscoFrame.cpp:106
+msgid " Il programma verra' chiuso."
+msgstr "Le programme sera fermé"
+
+#: BriscoFrame.cpp:106 BriscoFrame.cpp:282 BriscoPanel.cpp:283
+msgid "Errore"
+msgstr "Error"
+
+#: BriscoFrame.cpp:125
+msgid "&Nuova Partita"
+msgstr "&Nouveau Jeu"
+
+#: BriscoFrame.cpp:125
+msgid "Inizia una nuova partita senza concludere l'attuale"
+msgstr "Démarrez un nouveau jeu sans terminer le jeu actuel"
+
+#: BriscoFrame.cpp:126
+msgid "&Opzioni"
+msgstr "Options"
+
+#: BriscoFrame.cpp:126
+msgid "Imposta le opzioni del programma"
+msgstr "Définir les options du programme"
+
+#: BriscoFrame.cpp:127
+msgid "&Font"
+msgstr "&Font"
+
+#: BriscoFrame.cpp:127
+msgid "Imposta il font utilizzato"
+msgstr "Définir le font utilisée"
+
+#: BriscoFrame.cpp:128
+msgid "&Esci"
+msgstr "Sorti&e"
+
+#: BriscoFrame.cpp:128
+msgid "Chiudi il programma"
+msgstr "Fermer le programme"
+
+#: BriscoFrame.cpp:129
+msgid "&File"
+msgstr "&Fichier"
+
+#: BriscoFrame.cpp:130
+msgid "&Testo"
+msgstr "&Texte"
+
+#: BriscoFrame.cpp:130
+msgid "Imposta il colore del testo"
+msgstr "Définir la couleur du Texte"
+
+#: BriscoFrame.cpp:131
+msgid "S&fondo"
+msgstr "&Fond"
+
+#: BriscoFrame.cpp:131
+msgid "Imposta il colore dello sfondo"
+msgstr "Définit la couleur de fond"
+
+#: BriscoFrame.cpp:132
+msgid "&Colori"
+msgstr "&Couleurs"
+
+#: BriscoFrame.cpp:134
+msgid "&Mazzi"
+msgstr "Jeux"
+
+#: BriscoFrame.cpp:136
+msgid "&Localizzazioni"
+msgstr "&Langages"
+
+#: BriscoFrame.cpp:138
+msgid "&Sito web del gioco"
+msgstr ""
+"&\n"
+"Site Web du jeu"
+
+#: BriscoFrame.cpp:138
+msgid "Apre il sito web ufficiale"
+msgstr "Ouvre le site officiel"
+
+#: BriscoFrame.cpp:139
+msgid "&Informazioni"
+msgstr "&Informations"
+
+#: BriscoFrame.cpp:139
+msgid "Per segnalare un bug o contattare l'autore"
+msgstr "Pour signaler un bug ou contacter l'auteur"
+
+#: BriscoFrame.cpp:140
+msgid "?"
+msgstr "?"
+
+#: BriscoFrame.cpp:152
+msgid ""
+"GPL v3 o (a tua discrezione) qualsiasi versione successiva.\n"
+"Le immagini delle carte sono di proprieta' della Modiano"
+msgstr ""
+"GPL v3 ou, selon ton choix n'importe quelle version suivante.\n"
+"Le images des cartes sont de propriété de la Modiano"
+
+#: BriscoFrame.cpp:159
+msgid "Il gioco della briscola a due giocatori"
+msgstr "Émulateur du jeu de l'atout avec deux joueurs"
+
+#: BriscoFrame.cpp:254
+msgid "Carica il mazzo corrispondente"
+msgstr "Chargez le deck correspondant"
+
+#: BriscoFrame.cpp:265
+msgid "Carica il file del linguaggio corrispondente"
+msgstr "Téléchargez le fichier de langue correspondant"
+
+#: BriscoFrame.cpp:282
+msgid "Impossibile portare a termine l'operazione"
+msgstr "Impossible de terminer l'opération"
+
+#: BriscoFrame.cpp:293
+msgid "Il programma si chiudera'. Riaprirlo di nuovo per cambiare il linguaggio."
+msgstr "Le programme va s'arrêter. Relancer le manuellement pour changer le langage"
+
+#: BriscoPanel.cpp:84 BriscoPanel.cpp:102
+msgid "Nel mazzo rimangono "
+msgstr "Dans le jeu ça reste "
+
+#: BriscoPanel.cpp:84 BriscoPanel.cpp:102
+msgid " carte."
+msgstr "cartes."
+
+#: BriscoPanel.cpp:113 BriscoPanel.cpp:114
+msgid "Punti di "
+msgstr "Points de "
+
+#: BriscoPanel.cpp:113 BriscoPanel.cpp:114
+msgid ": "
+msgstr ":"
+
+#: BriscoPanel.cpp:116
+msgid "Il seme di briscola e': "
+msgstr "La couleur d' atout: "
+
+#: BriscoPanel.cpp:164
+msgid "Vuoi effettuare la seconda partita?"
+msgstr "Voulez-vous jouer au deuxième jeu?"
+
+#: BriscoPanel.cpp:164
+msgid "Continuare?"
+msgstr "Veux tu continuer"
+
+#: BriscoPanel.cpp:172
+msgid "La partita e' patta."
+msgstr "le jeu donne un push."
+
+#: BriscoPanel.cpp:175
+msgid "vinto "
+msgstr "gagné "
+
+#: BriscoPanel.cpp:177
+msgid "perso"
+msgstr "perdu"
+
+#: BriscoPanel.cpp:178
+msgid "Hai "
+msgstr "Tu as "
+
+#: BriscoPanel.cpp:178
+msgid " per "
+msgstr " pour "
+
+#: BriscoPanel.cpp:178
+msgid " punti."
+msgstr "points"
+
+#: BriscoPanel.cpp:182 BriscoPanel.cpp:190
+msgid "La partita e' finita."
+msgstr "Jeu terminé"
+
+#: BriscoPanel.cpp:182
+msgid "Vuoi effettuare una nuova partita?"
+msgstr "Voulez-vous jouer à un nouveau jeu?"
+
+#: BriscoPanel.cpp:182 BriscoPanel.cpp:190
+msgid "Partita finita"
+msgstr "Jeu terminé"
+
+#: BriscoPanel.cpp:207
+msgid "La partita correntemente in corso verra' interrotta. Continuare?"
+msgstr "La partie actuellement en cours va être arrêtée. Continuer?"
+
+#: BriscoPanel.cpp:207
+msgid "Richiesta conferma"
+msgstr "Fenetre de confirmation"
+
+#: BriscoPanel.cpp:275 carta.cpp:63
+msgid "Il file "
+msgstr "Le fichier "
+
+#: BriscoPanel.cpp:275 carta.cpp:63
+msgid " non esiste."
+msgstr " n'existe pas."
+
+#: BriscoPanel.cpp:283
+msgid " Il programma provera' a ricaricare il mazzo precedente."
+msgstr "Le programme va chercher de récharger le jeu précédent."
+
+#: BriscoPanel.cpp:285
+msgid "Non e' stato possibile caricare il mazzo precedente: uscire dal programma significa non poterlo avviare piu'. Caricare un mazzo completo prima di uscire."
+msgstr "On a pas pus charger le jeu précédent: sortir du programme signifie ne plus le pouvoir démarrer. Charger un jeu entier avant de sortir."
+
+#: CartaAltaFrame.cpp:30
+msgid "Gioco della carta alta"
+msgstr "Le jeu de la carte haute"
+
+#: CartaAltaFrame.cpp:32
+msgid "Scrivere un numero da 1 a 40 che identifica la carta del mazzo da scegliere."
+msgstr "Ecrire un numero de 1 à 40 qui identifie la carte du jeu à choisir."
+
+#: CartaAltaFrame.cpp:43
+msgid "Numero della carta da prendere: "
+msgstr "Numero de la carte a prendre:\\ "
+
+#: CartaAltaFrame.cpp:45
+msgid "OK"
+msgstr "Ok"
+
+#: CartaAltaFrame.cpp:47
+msgid "Annulla"
+msgstr "Annule"
+
+#: CartaAltaFrame.cpp:49
+msgid "Il gioco della carta alta permette di stabilire chi gioca per primo."
+msgstr "Le jeu de la carte haute permet d'établir qui joue pour premier"
+
+#: CartaAltaFrame.cpp:49
+msgid "Il computer ne scegliera' un'altra e chi avra' il valore maggiore comincera'."
+msgstr "L'ordinateur en choisira une autre et qui a la valeur plus grande va commencer"
+
+#: CartaAltaFrame.cpp:78
+msgid "Comincia prima il pc"
+msgstr "L'ordinateur commence"
+
+#: CartaAltaFrame.cpp:80
+msgid "Cominci prima tu"
+msgstr "C'est toi à commencer"
+
+#: CartaAltaFrame.cpp:92
+msgid "Carta tua"
+msgstr "Ta carte"
+
+#: CartaAltaFrame.cpp:92
+msgid "Carta del pc"
+msgstr "Carte du pc"
+
+#: cartaHelperBriscola.h:71
+msgid "bastoni"
+msgstr "batons"
+
+#: cartaHelperBriscola.h:72
+msgid "coppe"
+msgstr "coupes"
+
+#: cartaHelperBriscola.h:73
+msgid "denari"
+msgstr "deniers"
+
+#: cartaHelperBriscola.h:74
+msgid "spade"
+msgstr "epées"
+
+#: OpzioniFrame.cpp:23
+msgid "Opzioni"
+msgstr "Options"
+
+#: OpzioniFrame.cpp:34
+msgid "La carta che designa la briscola puo' dar punti"
+msgstr "La carte qui montre l'atout peut donner des points"
+
+#: OpzioniFrame.cpp:36
+msgid "Ordina le carte che mi capitano"
+msgstr "Range les cartes qui arrivent"
+
+#: OpzioniFrame.cpp:38
+msgid "Avvisa quando il tallone finisce"
+msgstr "Alerte quand le dos termine"
+
+#: OpzioniFrame.cpp:40
+msgid "Fai il gioco della carta piu' alta all'avvio"
+msgstr "Le jeu de la carte plus haute au démarrage"
+
+#: OpzioniFrame.cpp:42
+msgid "Notifica nuove versioni all'avvio"
+msgstr "Controle les nouvelles versions au démarrage"
+
+#: OpzioniFrame.cpp:45
+msgid "Nome utente: "
+msgstr "Nom d'utilisateur: "
+
+#: OpzioniFrame.cpp:46
+msgid "Nome cpu: "
+msgstr "Nom de la CPU: "
+
+#: OpzioniFrame.cpp:47
+msgid "Secondi in cui mostrare le giocate"
+msgstr "Controle les nouvelles versions au démarrage"

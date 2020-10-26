@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wxBriscola 0.3.3\n"
-"POT-Creation-Date: 2020-02-24 15:37+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-26 03:52+0100\n"
 "PO-Revision-Date: 2020-02-24 15:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: Giulio Sorrentino <gsorre84@gmail.com>\n"
@@ -46,13 +47,13 @@ msgstr ""
 "X-Poedit-SearchPath-29: mazzo.cpp\n"
 "X-Poedit-SearchPath-30: OpzioniFrame.cpp\n"
 
-#: BriscoApp.cpp:39
+#: BriscoApp.cpp:40
 msgid ""
 "Impossibile trovare il catalogo del programma. Il programma si avviera' in "
 "italiano."
 msgstr "Unable to find program catalog. The program will start in italian."
 
-#: BriscoApp.cpp:39 BriscoFrame.cpp:299 BriscoPanel.cpp:284
+#: BriscoApp.cpp:40 BriscoFrame.cpp:293 BriscoPanel.cpp:285
 msgid "Attenzione"
 msgstr "Warning"
 
@@ -60,7 +61,7 @@ msgstr "Warning"
 msgid " Il programma verra' chiuso."
 msgstr " The program will be closed."
 
-#: BriscoFrame.cpp:106 BriscoFrame.cpp:288 BriscoPanel.cpp:282
+#: BriscoFrame.cpp:106 BriscoFrame.cpp:282 BriscoPanel.cpp:283
 msgid "Errore"
 msgstr "Error"
 
@@ -164,105 +165,105 @@ msgstr "The trump game with two players"
 msgid "Carica il mazzo corrispondente"
 msgstr "Load the corresponding deck"
 
-#: BriscoFrame.cpp:275
+#: BriscoFrame.cpp:265
 msgid "Carica il file del linguaggio corrispondente"
 msgstr "Load the correspoinding language"
 
-#: BriscoFrame.cpp:288
+#: BriscoFrame.cpp:282
 msgid "Impossibile portare a termine l'operazione"
 msgstr "Unable to complete the operation"
 
-#: BriscoFrame.cpp:299
+#: BriscoFrame.cpp:293
 msgid ""
 "Il programma si chiudera'. Riaprirlo di nuovo per cambiare il linguaggio."
 msgstr ""
 "The program will be closed. Open it again manually for chaning Language."
 
-#: BriscoPanel.cpp:83 BriscoPanel.cpp:101
+#: BriscoPanel.cpp:84 BriscoPanel.cpp:102
 msgid "Nel mazzo rimangono "
 msgstr "In the deck remains "
 
-#: BriscoPanel.cpp:83 BriscoPanel.cpp:101
+#: BriscoPanel.cpp:84 BriscoPanel.cpp:102
 msgid " carte."
 msgstr " cards."
 
-#: BriscoPanel.cpp:112 BriscoPanel.cpp:113
+#: BriscoPanel.cpp:113 BriscoPanel.cpp:114
 msgid "Punti di "
 msgstr "Point of "
 
-#: BriscoPanel.cpp:112 BriscoPanel.cpp:113
+#: BriscoPanel.cpp:113 BriscoPanel.cpp:114
 msgid ": "
 msgstr ": "
 
-#: BriscoPanel.cpp:115
+#: BriscoPanel.cpp:116
 msgid "Il seme di briscola e': "
 msgstr "The trump seed is: "
 
-#: BriscoPanel.cpp:163
+#: BriscoPanel.cpp:164
 msgid "Vuoi effettuare la seconda partita?"
 msgstr "Do you want to play the second game?"
 
-#: BriscoPanel.cpp:163
+#: BriscoPanel.cpp:164
 msgid "Continuare?"
 msgstr "Do you wish to continue?"
 
-#: BriscoPanel.cpp:171
+#: BriscoPanel.cpp:172
 msgid "La partita e' patta."
 msgstr "The game is draw."
 
-#: BriscoPanel.cpp:174
+#: BriscoPanel.cpp:175
 msgid "vinto "
 msgstr "won "
 
-#: BriscoPanel.cpp:176
+#: BriscoPanel.cpp:177
 msgid "perso"
 msgstr "lose"
 
-#: BriscoPanel.cpp:177
+#: BriscoPanel.cpp:178
 msgid "Hai "
 msgstr "You have "
 
-#: BriscoPanel.cpp:177
+#: BriscoPanel.cpp:178
 msgid " per "
 msgstr " for "
 
-#: BriscoPanel.cpp:177
+#: BriscoPanel.cpp:178
 msgid " punti."
 msgstr " points."
 
-#: BriscoPanel.cpp:181 BriscoPanel.cpp:189
+#: BriscoPanel.cpp:182 BriscoPanel.cpp:190
 msgid "La partita e' finita."
 msgstr "The game is over."
 
-#: BriscoPanel.cpp:181
+#: BriscoPanel.cpp:182
 msgid "Vuoi effettuare una nuova partita?"
 msgstr "Do you want to game again?"
 
-#: BriscoPanel.cpp:181 BriscoPanel.cpp:189
+#: BriscoPanel.cpp:182 BriscoPanel.cpp:190
 msgid "Partita finita"
 msgstr "Game over"
 
-#: BriscoPanel.cpp:206
+#: BriscoPanel.cpp:207
 msgid "La partita correntemente in corso verra' interrotta. Continuare?"
 msgstr "The current game will be stopped. Do you wish to continue?"
 
-#: BriscoPanel.cpp:206
+#: BriscoPanel.cpp:207
 msgid "Richiesta conferma"
 msgstr "Confirmation request"
 
-#: BriscoPanel.cpp:274 carta.cpp:62
+#: BriscoPanel.cpp:275 carta.cpp:63
 msgid "Il file "
 msgstr "The file "
 
-#: BriscoPanel.cpp:274 carta.cpp:62
+#: BriscoPanel.cpp:275 carta.cpp:63
 msgid " non esiste."
 msgstr " does not exists."
 
-#: BriscoPanel.cpp:282
+#: BriscoPanel.cpp:283
 msgid " Il programma provera' a ricaricare il mazzo precedente."
 msgstr " The program will try to reload the previous deck."
 
-#: BriscoPanel.cpp:284
+#: BriscoPanel.cpp:285
 msgid ""
 "Non e' stato possibile caricare il mazzo precedente: uscire dal programma "
 "significa non poterlo avviare piu'. Caricare un mazzo completo prima di "
@@ -321,6 +322,22 @@ msgstr "Your card"
 msgid "Carta del pc"
 msgstr "Card of pc"
 
+#: cartaHelperBriscola.h:71
+msgid "bastoni"
+msgstr "clubs"
+
+#: cartaHelperBriscola.h:72
+msgid "coppe"
+msgstr "cups"
+
+#: cartaHelperBriscola.h:73
+msgid "denari"
+msgstr "suits"
+
+#: cartaHelperBriscola.h:74
+msgid "spade"
+msgstr "swords"
+
 #: OpzioniFrame.cpp:23
 msgid "Opzioni"
 msgstr "Options"
@@ -356,22 +373,6 @@ msgstr "CPU Name: "
 #: OpzioniFrame.cpp:47
 msgid "Secondi in cui mostrare le giocate"
 msgstr "Number of seconds in which the game will be shown"
-
-#: cartaHelperBriscola.h:71
-msgid "bastoni"
-msgstr "clubs"
-
-#: cartaHelperBriscola.h:72
-msgid "coppe"
-msgstr "cups"
-
-#: cartaHelperBriscola.h:73
-msgid "denari"
-msgstr "suits"
-
-#: cartaHelperBriscola.h:74
-msgid "spade"
-msgstr "swords"
 
 #~ msgid "Continuare"
 #~ msgstr "Do you wish to continue?"
