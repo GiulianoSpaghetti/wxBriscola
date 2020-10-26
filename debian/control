@@ -14,8 +14,7 @@ Description: Simulatore del gioco della briscola a 2 giocatori.
 Package: wxbriscola-mazzi-hd-bergamasco
 Section: toys
 Architecture: all
-Depends:
- wxbriscola
+Depends: wxbriscola | jbriscola
 Provides: wxbriscola-mazzi-hd-bergamasco
 Replaces: wxbriscola-mazzi-bergamasco
 Description: Mazzo bergamasco per la wxBriscola e la JBriscola
@@ -23,16 +22,14 @@ Description: Mazzo bergamasco per la wxBriscola e la JBriscola
 Package: wxbriscola-mazzi-hd-binario
 Section: toys
 Architecture: all
-Depends:
- wxbriscola
+Depends: wxbriscola | jbriscola
 Provides: wxbriscola-mazzi-hd-binario
 Description: Mazzo binario per la wxBriscola e la JBriscola
 
 Package: wxbriscola-mazzi-hd-bolognese
 Section: toys
 Architecture: all
-Depends:
- wxbriscola
+Depends: wxbriscola | jbriscola
 Provides: wxbriscola-mazzi-hd-bolognese
 Replaces: wxbriscola-mazzi-bolognese
 Description: Mazzo bolognese per la wxBriscola e la JBriscola
@@ -40,8 +37,7 @@ Description: Mazzo bolognese per la wxBriscola e la JBriscola
 Package: wxbriscola-mazzi-hd-bresciano
 Section: toys
 Architecture: all
-Depends:
- wxbriscola
+Depends: wxbriscola | jbriscola
 Provides: wxbriscola-mazzi-hd-bresciano
 Replaces: wxbriscola-mazzi-bresciano
 Description: Mazzo bresciano per la wxBriscola e la JBriscola
@@ -49,8 +45,7 @@ Description: Mazzo bresciano per la wxBriscola e la JBriscola
 Package: wxbriscola-mazzi-hd-genovese
 Section: toys
 Architecture: all
-Depends:
- wxbriscola
+Depends: wxbriscola | jbriscola
 Provides: wxbriscola-mazzi-hd-genovese
 Replaces: wxbriscola-mazzi-genovese
 Description: Mazzo genovese per la wxBriscola e la JBriscola
@@ -58,8 +53,7 @@ Description: Mazzo genovese per la wxBriscola e la JBriscola
 Package: wxbriscola-mazzi-hd-lombardo
 Section: toys
 Architecture: all
-Depends:
- wxbriscola
+Depends: wxbriscola | jbriscola
 Provides: wxbriscola-mazzi-hd-lombardo
 Replaces: wxbriscola-mazzi-lombardo
 Description: Mazzo lombardo per la wxBriscola e la JBriscola
@@ -67,8 +61,7 @@ Description: Mazzo lombardo per la wxBriscola e la JBriscola
 Package: wxbriscola-mazzi-hd-piacentino
 Section: toys
 Architecture: all
-Depends:
- wxbriscola
+Depends: wxbriscola | jbriscola
 Provides: wxbriscola-mazzi-hd-piacentino
 Replaces: wxbriscola-mazzi-piacentino
 Description: Mazzo piacentino per la wxBriscola e la JBriscola
@@ -76,16 +69,14 @@ Description: Mazzo piacentino per la wxBriscola e la JBriscola
 Package: wxbriscola-mazzi-hd-playing-mario
 Section: toys
 Architecture: all
-Depends:
- wxbriscola
+Depends: wxbriscola | jbriscola
 Provides: wxbriscola-mazzi-hd-playing-mario
 Description: Mazzo di Mario Bros per la wxBriscola e la JBriscola
 
 Package: wxbriscola-mazzi-hd-romagnolo
 Section: toys
 Architecture: all
-Depends:
- wxbriscola
+Depends: wxbriscola | jbriscola
 Provides: wxbriscola-mazzi-hd-romagnolo
 Replaces: wxbriscola-mazzi-romagnolo
 Description: Mazzo romagnolo per la wxBriscola e la JBriscola
@@ -93,8 +84,7 @@ Description: Mazzo romagnolo per la wxBriscola e la JBriscola
 Package: wxbriscola-mazzi-hd-sardo
 Section: toys
 Architecture: all
-Depends:
- wxbriscola
+Depends: wxbriscola | jbriscola
 Provides: wxbriscola-mazzi-hd-sardo
 Replaces: wxbriscola-mazzi-sardo
 Description: Mazzo sardo per la wxBriscola e la JBriscola
@@ -102,8 +92,7 @@ Description: Mazzo sardo per la wxBriscola e la JBriscola
 Package: wxbriscola-mazzi-hd-siciliano
 Section: toys
 Architecture: all
-Depends:
- wxbriscola
+Depends: wxbriscola | jbriscola
 Provides: wxbriscola-mazzi-hd-siciliano
 Replaces: wxbriscola-mazzi-siciliano
 Description: Mazzo siciliano per la wxBriscola e la JBriscola
@@ -111,8 +100,7 @@ Description: Mazzo siciliano per la wxBriscola e la JBriscola
 Package: wxbriscola-mazzi-hd-toscano
 Section: toys
 Architecture: all
-Depends:
- wxbriscola
+Depends: wxbriscola | jbriscola
 Provides: wxbriscola-mazzi-hd-toscano
 Replaces: wxbriscola-mazzi-toscano
 Description: Mazzo toscano per la wxBriscola e la JBriscola
@@ -120,8 +108,7 @@ Description: Mazzo toscano per la wxBriscola e la JBriscola
 Package: wxbriscola-mazzi-hd-trentino
 Section: toys
 Architecture: all
-Depends:
- wxbriscola
+Depends: wxbriscola | jbriscola
 Provides: wxbriscola-mazzi-hd-trentino
 Replaces: wxbriscola-mazzi-trentino
 Description: Mazzo trentino per la wxBriscola e la JBriscola
@@ -129,8 +116,7 @@ Description: Mazzo trentino per la wxBriscola e la JBriscola
 Package: wxbriscola-mazzi-hd-trevigiano
 Section: toys
 Architecture: all
-Depends:
- wxbriscola
+Depends: wxbriscola | jbriscola
 Provides: wxbriscola-mazzi-hd-trevigiano
 Replaces: wxbriscola-mazzi-trevigiano
 Description: Mazzo trevigiano per la wxBriscola e la JBriscola
@@ -138,8 +124,7 @@ Description: Mazzo trevigiano per la wxBriscola e la JBriscola
 Package: wxbriscola-mazzi-hd-triestino
 Section: toys
 Architecture: all
-Depends:
- wxbriscola
+Depends: wxbriscola | jbriscola
 Provides: wxbriscola-mazzi-hd-triestino
 Replaces: wxbriscola-mazzi-triestino
 Description: Mazzo triestino per la wxBriscola e la JBriscola
@@ -147,7 +132,6 @@ Description: Mazzo triestino per la wxBriscola e la JBriscola
 Package: wxbriscola-i18n
 Section: toys
 Architecture: all
-Depends:
- wxbriscola, wx3.0-i18n
+Depends: wxbriscola, wx3.0-i18n
 Provides: wxbriscola-i18n
 Description: File di traduzione linguistica per wxbriscola
