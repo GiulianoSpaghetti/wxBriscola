@@ -81,7 +81,7 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
     d1.SetColour(coloreSfondo);
     loc=l;
 	paginaWeb=wxT("http://numerone.altervista.org/");
-	versione=wxT("0.3.3");
+	versione=wxT("0.3.4");
     leggiFont();
 //    pathTraduzioni=path;
 	//client.SetHeader("Content-type", "text/html; charset=utf-8");
@@ -156,6 +156,7 @@ void BriscoFrame::onInfo(wxCommandEvent& WXUNUSED(evt)) {
     wxArrayString traduttori = wxArrayString();
     traduttori.Add("Giulio Sorrentino <gsorre84@gmail.com>");
     traduttori.Add("Alice Victoria");
+    traduttori.Add("Teresa Radice");
     info.SetDescription(_("Il gioco della briscola a due giocatori"));
     info.SetTranslators(traduttori);
 	wxAboutBox(info);
@@ -272,7 +273,7 @@ void BriscoFrame::getMenuTraduzioni(wxMenu *menu) {
     CreaVoceTraduzione(menu, wxLocale::FindLanguageInfo("EN_us"));
     CreaVoceTraduzione(menu, wxLocale::FindLanguageInfo("es"));
     CreaVoceTraduzione(menu, wxLocale::FindLanguageInfo("IT_it"));
-
+    CreaVoceTraduzione(menu, wxLocale::FindLanguageInfo("fr"));
 }
 
 void BriscoFrame::onMenuMazzi(wxCommandEvent& evt) {
@@ -284,7 +285,7 @@ void BriscoFrame::onMenuMazzi(wxCommandEvent& evt) {
         nomeMazzo=m->GetItemLabel();
 		p->caricaImmagini(nomeMazzo);
 		p->getDimensioni(dim.x, dim.y);
-		SetClientSize(dim.x,dim.y);
+		//SetClientSize(dim.x,dim.y);
 	}
 }
 

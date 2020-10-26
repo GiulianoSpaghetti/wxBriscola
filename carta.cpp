@@ -58,7 +58,7 @@ void carta::caricaImmagini(wxString mazzo) {
 	pathCompleta=path+mazzo+wxFileName::GetPathSeparator(); //recuperiamo la path completa delle immagini
 	wxString s;
 	for (size_t i=0; i<carte.size(); i++) {
-		s=pathCompleta+stringHelper::IntToWxStr(i)+wxT(".jpg"); //recuperiamo la path completa della carta
+		s=pathCompleta+stringHelper::IntToWxStr(i)+wxT(".png"); //recuperiamo la path completa della carta
 		if (!wxFileExists(s)) {
             s=_("Il file ")+s+_(" non esiste.");
 			throw invalid_argument(string(s.mb_str()));

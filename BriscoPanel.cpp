@@ -60,8 +60,9 @@ BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHe
 		primo->addCarta(m);
 		secondo->addCarta(m);
 	}
+
 	immagineBriscola=new wxBitmap(*(carta::getImmagine(e->getCartaBriscola()))); //caricamento delle immagini
-	immagineTallone=new wxBitmap(wxImage(carta::getPathCarte()+"retro carte mazzo.jpg"));
+	immagineTallone=new wxBitmap(wxImage(carta::getPathCarte()+"retro carte mazzo.png"));
 	t=new wxTimer(this, ID_TIMER); //inizializzazione del timer
 	if (primo==cpu) //se deve giocare prima la cpu
 		primo->gioca(0);
@@ -268,7 +269,7 @@ bool BriscoPanel::caricaImmagini(wxString mazzo, bool err) {
 		delete immagineBriscola;
 		delete immagineTallone;
 		immagineBriscola=new wxBitmap(*(carta::getImmagine(e->getCartaBriscola()))); //si carica l'immagine della briscola
-		wxString s=carta::getPathCarte()+wxT("retro carte mazzo.jpg");
+		wxString s=carta::getPathCarte()+wxT("retro carte mazzo.png");
 		if (!wxFileExists(s)) {
 			errore=true;
 			s=_("Il file ")+s+_(" non esiste.");

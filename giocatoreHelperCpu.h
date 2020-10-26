@@ -45,7 +45,7 @@ public:
 		}
 		//carica l'immagine da mostrare al posto delle carte
 		void caricaImmagine() {
-			wxString s=carta::getPathCarte()+wxT("retro carte pc")+wxT(".jpg");
+			wxString s=carta::getPathCarte()+wxT("retro carte pc")+wxT(".png");
 			if (img!=NULL)
 				delete img;
 			if (!wxFileExists(s)) {
