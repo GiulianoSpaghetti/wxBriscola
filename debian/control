@@ -11,6 +11,15 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Simulatore del gioco della briscola a 2 giocatori.
  Non è (ancora) previsto il multiplayer
 
+Package: wxbriscola-mazzi-hd-belle-epoque
+Section: toys
+Architecture: all
+Depends: wxbriscola | jbriscola
+Provides: wxbriscola-mazzi-hd-belle-epoque
+Replaces: wxbriscola-mazzi-belle-epoque
+Description: Mazzo belle epoque per la wxBriscola e la JBriscola
+
+
 Package: wxbriscola-mazzi-hd-bergamasco
 Section: toys
 Architecture: all
