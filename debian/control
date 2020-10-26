@@ -82,6 +82,13 @@ Depends: wxbriscola | jbriscola
 Provides: wxbriscola-mazzi-hd-playing-mario
 Description: Mazzo di Mario Bros per la wxBriscola e la JBriscola
 
+Package: wxbriscola-mazzi-hd-poker-pinup
+Section: toys
+Architecture: all
+Depends: wxbriscola | jbriscola
+Provides: wxbriscola-mazzi-hd-poker-pinup
+Description: Mazzo di belle donne mezze ignude per la wxBriscola e la JBriscola
+
 Package: wxbriscola-mazzi-hd-romagnolo
 Section: toys
 Architecture: all
