@@ -105,8 +105,8 @@ void BriscoPanel::onPaint(wxPaintEvent &event) {
 	dc.SetFont(GetFont()); //si setta il font
 	GetTextExtent(s, &len,&y);//si prendono le dimensioni
 	spaziaturaNome=y;
-	p=cpu->paint(dc); //disegno della cpu
-	p1=utente->paint(dc); //disegno dell'utente
+	p=cpu->paint(dc, y); //disegno della cpu
+	p1=utente->paint(dc, y); //disegno dell'utente
 	p.x+=50;
 	p1.x+=50;
 	y=30+dc.GetCharHeight()*4+carta::getAltezzaImmagine()-carta::getLarghezzaImmagine(); //calcolo del punto di disegno
@@ -115,8 +115,13 @@ void BriscoPanel::onPaint(wxPaintEvent &event) {
 	dc.DrawText(s, p.x,30+dc.GetCharHeight()*2);
 	dc.DrawText(_("Il seme di briscola e': ")+carta::getSemeStr(e->getCartaBriscola()), p.x, 30+dc.GetCharHeight()*3);
 	if (m->getNumeroCarte()>0) { //disegno del tallone
-		dc.DrawBitmap(*immagineBriscola, p.x+(len-carta::getLarghezzaImmagine())/2,30+dc.GetCharHeight()*4);
-		dc.DrawBitmap(*immagineTallone, p.x+(len-carta::getAltezzaImmagine())/2, y);
+		if (carta::getAltezzaImmagine()>=carta::getLarghezzaImmagine()) {
+			dc.DrawBitmap(*immagineBriscola, p.x+(len-carta::getLarghezzaImmagine())/2,30+dc.GetCharHeight()*4);
+			dc.DrawBitmap(*immagineTallone, p.x+(len-carta::getAltezzaImmagine())/2, y);
+		} else {
+			dc.DrawBitmap(*immagineBriscola, p.x+(len-carta::getLarghezzaImmagine())/2,30+dc.GetCharHeight()*4+carta::getLarghezzaImmagine()-carta::getAltezzaImmagine());
+			dc.DrawBitmap(*immagineTallone, p.x+(len-carta::getAltezzaImmagine())/2, 30+dc.GetCharHeight()*4);
+		}
 	}
 }
 
