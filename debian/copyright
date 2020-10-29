@@ -1,1 +1,43 @@
-Copyright 202, Giulio Sorrentino.
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: wxbriscola
+Upstream-Contact: Giulio Sorrentino <gsorre84@gmail.com>
+Source: https://github.com/numerunix/wxBriscola
+
+Files: *
+Copyright: 2020 Giulio Sorrentino <gsorre84@gmail.com>
+License: GPL-3+
+
+Files: debian/*
+Copyright: 2020 Giulio Sorrentino <gsorre84@gmail.com>
+License: GPL-3+
+
+Files: Mazzi/*
+License: abandonware
+
+Files: Mazzi/Dr_Francy/*
+Copyright: 2020 Giulio Sorrentino <gsorre84@gmail.com>
+License: GPL-3+
+
+License: GPL-3+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 3 of the License, or
+ (at your option) any later version. 
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License along
+ with this program; if not, write to the Free Software Foundation, Inc.,
+ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 2 can be found in the file
+ '/usr/share/common-licenses/GPL-3'.
+
+License: abandonware
+ Abandonware is a product, typically software, ignored by its owner and manufacturer,
+ and for which no official support is available. Although such software is usually
+ still under copyright, the owner may not be tracking copyright violations. 
