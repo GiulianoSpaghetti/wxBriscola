@@ -91,7 +91,11 @@ void BriscoPanel::getDimensioni(wxCoord &x, wxCoord & y) {
 	temp=carta::getLarghezzaImmagine()*3+110+dimStringa.x;
 	if( x<temp) //si vede dove si puo' disegnare
 		x=temp;
-	temp=30+dimNome.y*4+carta::getAltezzaImmagine()-carta::getLarghezzaImmagine();
+	if (carta::getAltezzaImmagine()>carta::getLarghezzaImmagine())
+		temp=carta::getAltezzaImmagine()-carta::getLarghezzaImmagine();
+	else
+		temp=carta::getLarghezzaImmagine()-carta::getAltezzaImmagine();
+	temp=30+dimNome.y*4+temp;
 	if (y<temp)
 		y=temp;
 }

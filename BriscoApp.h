@@ -1,3 +1,6 @@
+#ifndef HEADER_4535FE1ECA93D1CE
+#define HEADER_4535FE1ECA93D1CE
+
 /**********************************************************************************
  *   Copyright (C) 2020 by Giulio Sorrentino                                      *
  *   gsorre84@gmail.com                                                           *
@@ -36,3 +39,5 @@ DECLARE_APP(BriscoApp)
 IMPLEMENT_APP(BriscoApp)
 
 #endif
+#endif // header guard
+

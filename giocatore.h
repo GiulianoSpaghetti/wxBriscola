@@ -56,7 +56,7 @@ class giocatore {
 		void gioca(giocatore *g1, int i); //gioca una carta col giocatore secondo di mano
 		bool hasCartaGiocata() {return iCartaGiocata!=NESSUNA_CARTA_GIOCATA;} //se il giocatore ha giocato
 		void aggiornaPunteggio(giocatore *g);
-		wxPoint paint(wxPaintDC &dc) {return helper->paint(dc, nome, mano, iCartaGiocata);} //disegna i dati del giocatore sul frame
+		wxPoint paint(wxPaintDC &dc, wxCoord c) {return helper->paint(dc, nome, mano, iCartaGiocata);} //disegna i dati del giocatore sul frame
 		bool stessoSemeCartaGiocata(giocatore *g); //se la carta giocata dal giocatore ha lo stesso seme
 		bool stessoSeme(carta *c); //confronta due carte per sapere se hanno lo stesso seme
 };

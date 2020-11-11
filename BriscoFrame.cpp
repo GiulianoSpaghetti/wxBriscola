@@ -80,8 +80,8 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
     d.SetColour(coloreTesto);
     d1.SetColour(coloreSfondo);
     loc=l;
-	paginaWeb=wxT("http://numerone.altervista.org/");
-	versione=wxT("0.3.4");
+	paginaWeb=wxT("https://github.com/numerunix/wxBriscola/releases");
+	versione=wxT("0.3.6");
     leggiFont();
 //    pathTraduzioni=path;
 	//client.SetHeader("Content-type", "text/html; charset=utf-8");
@@ -152,7 +152,7 @@ void BriscoFrame::onInfo(wxCommandEvent& WXUNUSED(evt)) {
 	info.SetLicense(_("GPL v3 o (a tua discrezione) qualsiasi versione successiva.\nLe immagini delle carte sono di proprieta' della Modiano"));
 	info.SetName("wxBriscola");
 	info.SetVersion(versione);
-	info.SetWebSite("http://numerone.altervista.org");
+	info.SetWebSite(paginaWeb);
     wxArrayString traduttori = wxArrayString();
     traduttori.Add("Giulio Sorrentino <gsorre84@gmail.com>");
     traduttori.Add("Alice Victoria");
@@ -197,7 +197,7 @@ void BriscoFrame::onFont(wxCommandEvent& WXUNUSED(evt)) {
 }
 
 void BriscoFrame::onSitoWeb(wxCommandEvent& WXUNUSED(evt)) {
-    wxLaunchDefaultBrowser("http://numerone.altervista.org");
+    wxLaunchDefaultBrowser(paginaWeb);
 }
 
 /*bool BriscoFrame::Aggiornamenti(wxString &nuovaVersione) throw (std::domain_error) {
@@ -285,7 +285,7 @@ void BriscoFrame::onMenuMazzi(wxCommandEvent& evt) {
         nomeMazzo=m->GetItemLabel();
 		p->caricaImmagini(nomeMazzo);
 		p->getDimensioni(dim.x, dim.y);
-		//SetClientSize(dim.x,dim.y);
+		SetClientSize(dim.x,dim.y);
 	}
 }
 

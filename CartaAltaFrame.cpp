@@ -99,6 +99,7 @@ void CartaAltaFrame::onPaint(wxPaintEvent &event) {
 	if (c!=NULL) {
 		dc.DrawText(msg, 0,y*2);
 		dc.DrawBitmap(wxBitmap(*c->getImmagine()), 0, y*3);
+		x = c->getLarghezzaImmagine();
 	}
 	if (c1!=NULL) {
 		dc.DrawText(msg1, x, y1*2);
