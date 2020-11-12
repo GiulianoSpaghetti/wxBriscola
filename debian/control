@@ -7,199 +7,213 @@ Section: games
 Package: wxbriscola
 Priority: extra  
 Architecture: arm64 amd64 armhf i386
-Depends: ${shlibs:Depends}, ${misc:Depends}  
+Depends: ${shlibs:Depends}, ${misc:Depends},  wxbriscola-mazzi-hd-napoletano |  wxbriscola-mazzi-4k-napoletano  
 Description: Simulatore del gioco della briscola a 2 giocatori.
  Non è (ancora) previsto il multiplayer
 
-Package: wxbriscola-mazzi-hd-belle-epoque
+Package: wxbriscola-mazzi-4k-belle-epoque
 Priority: optional
 Section: games
 Architecture: all
 Depends: wxbriscola | jbriscola
-Provides: wxbriscola-mazzi-hd-belle-epoque
-Replaces: wxbriscola-mazzi-belle-epoque
+Provides: wxbriscola-mazzi-4k-belle-epoque
+Replaces: wxbriscola-mazzi-belle-epoque, wxbriscola-mazzi-hd-belle-epoque
 Description: Mazzo belle epoque per la wxBriscola e la JBriscola
 
 
-Package: wxbriscola-mazzi-hd-bergamasco
+Package: wxbriscola-mazzi-4k-bergamasco
 Priority: optional
 Section: games
 Architecture: all
 Depends: wxbriscola | jbriscola
-Provides: wxbriscola-mazzi-hd-bergamasco
-Replaces: wxbriscola-mazzi-bergamasco
+Provides: wxbriscola-mazzi-4k-bergamasco
+Replaces: wxbriscola-mazzi-bergamasco, wxbriscola-mazzi-hd-bergamasco
 Description: Mazzo bergamasco per la wxBriscola e la JBriscola
  Mazzo bergamasco per la wxBriscola e la JBriscola
  .
 
-Package: wxbriscola-mazzi-hd-binario
+Package: wxbriscola-mazzi-4k-binario
 Priority: optional
 Section: games
 Architecture: all
 Depends: wxbriscola | jbriscola
-Provides: wxbriscola-mazzi-hd-binario
+Provides: wxbriscola-mazzi-4k-binario
+Replaces:  wxbriscola-mazzi-hd-binario
 Description: Mazzo binario per la wxBriscola e la JBriscola
  Mazzo binario per la wxBriscola e la JBriscola
  .
 
-Package: wxbriscola-mazzi-hd-bolognese
+Package: wxbriscola-mazzi-4k-bolognese
 Priority: optional
 Section: games
 Architecture: all
 Depends: wxbriscola | jbriscola
-Provides: wxbriscola-mazzi-hd-bolognese
-Replaces: wxbriscola-mazzi-bolognese
+Provides: wxbriscola-mazzi-4k-bolognese
+Replaces: wxbriscola-mazzi-bolognese, wxbriscola-mazzi-hd-bolognese
 Description: Mazzo bolognese per la wxBriscola e la JBriscola
  Mazzo bolognese per la wxBriscola e la JBriscola
  .
 
-Package: wxbriscola-mazzi-hd-bresciano
+Package: wxbriscola-mazzi-4k-bresciano
 Priority: optional
 Section: games
 Architecture: all
 Depends: wxbriscola | jbriscola
-Provides: wxbriscola-mazzi-hd-bresciano
-Replaces: wxbriscola-mazzi-bresciano
+Provides: wxbriscola-mazzi-4k-bresciano
+Replaces: wxbriscola-mazzi-bresciano, wxbriscola-mazzi-hd-bresciano
 Description: Mazzo bresciano per la wxBriscola e la JBriscola
  Mazzo bresciano per la wxBriscola e la JBriscola
  .
 
-Package: wxbriscola-mazzi-hd-dr-francy
+Package: wxbriscola-mazzi-4k-dr-francy
 Priority: optional
 Section: games
 Architecture: all
 Depends: wxbriscola | jbriscola
-Provides: wxbriscola-mazzi-hd-dr-fancy
+Provides: wxbriscola-mazzi-4k-dr-fancy
+Replaces: wxbriscola-mazzi-hd-dr-francy
 Description: Primo mazzo interamente self made per la wxBriscola e la JBriscola.
- In onore di Francesca Neri 
+ Riprenditi presto Francesca San Severino 
  .
 
-Package: wxbriscola-mazzi-hd-genovese
+Package: wxbriscola-mazzi-4k-genovese
 Priority: optional
 Section: games
 Architecture: all
 Depends: wxbriscola | jbriscola
-Provides: wxbriscola-mazzi-hd-genovese
-Replaces: wxbriscola-mazzi-genovese
+Provides: wxbriscola-mazzi-4k-genovese
+Replaces: wxbriscola-mazzi-genovese, wxbriscola-mazzi-hd-genovese
 Description: Mazzo genovese per la wxBriscola e la JBriscola
  Mazzo genovese per la wxBriscola e la JBriscola
  .
 
-Package: wxbriscola-mazzi-hd-lombardo
+Package: wxbriscola-mazzi-4k-lombardo
 Priority: optional
 Section: games
 Architecture: all
 Depends: wxbriscola | jbriscola
-Provides: wxbriscola-mazzi-hd-lombardo
-Replaces: wxbriscola-mazzi-lombardo
+Provides: wxbriscola-mazzi-4k-lombardo
+Replaces: wxbriscola-mazzi-lombardo, wxbriscola-mazzi-hd-lombardo
 Description: Mazzo lombardo per la wxBriscola e la JBriscola
  Mazzo lombardo per la wxBriscola e la JBriscola
  .
 
-Package: wxbriscola-mazzi-hd-piacentino
+Package: wxbriscola-mazzi-4k-napoletano
 Priority: optional
 Section: games
 Architecture: all
 Depends: wxbriscola | jbriscola
-Provides: wxbriscola-mazzi-hd-piacentino
-Replaces: wxbriscola-mazzi-piacentino
+Provides: wxbriscola-mazzi-4k-napoletano
+Replaces: wxbriscola-mazzi-napoletano,  wxbriscola-mazzi-hd-napoletano
+Description: Mazzo napoletano per la wxBriscola e la JBriscola
+ Mazzo n per la wxBriscola e la JBriscola
+
+Package: wxbriscola-mazzi-4k-piacentino
+Priority: optional
+Section: games
+Architecture: all
+Depends: wxbriscola | jbriscola
+Provides: wxbriscola-mazzi-4k-piacentino
+Replaces: wxbriscola-mazzi-piacentino, wxbriscola-mazzi-hd-piacentino
 Description: Mazzo piacentino per la wxBriscola e la JBriscola
  Mazzo piacentino per la wxBriscola e la JBriscola
  .
 
-Package: wxbriscola-mazzi-hd-playing-mario
+Package: wxbriscola-mazzi-4k-playing-mario
 Priority: optional
 Section: games
 Architecture: all
 Depends: wxbriscola | jbriscola
-Provides: wxbriscola-mazzi-hd-playing-mario
+Provides: wxbriscola-mazzi-4k-playing-mario
+Replaces: wxbriscola-mazzi-hd-playing-mario
 Description: Mazzo di Mario Bros per la wxBriscola e la JBriscola
  Mazzo di Mario Bros per la wxBriscola e la JBriscola
  .
 
-Package: wxbriscola-mazzi-hd-poker-pinup
+Package: wxbriscola-mazzi-4k-poker-pinup
 Priority: optional
 Section: games
 Architecture: all
 Depends: wxbriscola | jbriscola
-Provides: wxbriscola-mazzi-hd-poker-pinup
+Provides: wxbriscola-mazzi-4k-poker-pinup
+Replaces:  wxbriscola-mazzi-hd-poker-pinup
 Description: Mazzo di belle donne mezze ignude per la wxBriscola e la JBriscola
  Mazzo di belle donne mezze ignude per la wxBriscola e la JBriscola
  .
 
-Package: wxbriscola-mazzi-hd-romagnolo
+Package: wxbriscola-mazzi-4k-romagnolo
 Priority: optional
 Section: games
 Architecture: all
 Depends: wxbriscola | jbriscola
-Provides: wxbriscola-mazzi-hd-romagnolo
-Replaces: wxbriscola-mazzi-romagnolo
+Provides: wxbriscola-mazzi-4k-romagnolo
+Replaces: wxbriscola-mazzi-romagnolo, wxbriscola-mazzi-hd-romagnolo
 Description: Mazzo romagnolo per la wxBriscola e la JBriscola
  Mazzo romagnolo per la wxBriscola e la JBriscola
  .
 
-Package: wxbriscola-mazzi-hd-sardo
+Package: wxbriscola-mazzi-4k-sardo
 Priority: optional
 Section: games
 Architecture: all
 Depends: wxbriscola | jbriscola
-Provides: wxbriscola-mazzi-hd-sardo
-Replaces: wxbriscola-mazzi-sardo
+Provides: wxbriscola-mazzi-4k-sardo
+Replaces: wxbriscola-mazzi-sardo, wxbriscola-mazzi-hd-sardo
 Description: Mazzo sardo per la wxBriscola e la JBriscola
  Mazzo sardo per la wxBriscola e la JBriscola
  .
 
-Package: wxbriscola-mazzi-hd-siciliano
+Package: wxbriscola-mazzi-4k-siciliano
 Priority: optional
 Section: games
 Architecture: all
 Depends: wxbriscola | jbriscola
-Provides: wxbriscola-mazzi-hd-siciliano
-Replaces: wxbriscola-mazzi-siciliano
+Provides: wxbriscola-mazzi-4k-siciliano
+Replaces: wxbriscola-mazzi-siciliano, wxbriscola-mazzi-hd-siciliano
 Description: Mazzo siciliano per la wxBriscola e la JBriscola
  Mazzo siciliano per la wxBriscola e la JBriscola
  .
 
-Package: wxbriscola-mazzi-hd-toscano
+Package: wxbriscola-mazzi-4k-toscano
 Priority: optional
 Section: games
 Architecture: all
 Depends: wxbriscola | jbriscola
-Provides: wxbriscola-mazzi-hd-toscano
-Replaces: wxbriscola-mazzi-toscano
+Provides: wxbriscola-mazzi-4k-toscano
+Replaces: wxbriscola-mazzi-toscano, wxbriscola-mazzi-hd-toscano
 Description: Mazzo toscano per la wxBriscola e la JBriscola
  Mazzo toscano per la wxBriscola e la JBriscola
  .
 
-Package: wxbriscola-mazzi-hd-trentino
+Package: wxbriscola-mazzi-4k-trentino
 Priority: optional
 Section: games
 Architecture: all
 Depends: wxbriscola | jbriscola
-Provides: wxbriscola-mazzi-hd-trentino
-Replaces: wxbriscola-mazzi-trentino
+Provides: wxbriscola-mazzi-4k-trentino
+Replaces: wxbriscola-mazzi-trentino, wxbriscola-mazzi-hd-trentino
 Description: Mazzo trentino per la wxBriscola e la JBriscola
  Mazzo trentino per la wxBriscola e la JBriscola
  .
 
-Package: wxbriscola-mazzi-hd-trevigiano
-Priority: optional
-Section: games
-Architecture: all
-Depends: wxbriscola | jbriscola
-Provides: wxbriscola-mazzi-hd-trevigiano
-Replaces: wxbriscola-mazzi-trevigiano
-Description: Mazzo trevigiano per la wxBriscola e la JBriscola
- Mazzo trevigiano per la wxBriscola e la JBriscola
- .
+#Package: wxbriscola-mazzi-4k-trevigiano
+#Priority: optional
+#Section: games
+#Architecture: all
+#Depends: wxbriscola | jbriscola
+#Provides: wxbriscola-mazzi-4k-trevigiano
+#Replaces: wxbriscola-mazzi-trevigiano
+#Description: Mazzo trevigiano per la wxBriscola e la JBriscola
+# Mazzo trevigiano per la wxBriscola e la JBriscola
+# .
 
-Package: wxbriscola-mazzi-hd-triestino
+Package: wxbriscola-mazzi-4k-triestino
 Priority: optional
 Section: games
 Architecture: all
 Depends: wxbriscola | jbriscola
-Provides: wxbriscola-mazzi-hd-triestino
-Replaces: wxbriscola-mazzi-triestino
+Provides: wxbriscola-mazzi-4k-triestino
+Replaces: wxbriscola-mazzi-triestino, wxbriscola-mazzi-hd-triestino
 Description: Mazzo triestino per la wxBriscola e la JBriscola
  Mazzo triestino per la wxBriscola e la JBriscola
  .
