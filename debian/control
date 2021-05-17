@@ -3,9 +3,12 @@ Maintainer: Giulio Sorrentino <gsorre84@gmail.com>
 Build-Depends: libwxgtk3.0-gtk3-dev, meson, ninja-build, debhelper
 Standards-Version: 1.0
 Section: games
+Priority:extra
 
 Package: wxbriscola
-Priority: extra  
+Priority: extra 
+Provides: wxbriscola
+Conflicts: wxenrico 
 Architecture: arm64 amd64 armhf i386
 Depends: ${shlibs:Depends}, ${misc:Depends},  wxbriscola-mazzi-4k-napoletano |  wxbriscola-mazzi-hd-napoletano  , wxbriscola-i18n
 Description: Simulatore del gioco della briscola a 2 giocatori.
@@ -233,8 +236,9 @@ Package: wxbriscola-i18n
 Priority: optional
 Section: games
 Architecture: all
+Conflicts: wxenrico-i18n
 Depends: wxbriscola, wx3.0-i18n
 Provides: wxbriscola-i18n
 Description: File di traduzione linguistica per wxbriscola
  File di traduzione linguistica per wxbriscola
- .R
+ .
