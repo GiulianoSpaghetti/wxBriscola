@@ -24,6 +24,8 @@
 #include "carta.h"
 #include <stdexcept>
 #include <vector>
+
+#include <wx/wxprec.h>
 #include <wx/dcbuffer.h>
 
 /* Identifica una classe per personalizzare i comportamenti della classe giocatore*/

@@ -22,6 +22,7 @@
 #define _ELABORATORE_CARTE_H_
 
 #include <stdexcept>
+#include <wx/wxprec.h>
 
 /* Un semplice helper che ha la funzionalita' di elaborare le carte di gioco */
 

@@ -23,6 +23,9 @@
 
 #include "giocatoreHelper.h"
 
+#include <wx/wxprec.h>
+
+
 class giocatoreHelperUtente : public giocatoreHelper {
 	public:
 	giocatoreHelperUtente() {;}

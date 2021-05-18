@@ -25,6 +25,8 @@
 #include "carta.h"
 
 #include <cstdlib>
+
+#include <wx/wxprec.h>
 #include <wx/image.h>
 #include <wx/bitmap.h>
 #include <wx/filename.h>

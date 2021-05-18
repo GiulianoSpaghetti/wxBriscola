@@ -25,6 +25,9 @@
 
 #include <vector>
 
+#include <wx/wxprec.h>
+
+
 class mazzo {
 	private:
 		vector<size_t> carte; //vettore delle carte

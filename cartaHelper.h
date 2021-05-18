@@ -23,6 +23,7 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <wx/wxprec.h>
 #include <wx/string.h>
 
 /* Questa classe rappresenta una classe che incapsula gli algoritmi di gioco specifici per il gioco scelto.

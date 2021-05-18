@@ -25,7 +25,8 @@
 #include <wx/textctrl.h>
 #include <wx/stattext.h>
 #include <wx/button.h>
-#include <wx/wx.h>
+#include <wx/wxprec.h>
+
 
 #include "mazzo.h"
 #include "elaboratoreCarteBriscola.h"

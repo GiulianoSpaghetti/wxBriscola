@@ -27,6 +27,8 @@
 #include <iostream>
 #include <vector>
 #include <stdexcept>
+
+#include <wx/wxprec.h>
 #include <wx/image.h>
 #include <wx/filefn.h>
 #include <wx/filename.h>

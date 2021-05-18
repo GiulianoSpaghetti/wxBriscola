@@ -25,6 +25,7 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <wx/wxprec.h>
 
 using namespace std;
 

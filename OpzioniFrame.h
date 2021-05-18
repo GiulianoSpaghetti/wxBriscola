@@ -20,6 +20,7 @@
 
 #ifndef _OPZIONIFRAME_H_
 #define _OPZIONIFRAME_H_
+#include <wx/wxprec.h>
 #include <wx/dialog.h>
 #include <wx/sizer.h>
 #include <wx/stattext.h>

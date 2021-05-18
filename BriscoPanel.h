@@ -31,6 +31,7 @@
 #include "CartaAltaFrame.h"
 #include "carta.h"
 
+#include <wx/wxprec.h>
 #include <wx/filefn.h>
 #include <wx/panel.h>
 #include <wx/event.h>

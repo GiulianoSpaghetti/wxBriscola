@@ -26,6 +26,7 @@
 #include "giocatoreHelper.h"
 #include "stringHelper.h"
 
+#include <wx/wxprec.h>
 #include <wx/dcbuffer.h>
 #include <vector>
 
