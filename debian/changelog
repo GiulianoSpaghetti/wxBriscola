@@ -1,5 +1,45 @@
+wxbriscola (0.4.0-franca) stable; urgency=low
+
+  * Aggiunta la possibilità di stabilire se un mazzo è italiano o francese.
+  
+   --Giulio Sorrentino <gsorre84@gmail.com> Thu, 9 Dec 2021
+
+wxbriscola (0.3.6-5-franca) stable; urgency=low
+
+   * Modificati i nomi di default degli attori. Just for fun.
+
+ --Giulio Sorrentino <gsorre84@gmail.com> Wen, 15 May 2021
+
+wxbriscola (0.3.6-4-franca) stable; urgency=low
+
+  * Ritorno a buster (Closes #0005)
+  
+  --Giulio Sorrentino <gsorre84@gmail.com> Sun, 9 May 2021
+
+wxbriscola (0.3.6-3-franca) stable; urgency=low
+
+  * Rimosso Path=~ per compatibilità coi nuovi de (Closes #0004)
+  
+  --Giulio Sorrentino <gsorre84@gmail.com> Sun, 9 May 2021
+  
+wxbriscola (0.3.6-2-francy) stable; urgency=low
+
+  * Risolto il bug di visualizzazione della carta alta. (Closes: #0002)
+  * Risolto il bug di ridimensionamento del frame col mazzo dr francy. (Closes: #0003)
+  * Risolto il bug della ricerca dei mazzi e delle traduzioni su windows (Closes: #0004)
+
+ --  Giulio Sorrentino <gsorre84@gmail.com>  Tue, 29 Oct 2020 22:11:00 +0200
+
+
+wxbriscola (0.3.5) stable; urgency=low
+
+  * Risolto il bug del tallone del mazzo dr francy. (Closes: #0001)
+
+ --  Giulio Sorrentino <gsorre84@gmail.com>  Tue, 29 Oct 2020 22:11:00 +0200
+
+
 wxbriscola (0.3.4) stable; urgency=low
 
-  * Initial release. (Closes: #XXXXXX)
+  * Initial release. (Closes: #00000)
 
  --  Giulio Sorrentino <gsorre84@gmail.com>  Tue, 20 Oct 2020 02:48:38 +0200
