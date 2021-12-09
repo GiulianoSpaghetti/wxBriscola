@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wxbriscola\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-26 09:51+0100\n"
+"POT-Creation-Date: 2021-12-09 14:16+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,13 +17,13 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: BriscoApp.cpp:40
+#: BriscoApp.cpp:44
 msgid ""
 "Impossibile trovare il catalogo del programma. Il programma si avviera' in "
 "italiano."
 msgstr ""
 
-#: BriscoApp.cpp:40 BriscoFrame.cpp:294 BriscoPanel.cpp:285
+#: BriscoApp.cpp:44 BriscoFrame.cpp:294 BriscoPanel.cpp:294
 msgid "Attenzione"
 msgstr ""
 
@@ -31,7 +31,7 @@ msgstr ""
 msgid " Il programma verra' chiuso."
 msgstr ""
 
-#: BriscoFrame.cpp:106 BriscoFrame.cpp:283 BriscoPanel.cpp:283
+#: BriscoFrame.cpp:106 BriscoFrame.cpp:283 BriscoPanel.cpp:292
 msgid "Errore"
 msgstr ""
 
@@ -146,91 +146,91 @@ msgid ""
 "Il programma si chiudera'. Riaprirlo di nuovo per cambiare il linguaggio."
 msgstr ""
 
-#: BriscoPanel.cpp:84 BriscoPanel.cpp:102
+#: BriscoPanel.cpp:84 BriscoPanel.cpp:106
 msgid "Nel mazzo rimangono "
 msgstr ""
 
-#: BriscoPanel.cpp:84 BriscoPanel.cpp:102
+#: BriscoPanel.cpp:84 BriscoPanel.cpp:106
 msgid " carte."
 msgstr ""
 
-#: BriscoPanel.cpp:113 BriscoPanel.cpp:114
+#: BriscoPanel.cpp:117 BriscoPanel.cpp:118
 msgid "Punti di "
 msgstr ""
 
-#: BriscoPanel.cpp:113 BriscoPanel.cpp:114
+#: BriscoPanel.cpp:117 BriscoPanel.cpp:118
 msgid ": "
 msgstr ""
 
-#: BriscoPanel.cpp:116
+#: BriscoPanel.cpp:120
 msgid "Il seme di briscola e': "
 msgstr ""
 
-#: BriscoPanel.cpp:164
+#: BriscoPanel.cpp:173
 msgid "Vuoi effettuare la seconda partita?"
 msgstr ""
 
-#: BriscoPanel.cpp:164
+#: BriscoPanel.cpp:173
 msgid "Continuare?"
 msgstr ""
 
-#: BriscoPanel.cpp:172
+#: BriscoPanel.cpp:181
 msgid "La partita e' patta."
 msgstr ""
 
-#: BriscoPanel.cpp:175
+#: BriscoPanel.cpp:184
 msgid "vinto "
 msgstr ""
 
-#: BriscoPanel.cpp:177
+#: BriscoPanel.cpp:186
 msgid "perso"
 msgstr ""
 
-#: BriscoPanel.cpp:178
+#: BriscoPanel.cpp:187
 msgid "Hai "
 msgstr ""
 
-#: BriscoPanel.cpp:178
+#: BriscoPanel.cpp:187
 msgid " per "
 msgstr ""
 
-#: BriscoPanel.cpp:178
+#: BriscoPanel.cpp:187
 msgid " punti."
 msgstr ""
 
-#: BriscoPanel.cpp:182 BriscoPanel.cpp:190
+#: BriscoPanel.cpp:191 BriscoPanel.cpp:199
 msgid "La partita e' finita."
 msgstr ""
 
-#: BriscoPanel.cpp:182
+#: BriscoPanel.cpp:191
 msgid "Vuoi effettuare una nuova partita?"
 msgstr ""
 
-#: BriscoPanel.cpp:182 BriscoPanel.cpp:190
+#: BriscoPanel.cpp:191 BriscoPanel.cpp:199
 msgid "Partita finita"
 msgstr ""
 
-#: BriscoPanel.cpp:207
+#: BriscoPanel.cpp:216
 msgid "La partita correntemente in corso verra' interrotta. Continuare?"
 msgstr ""
 
-#: BriscoPanel.cpp:207
+#: BriscoPanel.cpp:216
 msgid "Richiesta conferma"
 msgstr ""
 
-#: BriscoPanel.cpp:275 carta.cpp:63
+#: BriscoPanel.cpp:284 carta.cpp:66
 msgid "Il file "
 msgstr ""
 
-#: BriscoPanel.cpp:275 carta.cpp:63
+#: BriscoPanel.cpp:284 carta.cpp:66
 msgid " non esiste."
 msgstr ""
 
-#: BriscoPanel.cpp:283
+#: BriscoPanel.cpp:292
 msgid " Il programma provera' a ricaricare il mazzo precedente."
 msgstr ""
 
-#: BriscoPanel.cpp:285
+#: BriscoPanel.cpp:294
 msgid ""
 "Non e' stato possibile caricare il mazzo precedente: uscire dal programma "
 "significa non poterlo avviare piu'. Caricare un mazzo completo prima di "
@@ -283,20 +283,36 @@ msgstr ""
 msgid "Carta del pc"
 msgstr ""
 
-#: cartaHelperBriscola.h:71
-msgid "bastoni"
+#: cartaHelperBriscola.h:79
+msgid "Bastoni"
 msgstr ""
 
-#: cartaHelperBriscola.h:72
-msgid "coppe"
+#: cartaHelperBriscola.h:80
+msgid "Coppe"
 msgstr ""
 
-#: cartaHelperBriscola.h:73
-msgid "denari"
+#: cartaHelperBriscola.h:81
+msgid "Denari"
 msgstr ""
 
-#: cartaHelperBriscola.h:74
-msgid "spade"
+#: cartaHelperBriscola.h:82
+msgid "Spade"
+msgstr ""
+
+#: cartaHelperBriscola.h:93
+msgid "Fiori"
+msgstr ""
+
+#: cartaHelperBriscola.h:94
+msgid "Quadri"
+msgstr ""
+
+#: cartaHelperBriscola.h:95
+msgid "Cuori"
+msgstr ""
+
+#: cartaHelperBriscola.h:96
+msgid "Picche"
 msgstr ""
 
 #: OpzioniFrame.cpp:23
