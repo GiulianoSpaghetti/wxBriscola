@@ -69,7 +69,7 @@ void carta::caricaImmagini(wxString mazzo) {
 		}
 		carte[i]->setImmagine(s);
         carte[i]->TipoCarta=1001;
-        if (mazzo==wxT("Bergamasco") || mazzo==wxT("Bolognese") || mazzo==wxT("Bresciano")  || mazzo==wxT("Napoletano") || mazzo==wxT("Romagnolo") || mazzo==wxT("Sardo") || mazzo==wxT("Siciliano") || mazzo==wxT("Trientino") || mazzo==wxT("Trevigiano") || mazzo==wxT("Triestino"))
+        if (mazzo==wxT("Bergamasco") || mazzo==wxT("Bolognese") || mazzo==wxT("Bresciano")  || mazzo==wxT("Napoletano") || mazzo==wxT("Romagnolo") || mazzo==wxT("Sardo") || mazzo==wxT("Siciliano") || mazzo==wxT("Trientino") || mazzo==wxT("Trevigiano") || mazzo==wxT("Trentino") || mazzo==wxT("Triestino"))
             carte[i]->TipoCarta=1000;
         carte[i]->semeStr=helper->getSemeStr(carte[i]->getNumero(), carte[i]->getTipo());
     }

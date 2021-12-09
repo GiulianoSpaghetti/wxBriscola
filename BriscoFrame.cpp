@@ -81,7 +81,7 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
     d1.SetColour(coloreSfondo);
     loc=l;
 	paginaWeb=wxT("https://github.com/numerunix/wxBriscola/releases");
-	versione=wxT("0.3.6");
+	versione=wxT("0.4.0");
     leggiFont();
 //    pathTraduzioni=path;
 	//client.SetHeader("Content-type", "text/html; charset=utf-8");
