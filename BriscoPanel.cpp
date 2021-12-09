@@ -20,9 +20,6 @@
 
 #include "BriscoPanel.h"
 
-#include <wx/wxprec.h>
-
-
 BEGIN_EVENT_TABLE(BriscoPanel, wxPanel)
 EVT_PAINT(BriscoPanel::onPaint)
 EVT_KEY_UP(BriscoPanel::onKey)

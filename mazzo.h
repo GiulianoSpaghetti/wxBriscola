@@ -25,11 +25,9 @@
 
 #include <vector>
 
-#include <wx/wxprec.h>
-
-
 class mazzo {
 	private:
+		string nome;
 		vector<size_t> carte; //vettore delle carte
 		void mischia(); //mischia il mazzo
 		elaboratoreCarte *elaboratore; //helper per personalizzare il comportamento

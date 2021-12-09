@@ -26,7 +26,6 @@
 
 #include <sstream>
 #include <wx/string.h>
-#include <wx/wxprec.h>
 
 class stringHelper {
 	public:

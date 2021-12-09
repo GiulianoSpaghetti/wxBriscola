@@ -27,8 +27,6 @@
 #include <iostream>
 #include <vector>
 #include <stdexcept>
-
-#include <wx/wxprec.h>
 #include <wx/image.h>
 #include <wx/filefn.h>
 #include <wx/filename.h>
@@ -39,6 +37,8 @@ using namespace std;
    Si basa su cartahelper al fine di ottenere alcuni algoritmi specifici per il gioco in questione (in questo caso la briscola).
    Dato che le carte sono le stesse per ogni mazzo, questa classe non e' istanziabile dall'esterno e l'unica cosa modificabile e' l'immagine della stessa.
 */
+
+
 
 class carta {
 	private:
@@ -52,6 +52,7 @@ class carta {
 		wxImage *img; //immagine della carta
 		static vector<carta *> carte; //vettore che contiene le carte preistanziate
 		static wxString path, nomeMazzo;  //path delle immagini e nome del mazzo
+		size_t TipoCarta;
 	public:
 		/*
 		 Istanzia un numero ben definito di carte.
@@ -131,6 +132,8 @@ class carta {
 			PARAMETRI:
 				Input: quale - indice della carta di cui si vuole il seme*/
 		static wxString getSemeStr(size_t quale);
+
+		size_t getTipo();
 };
 
 #endif

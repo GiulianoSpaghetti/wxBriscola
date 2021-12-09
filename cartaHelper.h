@@ -23,7 +23,6 @@
 
 #include <iostream>
 #include <stdexcept>
-#include <wx/wxprec.h>
 #include <wx/string.h>
 
 /* Questa classe rappresenta una classe che incapsula gli algoritmi di gioco specifici per il gioco scelto.
@@ -42,7 +41,7 @@ class cartaHelper {
 				Input: carta - e' un intero che rappresenta il numero della carta. Sara' anche l'indice a cui corrispondera' l'elemento carta nel vettore
 						delle carte
 			Restituisce un invalid_argument se il numero risulta non valido.*/
-		virtual size_t getSeme(size_t carta) =0;
+		virtual size_t getSeme(size_t carta) = 0;
 		/* Restituisce valore facciale della carta
 		 PARAMETRI:
 		 Input: carta - e' un intero che rappresenta il numero della carta. Sara' anche l'indice a cui corrispondera' l'elemento carta nel vettore
@@ -60,7 +59,10 @@ class cartaHelper {
 		 Input: carta - e' un intero che rappresenta il numero della carta. Sara' anche l'indice a cui corrispondera' l'elemento carta nel vettore
 		 delle carte
 		 Restituisce un invalid_argument se il numero risulta non valido.*/
-		virtual wxString getSemeStr(size_t carta) =0;
+		virtual wxString getSemeStr(size_t carta, size_t tipo) =0;
+		virtual wxString getSemeStrItaliana(size_t carta) =0;
+		virtual wxString getSemeStrFrancese(size_t carta) =0;
+
 		/* Restituisce il numero corrispondente ad una carta
 		 PARAMETRI:
 		 Input:

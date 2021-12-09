@@ -1,7 +1,6 @@
 #ifndef _DOUBLE_VALIDATOR_H_
 #define _DOUBLE_VALIDATOR_H_
 
-#include <wx/wxprec.h>
 #include <stdexcept>
 #include <wx/validate.h>
 #include <wx/textctrl.h>

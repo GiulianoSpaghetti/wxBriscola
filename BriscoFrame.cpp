@@ -17,7 +17,6 @@
  *   Free Software Foundation, Inc.,                                              *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.                    *
  **********************************************************************************/
-#include <wx/wxprec.h>
 
 #include "BriscoFrame.h"
 
@@ -61,9 +60,9 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
 	if (!config->Read("avvisaFineTallone", &avvisaFineTallone))
         avvisaFineTallone=true;
     if (!config->Read("nomeCpu", &nomeCpu))
-        nomeCpu="Enrico";
+        nomeCpu="Giulio";
     if (!config->Read("nomeUtente", &nomeUtente))
-        nomeUtente="Ileana";
+        nomeUtente="Francesca";
     if (!config->Read("rosso", &r))
         r=254;
     if (!config->Read("verde", &g))

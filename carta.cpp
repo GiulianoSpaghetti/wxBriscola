@@ -19,7 +19,6 @@
  **********************************************************************************/
 
 #include "carta.h"
-
 wxString carta::path;
 wxString carta::nomeMazzo;
 cartaHelper *carta::helper;
@@ -29,7 +28,6 @@ carta::carta(size_t n) {
 	seme=helper->getSeme(n);
 	valore=helper->getValore(n);
 	punteggio=helper->getPunteggio(n);
-	semeStr=helper->getSemeStr(n);
 	img=NULL; //l'immagine andra' caricata appositamente
 }
 
@@ -54,16 +52,13 @@ carta * const carta::getCarta(size_t quale) {
 void carta::caricaImmagini(wxString mazzo) {
 	wxString pathCompleta;
 #ifdef _WIN32
-	pathCompleta = wxT("C:\\Program Files (x86)\\wxBriscola");
-	if (!wxDirExists(pathCompleta))
-		pathCompleta = wxT("C:\\Program Files\\wxBriscola");
+	pathCompleta = wxT("C:\\Program Files\\wxBriscola");
 #else
 	pathCompleta = wxT("/usr/share/wxBriscola");
 #endif //_WIN32
 	path=pathCompleta+wxFileName::GetPathSeparator()+wxT("Mazzi")+wxFileName::GetPathSeparator(); //recuperiamo la path completa della cartella mazzi
 	nomeMazzo=mazzo;
 	pathCompleta=path+mazzo+wxFileName::GetPathSeparator(); //recuperiamo la path completa delle immagini
-
 	wxString s;
 	for (size_t i=0; i<carte.size(); i++) {
 		s=pathCompleta+stringHelper::IntToWxStr(i)+wxT(".png"); //recuperiamo la path completa della carta
@@ -73,7 +68,11 @@ void carta::caricaImmagini(wxString mazzo) {
 			return;
 		}
 		carte[i]->setImmagine(s);
-	}
+        carte[i]->TipoCarta=1001;
+        if (mazzo==wxT("Bergamasco") || mazzo==wxT("Bolognese") || mazzo==wxT("Bresciano")  || mazzo==wxT("Napoletano") || mazzo==wxT("Romagnolo") || mazzo==wxT("Sardo") || mazzo==wxT("Siciliano") || mazzo==wxT("Trientino") || mazzo==wxT("Trevigiano") || mazzo==wxT("Triestino"))
+            carte[i]->TipoCarta=1000;
+        carte[i]->semeStr=helper->getSemeStr(carte[i]->getNumero(), carte[i]->getTipo());
+    }
 }
 
 
@@ -91,6 +90,11 @@ const wxImage* carta::getImmagine(size_t quale) {
 		throw overflow_error("Chiamata a carte::getImmagine con quale="+stringHelper::IntToStr(quale));
 	return carte[quale]->getImmagine();
 }
+
+size_t carta::getTipo() {
+return TipoCarta;
+}
+
 
 wxString carta::getSemeStr(size_t quale) {
 	if (quale>=carte.size())

@@ -22,6 +22,7 @@
 #define _CARTA_HELPER_BRISCOLA_H_
 
 #include "cartaHelper.h"
+#include "carta.h"
 
 /* Implementazione di cartaHelper specifica per il gioco della briscola a due giocatori
 	Per i valori numerali:
@@ -63,24 +64,46 @@ class cartaHelperBriscola : public cartaHelper {
 		}
 		return valore;
 	}
-	virtual wxString getSemeStr(size_t carta) {
+	virtual wxString getSemeStr(size_t carta, size_t tipo) {
+		if (tipo==1000)
+			return getSemeStrItaliana(carta);
+		return getSemeStrFrancese(carta);
+	}
+
+
+	virtual wxString getSemeStrItaliana(size_t carta) {
 		if (carta>39)
 			throw invalid_argument("Chiamato cartaHelperBriscola::getSeme() con carta="+stringHelper::IntToStr(carta));
 		wxString s;
 		switch (carta/10) { //recuperiamo il seme
-			case 0: s=_("bastoni"); break;
-			case 1: s=_("coppe"); break;
-			case 2: s=_("denari"); break;
-			case 3: s=_("spade"); break;
+			case 0: s=_("Bastoni"); break;
+			case 1: s=_("Coppe"); break;
+			case 2: s=_("Denari"); break;
+			case 3: s=_("Spade"); break;
 		}
 		return s;
 	}
 
+
+	 virtual wxString getSemeStrFrancese(size_t carta) {
+		if (carta>39)
+			throw invalid_argument("Chiamato cartaHelperBriscola::getSeme() con carta="+stringHelper::IntToStr(carta));
+		wxString s;
+		switch (carta/10) { //recuperiamo il seme
+			case 0: s=_("Fiori"); break;
+			case 1: s=_("Quadri"); break;
+			case 2: s=_("Cuori"); break;
+			case 3: s=_("Picche"); break;
+		}
+		return s;
+
+    }
 	virtual size_t getNumero(size_t seme, size_t valore) {
 		if (seme>4 || valore>9)
 			throw logic_error("Chiamato cartaHelperBriscola::getNumero con seme="+stringHelper::IntToStr(seme)+" e valore "+stringHelper::IntToStr(valore));
 		return seme*10+valore;
 	}
+
 
 	virtual RISULTATI_COMPARAZIONE compara(size_t carta, size_t carta1) {
 		size_t punteggio=getPunteggio(carta), //punteggio della prima carta
