@@ -148,7 +148,7 @@ void BriscoFrame::onEsci(wxCommandEvent& WXUNUSED(evt)) {
 void BriscoFrame::onInfo(wxCommandEvent& WXUNUSED(evt)) {
 	wxAboutDialogInfo info;
 	info.AddDeveloper("Giulio Sorrentino <gsorre84@gmail.com>");
-	info.SetCopyright("(c) 2020 Giulio Sorrentino");
+	info.SetCopyright("(c) 2022 Giulio Sorrentino");
 	info.SetLicense(_("GPL v3 o (a tua discrezione) qualsiasi versione successiva.\nLe immagini delle carte sono di proprieta' della Modiano"));
 	info.SetName("wxBriscola");
 	info.SetVersion(versione);
