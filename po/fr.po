@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: wxbriscola\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-09 14:16+0100\n"
-"PO-Revision-Date: 2021-12-09 14:43+0100\n"
+"PO-Revision-Date: 2022-05-24 22:20+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -161,7 +161,7 @@ msgstr "Dans le jeu ça reste "
 
 #: BriscoPanel.cpp:84 BriscoPanel.cpp:106
 msgid " carte."
-msgstr "cartes."
+msgstr " cartes."
 
 #: BriscoPanel.cpp:117 BriscoPanel.cpp:118
 msgid "Punti di "
@@ -169,11 +169,11 @@ msgstr "Points de "
 
 #: BriscoPanel.cpp:117 BriscoPanel.cpp:118
 msgid ": "
-msgstr ":"
+msgstr ": "
 
 #: BriscoPanel.cpp:120
 msgid "Il seme di briscola e': "
-msgstr "La couleur d' atout: "
+msgstr "La couleur d'atout: "
 
 #: BriscoPanel.cpp:173
 msgid "Vuoi effettuare la seconda partita?"
@@ -259,7 +259,7 @@ msgstr "Ecrire un numero de 1 à 40 qui identifie la carte du jeu à choisir."
 
 #: CartaAltaFrame.cpp:43
 msgid "Numero della carta da prendere: "
-msgstr "Numero de la carte a prendre:\\ "
+msgstr "Numero de la carte a prendre:"
 
 #: CartaAltaFrame.cpp:45
 msgid "OK"
@@ -354,11 +354,11 @@ msgstr "Controle les nouvelles versions au démarrage"
 
 #: OpzioniFrame.cpp:45
 msgid "Nome utente: "
-msgstr "Nom d'utilisateur: "
+msgstr "Nom d'utilisateur:  "
 
 #: OpzioniFrame.cpp:46
 msgid "Nome cpu: "
-msgstr "Nom de la CPU: "
+msgstr "Nom de la CPU:  "
 
 #: OpzioniFrame.cpp:47
 msgid "Secondi in cui mostrare le giocate"
