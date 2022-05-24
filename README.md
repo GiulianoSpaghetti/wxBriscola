@@ -20,6 +20,38 @@ Il programma le vedrà in automatico e aggiornerà il menù.
 
 Sentitevi liberi di contribuire con localizzazioni e mazzi regionali.>
 
+# Set di mazzi arbitrario
+Sono necessari 4 semi, ognuno di 10 carte.
+- Bastoni è rappresentato con le immagini jpeg coi numeri da 0 a 9 (0 è 1 di bastoni, 9 è 10 di bastoni, in sequenza)
+
+- Coppe è rappresentato con le immagini jpeg coi numeri da 10 a 19
+
+- Denari è rappresentato con le immagini jpeg da 20 a 29
+
+- Spade è rappresentato con le immagini jpeg da 30 a 39
+
+Sono presenti, in oltre:
+- il retro di una singola carta che rappresenta le carte del computer di nome "retro carte pc.jpg"
+
+- il retro della carta del pc girata di 90 gradi chiamata "retro carte mazzo.jpg" che rappresenta il tallone
+
+Queste 42 immagini vanno posizionate in una sottocartella della cartella mazzi presente nella directory di lavoro.
+Il programma vedrà la nuova cartella e la aggiungerà automaticamente al menù mazzi.
+
+# Localizzazione
+Per localizzare il programma è necessario usare il programma https://poedit.net/download
+Una volta installato, scaricare uno qualsiasi dei files .po presenti nella cartella "po" nella rott del repository.
+Per prima cosa bisogna rinominare il file usando la dicitura a due caratteri (se prendete il file italiano e volete tradurlo in tedesco, bisogna prendere il file it.po e rinominarlo in de.po), a questo punto aprirlo ed andare in catalogo > proprietà e modificare la proprietà lingua in de.
+A questo punto tradurre iogni singola riga nella colonna Traduzione.
+Una volta finito bisogna andare in file > compila e compilare il file in mo.
+A questo punto bisogna prendere il relativo mo di traduzioni di wxwidgets e metterlo nella stessa cartella del vostro file.
+
+Potete mandarmi in po di traduzione quando volete, basta fare il commit su questa piattaforma, sarò ben felice di compilarlo e inserirlo nel programma dandovi il credit.
+
+![screen-2022-05-24-18-56-09](https://user-images.githubusercontent.com/49764967/170091585-c946486a-f964-48a3-a4e1-4ebbf012c75b.png)
+![screen-2022-05-24-18-55-32](https://user-images.githubusercontent.com/49764967/170091587-6895150e-815f-45c3-a99a-d7924880a406.png)
+
+
 # Problemi di localizzazione
 Ho provveduto a localizzare la wxbriscola in italiano, spagnolo e inglese.
 Su windows non tutto il programma esce localizzato. I files di localizzazione delle librerie wxwidgets sono inclusi e le chiamate alle librerie di sistema si basano sulla lingua di sistema, per cui se si prova a mettere la lingua spagnola, la schermata del font non sarà tradotta in spagnolo e per averla bisogna cambiare la lingua del sistema operativo.
