@@ -1,3 +1,9 @@
+wxbriscola (0.4.1-franca) stable; urgency=low
+
+  * Rettifica dell'autore francese.
+  
+   --Giulio Sorrentino <gsorre84@gmail.com> Tue, 24 May 2022 17:16:33 +0200
+   
 wxbriscola (0.4.0-franca) stable; urgency=low
 
   * Aggiunta la possibilità di stabilire se un mazzo è italiano o francese.

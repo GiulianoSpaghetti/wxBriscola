@@ -76,9 +76,20 @@ Depends: wxbriscola | jbriscola
 Provides: wxbriscola-mazzi-dr-fancy
 Conflicts: wxbriscola-mazzi-4k-dr-francy
 Description: Primo mazzo interamente self made per la wxBriscola e la JBriscola.
- Riprenditi presto Francesca San Severino 
+ Riprenditi presto Francesca Milano
  .
 
+Package: wxbriscola-mazzi-hd-fable3
+Priority: optional
+Section: games
+Architecture: all
+Depends: wxbriscola | jbriscola
+Provides: wxbriscola-mazzi-fable3
+Conflicts: wxbriscola-mazzi-4k-fable3
+Description: Mazzo di Fable3 per la wxBriscola e la JBriscola.
+ Mazzo di Fable3 per la wxBriscola e la JBriscola
+ .
+ 
 Package: wxbriscola-mazzi-hd-gatti
 Priority: optional
 Section: games
@@ -186,6 +197,17 @@ Provides: wxbriscola-mazzi-siciliano
 Conflicts: wxbriscola-mazzi-siciliano, wxbriscola-mazzi-4k-siciliano
 Description: Mazzo siciliano per la wxBriscola e la JBriscola
  Mazzo siciliano per la wxBriscola e la JBriscola
+ .
+ 
+Package: wxbriscola-mazzi-hd-tomb-raider-anniversary
+Priority: optional
+Section: games
+Architecture: all
+Depends: wxbriscola | jbriscola
+Provides: wxbriscola-mazzi-romb-raider
+Conflicts: wxbriscola-mazzi-4k-tomb-raider-annverisary
+Description: Mazzo della celebrazione dei 20 anni di tomb raider per la wxBriscola e la JBriscola
+ Mazzo per la celebrazione dei 20 anni di tomb raider per la wxBriscola e la JBriscola
  .
 
 Package: wxbriscola-mazzi-hd-toscano
