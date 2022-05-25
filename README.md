@@ -62,6 +62,11 @@ Si ringrazia Francesca Milano per la contribuzione alla localizzazione Francese
 
 Richiedo esplicitamente la localizzazione in tedesco e portoghese.
 
+# Sviluppi futuri
+E' opportuno effettuare la derivazione delle classi helper per sfruttare i socket al fine di ottenere un multiplayer alla tetrinet. Questo non può esssere fatto con le wxSocket, perché le wxSocket non sono attualmente in grado di porre limiti alle connessioni, mentre il gioco è a due e quindi è opportuno efffetuare lo sviluppo nativo sia in ambito windows che in ambito GNU/Linux.
+Se volete farlo, siete liberi di poterlo sviluppare e di mandarmi i sorgenti come pull request, sarà mia premura mettervi tra gli sviluppatori del programma.
+Se, invece, volete produrre traduzioni di qualsiasi genere, siete comunque liberi di mandarmele, sempre facendo la pull request, in questo modo verrete inseriti tra i traduttori del programma
+
 # Problemi di localizzazione
 Ho provveduto a localizzare la wxbriscola in italiano, spagnolo e inglese.
 Su windows non tutto il programma esce localizzato. I files di localizzazione delle librerie wxwidgets sono inclusi e le chiamate alle librerie di sistema si basano sulla lingua di sistema, per cui se si prova a mettere la lingua spagnola, la schermata del font non sarà tradotta in spagnolo e per averla bisogna cambiare la lingua del sistema operativo.
