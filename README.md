@@ -46,15 +46,20 @@ A questo punto tradurre iogni singola riga nella colonna Traduzione.
 Una volta finito bisogna andare in file > compila e compilare il file in mo.
 A questo punto bisogna prendere il relativo mo di traduzioni di wxwidgets e metterlo nella stessa cartella del vostro file.
 
+![screen-2022-05-24-18-56-09](https://user-images.githubusercontent.com/49764967/170091585-c946486a-f964-48a3-a4e1-4ebbf012c75b.png)
+![screen-2022-05-24-18-55-32](https://user-images.githubusercontent.com/49764967/170091587-6895150e-815f-45c3-a99a-d7924880a406.png)
+
+In alternativa è possibile aprire il file mo con un file di testo, modificare solo il valore delle varie stringhe msgstr e poi mandarmelo facendo il commit affinché io possa cambiare la localizzazione del file con poedit, compilarlo e metterlo ne programma ufficiale.
+
+![Screenshot_20220525-053827](https://user-images.githubusercontent.com/49764967/170174993-e10401e0-cfc3-4bd1-a1f7-c68e442738b5.png)
+![Screenshot_20220525-051036](https://user-images.githubusercontent.com/49764967/170175002-016bf07f-d0ae-490a-8267-cb7b391957f0.png)
+
+
 Potete mandarmi in po di traduzione quando volete, basta fare il commit su questa piattaforma, sarò ben felice di compilarlo e inserirlo nel programma dandovi il credit.
 
 Si ringrazia una certa Alice Victoria conosciuta dalle mie parti per la contribuzione della localizzazione spagnola.
 Si ringrazia Francesca Milano per la contribuzione alla localizzazione Francese
 
-![screen-2022-05-24-18-56-09](https://user-images.githubusercontent.com/49764967/170091585-c946486a-f964-48a3-a4e1-4ebbf012c75b.png)
-![screen-2022-05-24-18-55-32](https://user-images.githubusercontent.com/49764967/170091587-6895150e-815f-45c3-a99a-d7924880a406.png)
-
-In alternativa è possibile aprire il file mo con un file di testo, modificare solo il valore delle varie stringhe msgstr e poi mandarmelo facendo il commit affinché io possa cambiare la localizzazione del file con poedit, compilarlo e metterlo ne programma ufficiale.
 Richiedo esplicitamente la localizzazione in tedesco e portoghese.
 
 # Problemi di localizzazione
