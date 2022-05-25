@@ -55,7 +55,7 @@ Si ringrazia Francesca Milano per la contribuzione alla localizzazione Francese
 ![screen-2022-05-24-18-55-32](https://user-images.githubusercontent.com/49764967/170091587-6895150e-815f-45c3-a99a-d7924880a406.png)
 
 In alternativa è possibile aprire il file mo con un file di testo, modificare solo il valore delle varie stringhe msgstr e poi mandarmelo facendo il commit affinché io possa cambiare la localizzazione del file con poedit, compilarlo e metterlo ne programma ufficiale.
-Richiedo esplicitamente la traduzione in tedesco e portoghese.
+Richiedo esplicitamente la localizzazione in tedesco e portoghese.
 
 # Problemi di localizzazione
 Ho provveduto a localizzare la wxbriscola in italiano, spagnolo e inglese.
