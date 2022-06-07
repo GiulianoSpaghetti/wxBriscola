@@ -81,7 +81,7 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
     d1.SetColour(coloreSfondo);
     loc=l;
 	paginaWeb=wxT("https://github.com/numerunix/wxBriscola/releases");
-	versione=wxT("0.4.0");
+	versione=wxT("0.4.1");
     leggiFont();
 //    pathTraduzioni=path;
 	//client.SetHeader("Content-type", "text/html; charset=utf-8");
@@ -156,7 +156,7 @@ void BriscoFrame::onInfo(wxCommandEvent& WXUNUSED(evt)) {
     wxArrayString traduttori = wxArrayString();
     traduttori.Add("Giulio Sorrentino <gsorre84@gmail.com>");
     traduttori.Add("Alice Victoria");
-    traduttori.Add("Teresa Radice");
+    traduttori.Add("Francesca Milano");
     info.SetDescription(_("Il gioco della briscola a due giocatori"));
     info.SetTranslators(traduttori);
 	wxAboutBox(info);
