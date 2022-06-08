@@ -18,7 +18,20 @@ Per le carte, è possibile usare 42 immagini arbitrarie, oltre a quelle preimpos
 
 Il programma le vedrà in automatico e aggiornerà il menù.
 
-Sentitevi liberi di contribuire con localizzazioni e mazzi regionali.>
+Sentitevi liberi di contribuire con localizzazioni e mazzi regionali.
+
+# Installazione
+
+Per installare i package Deb disponibili nella sezione release, bisogna usare dpkg passando come parametro i e i nomi dei files da installare.
+Verosimilmente
+cd Scaricati
+sudo dpkg -i *.Deb
+
+A questo punto bisogna scaricare le librerie wxwidgets necessarie per l'esecuzione
+sudo apt -f install
+
+I package sono universali e vanno bene sia per Ubuntu che per debian.
+Sentitevi liberi di incorporarli nei vostri server apt, a patto di mantenere integro il binario, come prevede la licenza GPL.
 
 # Set di mazzi arbitrario
 Sono necessari 4 semi, ognuno di 10 carte.
