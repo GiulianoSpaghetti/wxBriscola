@@ -24,7 +24,9 @@ Sentitevi liberi di contribuire con localizzazioni e mazzi regionali.
 
 Per installare i package Deb disponibili nella sezione release, bisogna usare dpkg passando come parametro i e i nomi dei files da installare.
 Verosimilmente
+
 cd Scaricati
+
 sudo dpkg -i *.Deb
 
 A questo punto bisogna scaricare le librerie wxwidgets necessarie per l'esecuzione
