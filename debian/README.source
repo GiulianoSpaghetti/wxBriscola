@@ -1,5 +1,3 @@
-wxbriscola for Debian
-
 wxBriscola
 Il gioco della briscola a due giocatori scritto in c++ e wxwidgets. Non ha il multiplayer e supporta il caricamento di mazzi regionali ed arbitrari e il caricamento delle localizzazioni.
 
