@@ -25,12 +25,13 @@ Sentitevi liberi di contribuire con localizzazioni e mazzi regionali.
 Per installare i package Deb disponibili nella sezione release, bisogna usare dpkg passando come parametro i e i nomi dei files da installare.
 Verosimilmente
 
-cd Scaricati
+# cd Scaricati
 
-sudo dpkg -i *.Deb
+# sudo dpkg -i *.deb
 
 A questo punto bisogna scaricare le librerie wxwidgets necessarie per l'esecuzione
-sudo apt -f install
+
+# sudo apt -f install
 
 I package sono universali e vanno bene sia per Ubuntu che per debian.
 Sentitevi liberi di incorporarli nei vostri server apt, a patto di mantenere integro il binario, come prevede la licenza GPL.
