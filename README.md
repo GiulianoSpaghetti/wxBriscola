@@ -93,3 +93,9 @@ Potrebbe comparire il messaggio d'errore all'inizio "Locale xx_xx cannot be set)
 
 In alcune occasioni, potrebbe apparire il programma in lingua italiana, solo che al posto di avere gli accenti ha gli apostrofi, questo accade quando non trova la libreria di localizzazione richiesta e quindi mostra le stringhe senza nessuna traduzione.
 Per ovviare al problema e vedere quindi correttamente gli accenti italiani, bisogna assicurarsi che il file wxBirscola.mo si trovi nella cartella LC_LOCALES sotto locale nella directory di esecuzione del programma.
+
+# Come scaricarla
+
+[![wxbriscola](https://snapcraft.io/wxbriscola/badge.svg)](https://snapcraft.io/wxbriscola)
+
+
