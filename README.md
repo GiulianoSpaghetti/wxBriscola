@@ -27,7 +27,7 @@ sudo add-apt-repository ppa:numerunix/wxbriscola
 sudo apt install wxbriscola
 
 # Debian
-sudo add-apt-repositort "https://ppa.launchpadcontent.net/numerunix/wxbriscola/ubuntu/dists/jammy/InRelease"
+sudo add-apt-repositort "https://ppa.launchpadcontent.net/numerunix/wxbriscola/ubuntu/dists/jammy"
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E64A0041
 
