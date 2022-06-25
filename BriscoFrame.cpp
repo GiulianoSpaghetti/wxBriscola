@@ -60,7 +60,7 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
 	if (!config->Read("avvisaFineTallone", &avvisaFineTallone))
         avvisaFineTallone=true;
     if (!config->Read("nomeCpu", &nomeCpu))
-        nomeCpu=">Cpu";
+        nomeCpu="Cpu";
     if (!config->Read("nomeUtente", &nomeUtente))
         nomeUtente="Utente";
     if (!config->Read("rosso", &r))
