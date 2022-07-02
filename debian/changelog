@@ -1,3 +1,10 @@
+wxbriscola (0.4.2-franca) stable; urgency=low
+
+  * Corretto il bug che mostra la > prima del nome della cpu in caso di reinizializzazioni delle impostazioni.
+  * Corretta la traduzione francese.
+  * Tolta la path nel file desktop
+   --Giulio Sorrentino <gsorre84@gmail.com> Tue, 2 Jul 2022 16:00:00 +0200
+
 wxbriscola (0.4.1-franca) stable; urgency=low
 
   * Rettifica dell'autore francese.
