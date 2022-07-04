@@ -110,4 +110,7 @@ Per ovviare al problema e vedere quindi correttamente gli accenti italiani, biso
 
 [![wxbriscola](https://snapcraft.io/wxbriscola/badge.svg)](https://snapcraft.io/wxbriscola)
 
+# Donazioni
+
+Se vuoi, puoi donare qualcosa, secondo la tua propria opinione, con paypal, per il prezioso lavoro svolto.
 
