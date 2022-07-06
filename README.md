@@ -27,9 +27,9 @@ sudo add-apt-repository ppa:numerunix/wxbriscola
 sudo apt install wxbriscola
 
 # Debian
-sudo add-apt-repository "https://ppa.launchpadcontent.net/numerunix/wxbriscola/ubuntu/dists/jammy"
+sudo add-apt-repository "http://MIO_INDIRIZZO_IP/repos/apt/debian bullseye main"
 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E64A0041
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 9D4AE50D
 
 sudo apt install wxbriscola
 
