@@ -21,11 +21,6 @@ Il programma le vedrà in automatico e aggiornerà il menù.
 Sentitevi liberi di contribuire con localizzazioni e mazzi regionali.
 
 # Installazione
-# Ubuntu
-sudo add-apt-repository ppa:numerunix/wxbriscola
-
-sudo apt install wxbriscola
-
 # Debian
 sudo add-apt-repository "http://MIO_INDIRIZZO_IP/repos/apt/debian bullseye main"
 
