@@ -109,3 +109,5 @@ Per ovviare al problema e vedere quindi correttamente gli accenti italiani, biso
 
 [![paypal](https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=H4ZHTFRCETWXG)
 
+oppure puoi fare una donazione tra,ite carta hype.
+
