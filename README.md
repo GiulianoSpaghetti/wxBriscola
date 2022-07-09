@@ -22,7 +22,7 @@ Sentitevi liberi di contribuire con localizzazioni e mazzi regionali.
 
 # Installazione
 # Debian
-sudo add-apt-repository "http://MIO_INDIRIZZO_IP/repos/apt/debian bullseye main"
+sudo add-apt-repository "http://numeronesoft.ddns.net/repos/apt/debian bullseye main"
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 9D4AE50D
 
