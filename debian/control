@@ -1,6 +1,6 @@
 Source: wxbriscola
 Maintainer: Giulio Sorrentino <gsorre84@gmail.com>
-Build-Depends: libwxgtk3.0-gtk3-dev, ninja-build, debhelper
+Build-Depends: libwxgtk3.0-gtk3-dev, ninja-build, meson, debhelper
 Standards-Version: 1.0
 Section: games
 Priority:extra
