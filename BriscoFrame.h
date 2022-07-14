@@ -37,6 +37,9 @@
 #include <wx/intl.h>
 #include <wx/colordlg.h>
 #include <wx/colourdata.h>
+#ifndef _WIN32
+#include "wxbriscola.xpm"
+#endif
 
 class BriscoFrame: public wxFrame {
 	private:

@@ -156,10 +156,13 @@ void BriscoFrame::onInfo(wxCommandEvent& WXUNUSED(evt)) {
     wxArrayString traduttori = wxArrayString();
     traduttori.Add("Giulio Sorrentino <gsorre84@gmail.com>");
     traduttori.Add("Alice Victoria");
-    traduttori.Add("Francesca Milano");
+    traduttori.Add("Francesca Milano <francescamilano@gmail.com>");
     info.SetDescription(_("Il gioco della briscola a due giocatori"));
     info.SetTranslators(traduttori);
-	wxAboutBox(info);
+    #ifndef _WIN32
+    	info.SetIcon(wxIcon(wxBriscola_xpm));
+    #endif
+    wxAboutBox(info);
 }
 
 void BriscoFrame::onNuovaPartita(wxCommandEvent& WXUNUSED(evt)) {
