@@ -15,14 +15,14 @@ FILETYPE VFT_APP
 		BLOCK "040904E4"
 		{
 			VALUE "CompanyName", "numeronesoft"
-			VALUE "FileVersion", "0.3.3"
-			VALUE "FileDescription", "Briscola!"
+			VALUE "FileVersion", "0.4.2"
+			VALUE "FileDescription", "La briscola per pc a due giocatori, senza multiplayer"
 			VALUE "InternalName", "wxBriscola"
 			VALUE "LegalCopyright", "Giulio Sorrentino"
 			VALUE "LegalTrademarks", "Giulio Sorrentino"
 			VALUE "OriginalFilename", "wxBriscola"
 			VALUE "ProductName", "wxBriscola"
-			VALUE "ProductVersion", "0.3.3"
+			VALUE "ProductVersion", "0.4.2"
 			VALUE "Language", "Italiano"
 		}
 	}
