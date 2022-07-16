@@ -157,7 +157,6 @@ void BriscoFrame::onInfo(wxCommandEvent& WXUNUSED(evt)) {
     traduttori.Add("Giulio Sorrentino <gsorre84@gmail.com>");
     traduttori.Add("Alice Victoria");
     traduttori.Add("Francesca Milano <francescamilano@gmail.com>");
-    traduttori.Add("Judith Escobar <judithescobar@me.com");
     info.SetDescription(_("Il gioco della briscola a due giocatori"));
     info.SetTranslators(traduttori);
     #ifndef _WIN32
