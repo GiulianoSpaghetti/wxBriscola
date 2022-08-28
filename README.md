@@ -20,13 +20,10 @@ Il programma le vedrà in automatico e aggiornerà il menù.
 
 Sentitevi liberi di contribuire con localizzazioni e mazzi regionali.
 
+# Gameplay
+[![youtube](https://i9.ytimg.com/vi/8gezs7pv26o/mq2.jpg?sqp=CLj3qpgG&rs=AOn4CLAY_zvaxbAf4LRct1iDYfjeteMX-w)](https://youtu.be/8gezs7pv26o)
+
 # Installazione
-# Debian
-sudo add-apt-repository "http://numeronesoft.ddns.net/repos/apt/debian bullseye main"
-
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 9D4AE50D
-
-sudo apt install wxbriscola
 
 # The OLD FASCION DEBIAN WAY
 Per installare i package Deb disponibili nella sezione release, bisogna usare dpkg passando come parametro i e i nomi dei files da installare.
