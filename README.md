@@ -22,6 +22,7 @@ Sentitevi liberi di contribuire con localizzazioni e mazzi regionali.
 
 # Gameplay
 [![youtube](https://i.ibb.co/YRJwZHm/mq2.jpg)](https://youtu.be/8gezs7pv26o)
+[![youtube](https://i.ibb.co/M82pkwY/mq2-1.jpg)](https://youtu.be/dvE60cja1rY)
 
 # Installazione
 
