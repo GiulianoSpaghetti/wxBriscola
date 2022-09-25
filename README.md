@@ -8,9 +8,9 @@ wxbase
 
 wxmsw core
 
-Non viene fornito alcun metodo preimpostato di compilazione (make, cmake, codeblocks, template visual studio), sentitevi liberi di usare quello che più vi pare.
+Il metodo predefinito di compilazione è con meson.
 
-Funziona con gcc, mingw e visual studio, sia con le wxwidgets stable (3.0) che development (3.1).
+Funziona con gcc, mingw e [visual studio](https://github.com/numerunix/wxbriscola-for-windows), sia con le wxwidgets oldstable (3.0) stable (3.1) che development (3.2).
 
 E' possibile inserire la propria localizzazione scaricando uno dei files .mo, sono estratti con GNU GetText, e traducendoli col blocco note o poedit. Per la localizzazione arbitraria bisogna inserire il file .mo all'interno di una cartella "LC_LOCALES" all'interno di una cartella che ha come nome il nome corto del linguaggio "it" o "it_IT" per italiano, "en_US" per inglese americano, "en_UK" per inglese regno unito o semplicemente "en" per inglese, "es_ES" per spagnolo di spagna o "es" per spagnolo e via discorrendo, tutto all'interno della cartella locale. Il programma è programmato per vedere automaticamente il nuovo file di traduzione e lo mostrerà nel menù.
 
@@ -21,7 +21,7 @@ Il programma le vedrà in automatico e aggiornerà il menù.
 Sentitevi liberi di contribuire con localizzazioni e mazzi regionali.
 
 # Gameplay
-[![youtube](https://i9.ytimg.com/vi/8gezs7pv26o/mq2.jpg?sqp=CLj3qpgG&rs=AOn4CLAY_zvaxbAf4LRct1iDYfjeteMX-w)](https://youtu.be/8gezs7pv26o)
+[![youtube](https://i.ibb.co/YRJwZHm/mq2.jpg)](https://youtu.be/8gezs7pv26o)
 
 # Installazione
 
