@@ -30,18 +30,19 @@
 
 class OpzioniFrame:public wxDialog {
 	private:
-	enum {ID_TEXTFIELD_UTENTE=100, ID_TEXTFIELD_CPU, ID_TEXTFIELD_TIMER, ID_ABILITA_BRISCOLA, ID_ORDINA_CARTE, ID_ABILITA_AVVISO, ID_ABILITA_CARTA_ALTA, ID_ABILITA_AGGIORNAMENTO};
+	enum {ID_TEXTFIELD_UTENTE=100, ID_TEXTFIELD_CPU, ID_TEXTFIELD_TIMER, ID_ABILITA_BRISCOLA, ID_ORDINA_CARTE, ID_ABILITA_AVVISO, ID_ABILITA_CARTA_ALTA, ID_ABILITA_AGGIORNAMENTO, ID_ABILITA_TWITTER};
 		wxString nUser, nCpu;
 		wxTextCtrl *nomeUtente, *nomeCpu, *valoreTimer;
-		wxCheckBox *briscolaAlta, *ordinaCarte, *abilitaAvviso, *abilitaCartaAlta, *abilitaAggiornamenti;
+		wxCheckBox *briscolaAlta, *ordinaCarte, *abilitaAvviso, *abilitaCartaAlta, *abilitaAggiornamenti, *abilitaTwitter;
 		wxString s;
 	public:
-		OpzioniFrame(wxWindow *parent, wxString& nUser, wxString& nCpu, bool abilitaBriscolaAlta, bool ordina, bool avvisa, bool cartaAlta, double secs, bool aggiornamenti);
+		OpzioniFrame(wxWindow *parent, wxString& nUser, wxString& nCpu, bool abilitaBriscolaAlta, bool ordina, bool avvisa, bool cartaAlta, double secs, bool aggiornamenti, bool twitter);
 		bool getBriscolaAlta() {return briscolaAlta->GetValue();}
 		bool getOrdinaCarte() {return ordinaCarte->GetValue();}
 		bool getAbilitaAvviso() {return abilitaAvviso->GetValue();}
 		bool getFlagCartaAlta() {return abilitaCartaAlta->GetValue();}
 		bool getFlagAggiornamenti() {return abilitaAggiornamenti->GetValue();}
+		bool getTwitter() {return abilitaTwitter->GetValue();}
 		double getSecondi() {double d; s.ToDouble(&d); return d;}
 		wxString getNomeCpu() {return nomeCpu->GetValue();}
 		wxString getNomeUtente() {return nomeUtente->GetValue();}

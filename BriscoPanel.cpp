@@ -27,7 +27,7 @@ EVT_LEFT_DOWN(BriscoPanel::onClick)
 EVT_TIMER(ID_TIMER, BriscoPanel::onTimer)
 END_EVENT_TABLE()
 
-BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour coloreTesto, wxColour coloreSfondo)  : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(600,500)) {
+BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour coloreTesto, wxColour coloreSfondo, bool twitter)  : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(600,500)) {
 	e=el;
 	b=br;
 	this->coloreTesto=coloreTesto;
@@ -42,6 +42,7 @@ BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHe
     this->millisecondi=millisecondi;
     this->avvisaFineTallone=avvisaFineTallone;
     this->nomeMazzo=nomeMazzo;
+	abilitaTwitter = twitter;
 	m=new mazzo(e);
 	semeBriscola=b->getSeme(e->getCartaBriscola());
 	motoreCpu=new giocatoreHelperCpu(e->getCartaBriscola());
@@ -187,11 +188,15 @@ void BriscoPanel::onTimer(wxTimerEvent &evt) {
 			s=_("Hai ")+s+_(" per ")+stringHelper::IntToWxStr(labs(utente->getPunteggio()+punteggioUtente-cpu->getPunteggio()-punteggioCpu))+_(" punti.");
 		}
 		Refresh();
+		if (abilitaTwitter)
+			wxLaunchDefaultBrowser(wxT("http://twitter.com/intent/tweet?text=Con%20la%20wxBriscola%20la%20partita%20") + utente->getNome() + wxT("%20contro%20") + cpu->getNome() + wxT("%20con%20mazzo%20") + carta::getNomeMazzo() + wxT("%20%C3%A8%20finita%20") + utente->getPunteggioStr() + wxT("%20a%20") + cpu->getPunteggioStr() + wxT("&url=https%3A%2F%2Fgithub.com%2Fnumerunix%2FwxBriscola"));
+
 		if (mostraRichiesta)
 			if (wxMessageBox(wxString(_("La partita e' finita.")) + "\n" + s + "\n" + _("Vuoi effettuare una nuova partita?"), _("Partita finita"), wxYES_NO | wxICON_QUESTION) == wxNO) {
 				GetParent()->Close();
 				return;
-			} else {
+			}
+			else {
 				nuovaPartita(false, true);
 				return;
 			}
@@ -202,11 +207,26 @@ void BriscoPanel::onTimer(wxTimerEvent &evt) {
 		}
 	}
 	if (m->getNumeroCarte()==2 && !avvisatoFineTallone && avvisaFineTallone) { //se e' finito il tallone
-		wxBell(); //si avvisa
+		wxNotificationMessage *msg = new wxNotificationMessage(_("Tallone finito"), _("Il tallone e' finito"), this);
+		msg->Show();
+		delete msg;
+		msg = NULL;
 		avvisatoFineTallone=true;
 	}
-	if (primo==cpu)
+	if (primo == cpu) {
 		primo->gioca(0);
+		if (primo->getCartaGiocata()->stessoSeme(carta::getCarta(e->getCartaBriscola()))) {
+			wxNotificationMessage* msg = new wxNotificationMessage(_("Carta di Briscola"), _("La cpu ha giocato il ") + stringHelper::IntToWxStr(primo->getCartaGiocata()->getValore() + 1) + _(" di briscola"), this);
+			msg->Show();
+			delete msg;
+		}
+		else if (primo->getCartaGiocata()->getPunteggio() > 0)
+		{
+			wxNotificationMessage* msg = new wxNotificationMessage(_("Carta con valore"), _("La cpu ha giocato il ") + stringHelper::IntToWxStr(primo->getCartaGiocata()->getValore() + 1) + _(" di ") + primo->getCartaGiocata()->getSemeStr(), this);
+			msg->Show();
+			delete msg;
+		}
+	}
 	Refresh();
 }
 

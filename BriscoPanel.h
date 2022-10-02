@@ -41,6 +41,7 @@
 #include <wx/config.h>
 #include <wx/cmndata.h>
 #include <wx/string.h>
+#include <wx/notifmsg.h>
 
 class BriscoPanel : public wxPanel {
 	private:
@@ -62,11 +63,12 @@ class BriscoPanel : public wxPanel {
 		wxString nomeMazzo;
 		int spaziaturaNome; //per decidere la spaziatura tra i nomi
 		bool avvisaFineTallone, //se deve avvisare che il tallone e' finito
-			 avvisatoFineTallone, //se si e' stati avvisati che il tallone e' finito
-			 primaUtente, //se deve giocare prima l'utente
-			 primaPartita, //se e' la prima o la seconda partita
-			 briscolaDaPunti, //se l'ultima briscola puo' dare punti
-			 ordinaCarte; //se le carte del giocatore umano devono essere ordinate
+			avvisatoFineTallone, //se si e' stati avvisati che il tallone e' finito
+			primaUtente, //se deve giocare prima l'utente
+			primaPartita, //se e' la prima o la seconda partita
+			briscolaDaPunti, //se l'ultima briscola puo' dare punti
+			ordinaCarte, //se le carte del giocatore umano devono essere ordinate
+			abilitaTwitter; //se aprire twitter al termine delle due partite
         wxColour coloreTesto, coloreSfondo;
 		void onKey(wxKeyEvent &evt); //pressione di un tasto
 		void onTimer(wxTimerEvent &evt); //scade il timer
@@ -76,7 +78,7 @@ class BriscoPanel : public wxPanel {
 		void onClick(wxMouseEvent& evt) ; //gestisce il click sull'immagine
 		DECLARE_EVENT_TABLE()
 	public:
-		BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour coloreTesto, wxColour coloreSfondo);
+		BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour coloreTesto, wxColour coloreSfondo, bool twitter);
 		wxString& getNomeUtente() {return utente->getNome();}
 		wxString& getNomeCpu() {return cpu->getNome();}
 		bool getFlagBriscola() {return briscolaDaPunti;}
@@ -92,6 +94,8 @@ class BriscoPanel : public wxPanel {
 				nuovaPartita(true, true);
 			}
 		}
+		void setTwitter(bool twitter) { abilitaTwitter = twitter; }
+		bool getTwitter() { return abilitaTwitter; }
 		void setFlagOrdina(bool o) {ordinaCarte=o; utente->setFlagOrdina(o);}
 		void setIntervallo(double secondi) {millisecondi=static_cast<int>(secondi*1000);}
 		void setFlagAvvisa(bool a) {avvisaFineTallone=a;}

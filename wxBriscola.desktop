@@ -5,6 +5,5 @@ Name=wxBriscola
 Comment=Simulatore della briscola a 2 giocatori
 Icon=/usr/share/icons/wxBriscola.ico
 Exec=/usr/bin/wxbriscola
-Path=~
 Actions=
 Categories=CardGame;Game;

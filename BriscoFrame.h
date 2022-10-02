@@ -57,8 +57,8 @@ class BriscoFrame: public wxFrame {
                  pathTraduzioni;
 		wxFont *font;
 		bool cartaAlta, //se si deve fare il gioco della carta alta
-			 primaUtente,
-			 aggiornamenti;
+			primaUtente,
+			aggiornamenti;
 		elaboratoreCarteBriscola *el;
 		cartaHelperBriscola *br;
        // wxHTTP client;

@@ -23,7 +23,7 @@
 
 #ifndef _BRISCOAPP_H_
 
-#include <wx/wxprec.h>
+#include <wx/wx.h>
 #include <wx/stdpaths.h>
 #include <wx/intl.h>
 #include "BriscoFrame.h"
