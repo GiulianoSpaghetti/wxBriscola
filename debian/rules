@@ -11,8 +11,12 @@ override_dh_auto_configure:
 override_dh_auto_build:
 	dh_auto_build --builddirectory=./build
 override_dh_auto_test:
+
 override_dh_auto_install:
 	dh_auto_install --builddirectory=./build
+	mkdir -p debian/tmp/usr/share/wxBriscola
+	cp -r Mazzi debian/tmp/usr/share/wxBriscola
+	find debian/tmp/usr/share/wxBriscola/Mazzi -name meson.build -exec rm {} \;
 	#mv debian/tmp/usr/local/share/locale debian/tmp/usr/share/locale
 override_dh_usrlocal:
 override_dh_missing:

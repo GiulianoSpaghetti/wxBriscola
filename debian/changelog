@@ -1,3 +1,11 @@
+wxbriscola (0.5-franca) stable; urgency=low
+
+  * Impostata la notifica al posto della campanella di sistema se il tallone finisce
+  * Impostata la notifica se la cpu come prima di mano gioca briscola o una carta con valore
+  * Impostata la possibilità di condividere il risultato della partita su twitter
+   --Giulio Sorrentino <gsorre84@gmail.com> Sun, 2 Oct 2022 22:16:37 +0200
+
+
 wxbriscola (0.4.2-franca) stable; urgency=low
 
   * Corretto il bug che mostra la > prima del nome della cpu in caso di reinizializzazioni delle impostazioni.
