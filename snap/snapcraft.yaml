@@ -1,16 +1,40 @@
 name: wxbriscola # you probably want to 'snapcraft register <name>'
 base: core20 # the base snap is the execution environment for this snap
-version: '0.4.1' # just for humans, typically '1.2+git' or '1.3.2'
+version: '0.5.3' # just for humans, typically '1.2+git' or '1.3.2'
 summary: Il gioco della briscola a 2 giocatori # 79 char long summary
+architectures: 
+- build-on: [amd64, arm64, armhf]
 description: |
   Il gioco della briscola a 2 giocatori, senza multiplayer.
-
+contact: gsorre84@gmail.com
+license: GPL-3.0
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
+icon: wxbriscola.png
+donation: https://www.paypal.com/paypalme/numerunix
 
+layout:
+  /usr/share/wxBriscola:
+    bind: $SNAP/usr/share/wxBriscola
+apps:
+  wxbriscola: 
+    adapter: full
+    command: usr/bin/wxbriscola
+    desktop: usr/share/applications/wxBriscola.desktop
+    extensions: [gnome-3-38]
+    plugs:
+      - desktop
+      - desktop-legacy
+      - gsettings
+      - x11
 parts:
   wxbriscola:
-      source: http://numerone.altervista.org/Downloads/wxBriscola-0.4.1.tar.gz
+   source: .
       # See 'snapcraft plugins'
-      plugin: meson
+   build-packages:
+    - libwxgtk3.0-gtk3-dev
+   stage-packages:
+    - libwxgtk3.0-gtk3-0v5
+    - wx3.0-i18n
+   plugin: meson
 
