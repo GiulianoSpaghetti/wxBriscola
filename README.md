@@ -26,6 +26,13 @@ Sentitevi liberi di contribuire con localizzazioni e mazzi regionali.
 
 # Installazione
 
+# Tramite repository
+Installate la nuova chiave del repository tramite il comando sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 14A92445BD7CCE82
+
+Poi inserite nel file /etc/apt/sources.list la riga deb http://numeronesoft.ddns.net/repos/apt/debian bullseye main
+
+Infine fate apt update ed apt install wxbriscola
+
 # The OLD FASCION DEBIAN WAY
 Per installare i package Deb disponibili nella sezione release, bisogna usare dpkg passando come parametro i e i nomi dei files da installare.
 Verosimilmente
