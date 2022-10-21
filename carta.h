@@ -30,6 +30,7 @@
 #include <wx/image.h>
 #include <wx/filefn.h>
 #include <wx/filename.h>
+#include <wx/utils.h> 
 
 using namespace std;
 
