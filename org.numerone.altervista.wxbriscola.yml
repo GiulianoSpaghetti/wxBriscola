@@ -33,6 +33,6 @@ modules:
   - name: wxbriscola
     buildsystem: meson
     sources:
-      - type: archive
-        url: http://numerone.altervista.org/Downloads/wxBriscola.tar.xz
-        sha256: 568710ac743b8149842dc8a84553b6e06f4f832fd0cbbb92407bce24f1cf8bcf
+      - type: git
+        url: https://github.com/numerunix/wxBriscola.git
+        tag: master
