@@ -27,7 +27,7 @@ Sentitevi liberi di contribuire con localizzazioni e mazzi regionali.
 # Installazione
 
 # Tramite repository
-Installate la nuova chiave del repository tramite il comando sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 14A92445BD7CCE82
+Installate la nuova chiave del repository tramite il comando sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 52B68EEB
 
 Poi inserite nel file /etc/apt/sources.list la riga deb http://numeronesoft.ddns.net/repos/apt/debian bullseye main
 
