@@ -29,7 +29,7 @@ Sentitevi liberi di contribuire con localizzazioni e mazzi regionali.
 # Tramite repository
 Installate la nuova chiave del repository tramite il comando sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 52B68EEB
 
-Poi inserite nel file /etc/apt/sources.list la riga deb http://numeronesoft.ddns.net/repos/apt/debian bullseye main
+Poi inserite nel file /etc/apt/sources.list.d/numeronesoft.list la riga deb http://numeronesoft.ddns.net/ bullseye main
 
 Infine fate apt update ed apt install wxbriscola
 
