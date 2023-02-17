@@ -109,6 +109,10 @@ Per ovviare al problema e vedere quindi correttamente gli accenti italiani, biso
 # Ricompilazione
 Scaricate il file wxBriscola 0.4.1.1 dal [mio sito web](http://numerone.altervista.org), poi prendete tutti i files da git, copiate la cartella Mazzi ed il file debian/rules dalla 0.4.1.1 nelle relative directory della 0.4.2, ed infine date il comando dpkg-buildpackage presente nei package installati da devscripts in ambiente debian.
 
+# Bug noti
+
+Il mazzo fable 3 ha un bug: bisogna rinominare le immagini da 0 a 9 aggiungendo un 2 e bisogna togliere il 2 nelle immagini da 20 a 29
+
 # Come scaricarla
 
 [![wxbriscola](https://snapcraft.io/wxbriscola/badge.svg)](https://snapcraft.io/wxbriscola)
