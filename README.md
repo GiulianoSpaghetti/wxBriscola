@@ -33,7 +33,7 @@ Poi inserite nel file /etc/apt/sources.list.d/numeronesoft.list la riga deb http
 
 Infine fate apt update ed apt install wxbriscola
 
-#Installazion tramite flatpak
+# Tramite flatpak
 Scaricate http://numerone.altervista.org/Downloads/public.key
 poi date i seguenti comandi:
 
