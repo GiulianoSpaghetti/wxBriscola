@@ -33,10 +33,6 @@ Poi inserite nel file /etc/apt/sources.list.d/numeronesoft.list la riga deb http
 
 Infine fate apt update ed apt install wxbriscola
 
-# The OLD FASCION DEBIAN WAY
-Per installare i package Deb disponibili nella sezione release, bisogna usare dpkg passando come parametro i e i nomi dei files da installare.
-Verosimilmente
-
 # Flatpak
 Installate flatpak con apt, aggiungete il repository uficiale, installate flatpakbuilder con flatpak poi installateflathub org.gnome.Platform//43
 flathub org.gnome.Sdk//43
@@ -47,6 +43,12 @@ A questo punto il programma scaricherà e compilerà le ultime wxwidgets e l'ult
 
 Infine dare il comando
 flatpak run org.flatpak.Builder --user --install --force-clean ./build/ org.numerone.altervista.wxbriscola.yml 
+
+
+
+# The OLD FASCION DEBIAN WAY
+Per installare i package Deb disponibili nella sezione release, bisogna usare dpkg passando come parametro i e i nomi dei files da installare.
+Verosimilmente
 
  
 
