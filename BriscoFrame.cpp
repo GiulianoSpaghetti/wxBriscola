@@ -162,7 +162,7 @@ void BriscoFrame::onInfo(wxCommandEvent& WXUNUSED(evt)) {
     info.SetDescription(_("Il gioco della briscola a due giocatori"));
     info.SetTranslators(traduttori);
     #ifndef _WIN32
-    	info.SetIcon(wxIcon(wxBriscola_xpm));
+     //   info.SetIcon(wxIcon(wxBriscola_xpm));
     #endif
     wxAboutBox(info);
 }
