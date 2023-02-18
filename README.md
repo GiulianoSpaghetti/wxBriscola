@@ -37,6 +37,19 @@ Infine fate apt update ed apt install wxbriscola
 Per installare i package Deb disponibili nella sezione release, bisogna usare dpkg passando come parametro i e i nomi dei files da installare.
 Verosimilmente
 
+# Flatpak
+Installate flatpak con apt, aggiungete il repository uficiale, installate flatpakbuilder con flatpak poi installateflathub org.gnome.Platform//43
+flathub org.gnome.Sdk//43
+con flatpak e poi date il comando
+
+flatpak run org.flatpak.Builder --repo=./repo ./build org.numerone.altervista.wxbriscola.yml 
+A questo punto il programma scaricherà e compilerà le ultime wxwidgets e l'ultima wxbriscola.
+
+Infine dare il comando
+flatpak run org.flatpak.Builder --user --install --force-clean ./build/ org.numerone.altervista.wxbriscola.yml 
+
+ 
+
 # cd Scaricati
 
 # sudo dpkg -i *.deb
