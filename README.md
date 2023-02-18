@@ -47,6 +47,8 @@ sudo flatpak remote-add --gpg-import=public.key wxbriscola http://numeronesoft.d
 
 sudo flatpak install org.altervista.numerone.wxbriscola
 
+flatpak run org.altervista.numerone.wxbriscola
+
 # Compilazione con Flatpak
 Installate flatpak con apt, aggiungete il repository uficiale, installate flatpakbuilder con flatpak poi installateflathub org.gnome.Platform//43
 flathub org.gnome.Sdk//43
@@ -60,7 +62,7 @@ flatpak run org.flatpak.Builder --user --install --force-clean ./build/ org.nume
 
 
 
-# The OLD FASCION DEBIAN WAY
+# The OLD FASCION DEBIAN WAY (obsoleto)
 Per installare i package Deb disponibili nella sezione release, bisogna usare dpkg passando come parametro i e i nomi dei files da installare.
 Verosimilmente
 
