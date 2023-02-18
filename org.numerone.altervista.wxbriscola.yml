@@ -28,7 +28,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/wxWidgets/wxWidgets.git
-        tag: v3.2.0
+        tag: v3.2.2.1
   
   - name: wxbriscola
     buildsystem: meson
