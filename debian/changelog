@@ -1,3 +1,8 @@
+wxbriscola (0.5.2-franca) stable; urgency=low
+
+  * Inserita la versione del sistema operativo nella conivisione su twitter.
+   --Giulio Sorrentino <gsorre84@gmail.com> Sat, 18 Feb 2023 10:51:44 +0200
+
 wxbriscola (0.5-franca) stable; urgency=low
 
   * Impostata la notifica al posto della campanella di sistema se il tallone finisce
