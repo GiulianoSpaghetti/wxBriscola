@@ -38,9 +38,13 @@ Scaricate http://numerone.altervista.org/Downloads/public.key
 poi date i seguenti comandi:
 
 sudo apt install flatpak
+
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
 sudo flatpak install flathub org.gnome.Platform//43
+
 sudo flatpak remote-add --gpg-import=public.key wxbriscola http://numeronesoft.ddns.net:8080
+
 sudo flatpak install org.altervista.numerone.wxbriscola
 
 # Compilazione con Flatpak
