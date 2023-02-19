@@ -27,8 +27,7 @@ Sentitevi liberi di contribuire con localizzazioni e mazzi regionali.
 # Installazione
 
 # Tramite flatpak (consigliato perché ci sono le wxwidgets 3.2 invece che 3.0)
-Scaricate http://numerone.altervista.org/Downloads/public.key
-poi date i seguenti comandi:
+Date i seguenti comandi:
 
 sudo apt install flatpak
 
