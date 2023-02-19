@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.1
-Type=Application
-Name=wxBriscola
-Comment=Simulatore della briscola a 2 giocatori
-Icon=/var/lib/flatpak/exports/share/icons/hicolor/128x128/wxBriscola.png
-Exec=/usr/bin/flatpak run org.altervista.numerone.wxbriscola
-Actions=
-Categories=CardGame;Game;
