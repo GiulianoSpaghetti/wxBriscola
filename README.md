@@ -41,8 +41,6 @@ sudo apt install flatpak
 
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-sudo flatpak install flathub org.gnome.Platform//43
-
 sudo flatpak remote-add --if-not-exists wxBriscola http://numeronesoft.ddns.net:8080/wxBriscola.flatpakrepo
 
 sudo flatpak install org.altervista.numerone.wxbriscola
