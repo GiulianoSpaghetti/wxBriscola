@@ -32,11 +32,11 @@ poi date i seguenti comandi:
 
 sudo apt install flatpak
 
-sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-sudo flatpak remote-add --if-not-exists numeronesoft http://numeronesoft.ddns.net:8080/numeronesoft.flatpakrepo
+flatpak remote-add --if-not-exists numeronesoft http://numeronesoft.ddns.net:8080/numeronesoft.flatpakrepo
 
-sudo flatpak install org.altervista.numerone.wxbriscola
+flatpak install --user org.altervista.numerone.wxbriscola (è importante il --user, l'app viene installata in userspace, così si possono salvare le opzioni)
 
 flatpak run org.altervista.numerone.wxbriscola
 
