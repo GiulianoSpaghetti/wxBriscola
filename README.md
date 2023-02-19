@@ -66,7 +66,7 @@ Installate flatpak con apt, aggiungete il repository uficiale, installate flatpa
 flathub org.gnome.Sdk//43
 con flatpak e poi date il comando
 
-flatpak run org.flatpak.Builder --repo=./repo ./build org.numerone.altervista.wxbriscola.yml 
+flatpak run org.flatpak.Builder --repo=./repo ./build org.altervista.numerone.wxbriscola.yml 
 A questo punto il programma scaricherà e compilerà le ultime wxwidgets e l'ultima wxbriscola.
 
 Infine dare il comando
