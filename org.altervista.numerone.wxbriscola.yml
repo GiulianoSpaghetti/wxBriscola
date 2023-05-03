@@ -2,7 +2,7 @@ app-id: org.altervista.numerone.wxbriscola
 runtime: org.gnome.Platform
 runtime-version: '43'
 sdk: org.gnome.Sdk
-command: wxbriscola
+command: org.altervista.numerone.wxBriscola
 finish-args:
   - --socket=x11
   - --filesystem=home
