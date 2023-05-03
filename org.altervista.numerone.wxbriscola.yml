@@ -6,6 +6,8 @@ command: org.altervista.numerone.wxBriscola
 finish-args:
   - --socket=x11
   - --filesystem=home
+  - --filesystem=/var/lib/flatpak/exports/share/applications
+  - --filesystem=/var/lib/flatpak/exports/share/icons
 modules:
   - name: wxwidgets
     rm-configure: true
