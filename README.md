@@ -46,6 +46,12 @@ Poi inserite nel file /etc/apt/sources.list.d/numeronesoft.list la riga deb http
 
 Infine fate apt update ed apt install wxbriscola
 
+# Tramite Snap Store
+
+[![wxbriscola](https://snapcraft.io/wxbriscola/badge.svg)](https://snapcraft.io/wxbriscola)
+
+[![youtube](https://i.ibb.co/k0WnTGQ/a.png)](https://www.youtube.com/watch?v=RQyRh7C0COw)
+
 # The OLD FASCION DEBIAN WAY (obsoleto)
 Per installare i package Deb disponibili nella sezione release, bisogna usare dpkg passando come parametro i e i nomi dei files da installare.
 Verosimilmente
@@ -137,9 +143,6 @@ Scaricate il file wxBriscola 0.4.1.1 dal [mio sito web](http://numerone.altervis
 
 Il mazzo fable 3 ha un bug: bisogna rinominare le immagini da 0 a 9 aggiungendo un 2 e bisogna togliere il 2 nelle immagini da 20 a 29
 
-# Come scaricarla
-
-[![wxbriscola](https://snapcraft.io/wxbriscola/badge.svg)](https://snapcraft.io/wxbriscola)
 
 # Donazioni
 
