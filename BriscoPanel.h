@@ -60,7 +60,7 @@ class BriscoPanel : public wxPanel {
 		int millisecondi; //per il tempo di presa
 		wxBitmap *immagineBriscola, *immagineTallone;
 		wxTimer *t;
-		wxString nomeMazzo;
+		wxString nomeMazzo, messaggio;
 		int spaziaturaNome; //per decidere la spaziatura tra i nomi
 		bool avvisaFineTallone, //se deve avvisare che il tallone e' finito
 			avvisatoFineTallone, //se si e' stati avvisati che il tallone e' finito
