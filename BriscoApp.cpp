@@ -40,8 +40,8 @@ bool BriscoApp::OnInit() {
 #else
     wxLocale::AddCatalogLookupPathPrefix(wxT("/usr/local/share/locale"));
     wxLocale::AddCatalogLookupPathPrefix(wxT("/snap/wxbriscola/current/usr/local/share/locale"));
-    wxLocale::AddCatalogLookupPathPrefix(path+wxT("/.local/share/flatpak/app/org.altervista.numerone.wxbriscola/current/active/files/share/locale"));
-    wxLocale::AddCatalogLookupPathPrefix(wxT("/var/lib/flatpak/app/org.altervista.numerone.wxbriscola/current/active/files/share/locale"));
+    wxLocale::AddCatalogLookupPathPrefix(path+wxT("/.local/share/flatpak/app/org.altervista.numerone.wxbriscola/current/active/files/share/runtime/locale"));
+    wxLocale::AddCatalogLookupPathPrefix(wxT("/var/lib/flatpak/app/org.altervista.numerone.wxbriscola/current/active/files/share/runtime/locale"));
 #endif //_WIN32
     if (!m_locale->AddCatalog("wxbriscola"))
        wxMessageBox(_("Impossibile trovare il catalogo del programma. Il programma si avviera' in italiano."), _("Attenzione"), wxICON_EXCLAMATION);
