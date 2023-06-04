@@ -120,17 +120,13 @@ void BriscoPanel::onPaint(wxPaintEvent &event) {
 	dc.DrawText(_("Punti di ")+cpu->getNome()+_(": ")+cpu->getPunteggioStr(), p.x,30+dc.GetCharHeight());
 	dc.DrawText(s, p.x,30+dc.GetCharHeight()*2);
 	dc.DrawText(_("Il seme di briscola e': ")+carta::getSemeStr(e->getCartaBriscola()), p.x, 30+dc.GetCharHeight()*3);
-	if (messaggio!="") {
-		dc.DrawText(messaggio, p1.x-50, 30+dc.GetCharHeight()*4);
-		messaggio="";
-	}
 	if (m->getNumeroCarte()>0) { //disegno del tallone
 		if (carta::getAltezzaImmagine()>=carta::getLarghezzaImmagine()) {
-			dc.DrawBitmap(*immagineBriscola, p.x+(len-carta::getLarghezzaImmagine())/2,30+dc.GetCharHeight()*5);
+			dc.DrawBitmap(*immagineBriscola, p.x+(len-carta::getLarghezzaImmagine())/2,30+dc.GetCharHeight()*4);
 			dc.DrawBitmap(*immagineTallone, p.x+(len-carta::getAltezzaImmagine())/2, y);
 		} else {
-			dc.DrawBitmap(*immagineBriscola, p.x+(len-carta::getLarghezzaImmagine())/2,30+dc.GetCharHeight()*5+carta::getLarghezzaImmagine()-carta::getAltezzaImmagine());
-			dc.DrawBitmap(*immagineTallone, p.x+(len-carta::getAltezzaImmagine())/2, 30+dc.GetCharHeight()*5);
+			dc.DrawBitmap(*immagineBriscola, p.x+(len-carta::getLarghezzaImmagine())/2,30+dc.GetCharHeight()*4+carta::getLarghezzaImmagine()-carta::getAltezzaImmagine());
+			dc.DrawBitmap(*immagineTallone, p.x+(len-carta::getAltezzaImmagine())/2, 30+dc.GetCharHeight()*4);
 		}
 	}
 
@@ -213,17 +209,24 @@ void BriscoPanel::onTimer(wxTimerEvent &evt) {
 		}
 	}
 	if (m->getNumeroCarte()==2 && !avvisatoFineTallone && avvisaFineTallone) { //se e' finito il tallone
-		messaggio=_("Il tallone e' finito");
+		wxNotificationMessage *msg = new wxNotificationMessage(_("Tallone finito"), _("Il tallone e' finito"), this);
+		msg->Show();
+		delete msg;
+		msg = NULL;
 		avvisatoFineTallone=true;
 	}
 	if (primo == cpu) {
 		primo->gioca(0);
 		if (primo->getCartaGiocata()->stessoSeme(carta::getCarta(e->getCartaBriscola()))) {
-			messaggio=_("La cpu ha giocato il ") + stringHelper::IntToWxStr(primo->getCartaGiocata()->getValore() + 1) + _(" di briscola");
+			wxNotificationMessage* msg = new wxNotificationMessage(_("Carta di Briscola"), _("La cpu ha giocato il ") + stringHelper::IntToWxStr(primo->getCartaGiocata()->getValore() + 1) + _(" di briscola"), this);
+			msg->Show();
+			delete msg;
 		}
 		else if (primo->getCartaGiocata()->getPunteggio() > 0)
 		{
-			messaggio=_("La cpu ha giocato il ") + stringHelper::IntToWxStr(primo->getCartaGiocata()->getValore() + 1) + _(" di ") + primo->getCartaGiocata()->getSemeStr();
+			wxNotificationMessage* msg = new wxNotificationMessage(_("Carta con valore"), _("La cpu ha giocato il ") + stringHelper::IntToWxStr(primo->getCartaGiocata()->getValore() + 1) + _(" di ") + primo->getCartaGiocata()->getSemeStr(), this);
+			msg->Show();
+			delete msg;
 		}
 	}
 	Refresh();
