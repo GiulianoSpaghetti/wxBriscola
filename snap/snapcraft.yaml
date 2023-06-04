@@ -12,10 +12,8 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 icon: wxbriscola.png
 donation: https://www.paypal.com/paypalme/numerunix
-
-layout:
-  /usr/share/wxBriscola:
-    bind: $SNAP/usr/share/wxBriscola
+source-code: https://github.com/numerunix/wxbriscola
+website: https://numerone.altervista.org
 apps:
   wxbriscola: 
     adapter: full
