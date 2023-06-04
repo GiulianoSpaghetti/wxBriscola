@@ -17,7 +17,7 @@ website: https://numerone.altervista.org
 apps:
   wxbriscola: 
     adapter: full
-    command: usr/bin/wxbriscola
+    command: usr/local/bin/wxbriscola
     desktop: usr/share/applications/wxbriscola.desktop
     extensions: [gnome-3-38]
     plugs:
