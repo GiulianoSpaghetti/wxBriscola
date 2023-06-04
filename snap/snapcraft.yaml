@@ -18,7 +18,7 @@ apps:
   wxbriscola: 
     adapter: full
     command: usr/bin/wxbriscola
-    desktop: usr/share/applications/wxBriscola.desktop
+    desktop: usr/share/applications/wxbriscola.desktop
     extensions: [gnome-3-38]
     plugs:
       - desktop
