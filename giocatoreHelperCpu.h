@@ -36,12 +36,14 @@ class giocatoreHelperCpu: public giocatoreHelper {
 		wxBitmap *img; //immagine della carta da mostrare sullo schermo al posto di quella dei valori delle carte
 		size_t getBriscola(const vector<carta *> &mano); //cerca la piu' piccola carta di briscola
 		size_t getSoprataglio(const vector<carta *> &mano, carta *c, bool maggiore); //Cerca la piu' grande carta dello stesso seme che prende, o la piu' piccola che non prende
+		size_t livello;
 public:
-		giocatoreHelperCpu(size_t b) {
+		giocatoreHelperCpu(size_t b, size_t Livello) {
 			srand(time(NULL));
 			briscola=carta::getCarta(b);
 			img=NULL;
 			caricaImmagine();
+			livello=Livello;
 		}
 		//carica l'immagine da mostrare al posto delle carte
 		void caricaImmagine() {
@@ -57,8 +59,12 @@ public:
 
 		virtual size_t gioca(const vector<carta *> &mano, size_t iCarta);
 		virtual size_t gioca(const vector<carta *> &mano, carta *c, size_t iCarta);
+		virtual size_t gioca0(const vector<carta *> &mano, carta *c, size_t iCarta);
+		virtual size_t gioca1(const vector<carta *> &mano, carta *c, size_t iCarta);
+		virtual size_t gioca2(const vector<carta *> &mano, carta *c, size_t iCarta);
 		virtual size_t getPunteggio(carta *c, carta *c1);
 		virtual wxPoint paint(wxPaintDC &dc, const wxString nome, const vector<carta *> mano, const size_t iCartaGiocata);
+		size_t getLivello() {return livello;}
 };
 
 #endif

@@ -43,7 +43,7 @@
 
 class BriscoFrame: public wxFrame {
 	private:
-		enum {ID_NUOVA_PARTITA=10001, ID_OPZIONI, ID_FONT, ID_AGGIORNAMENTO, ID_SITOWEB, ID_COLORE_TESTO, ID_COLORE_SFONDO};
+		enum {ID_NUOVA_PARTITA=10001, ID_OPZIONI, ID_FONT, ID_AGGIORNAMENTO, ID_SITOWEB, ID_COLORE_TESTO, ID_COLORE_SFONDO, ID_LIVELLO0, ID_LIVELLO1, ID_LIVELLO2};
 		BriscoPanel *p;
 		wxConfig *config;
 		wxMenu *menuMazzi,
@@ -66,10 +66,10 @@ class BriscoFrame: public wxFrame {
         wxColour coloreTesto, coloreSfondo;
         wxColourData d, d1;
         int loc;
-		void aggiungiMenu();
+		void aggiungiMenu(size_t livello);
 		void onEsci(wxCommandEvent& WXUNUSED(evt));
 		void onInfo(wxCommandEvent& WXUNUSED(evt));
-        	void onNuovaPartita(wxCommandEvent& WXUNUSED(evt));
+        void onNuovaPartita(wxCommandEvent& WXUNUSED(evt));
 		void onOpzioni(wxCommandEvent& WXUNUSED(evt));
 		void onFont(wxCommandEvent& WXUNUSED(evt));
 		void getMenuMazzi(wxMenu *menu);
@@ -83,6 +83,9 @@ class BriscoFrame: public wxFrame {
 		void OnColoreTesto(wxCommandEvent& evt);
 		void OnColoreSfondo(wxCommandEvent& evt);
 		void CreaVoceTraduzione(wxMenu* menu, const wxLanguageInfo* lang);
+		void OnMenuLivello0(wxCommandEvent& evt);
+		void OnMenuLivello1(wxCommandEvent& evt);
+		void OnMenuLivello2(wxCommandEvent& evt);
 		DECLARE_EVENT_TABLE()
 	public:
 		BriscoFrame(int l, wxConfig *c, wxString path);
@@ -91,5 +94,5 @@ class BriscoFrame: public wxFrame {
 };
 
 #endif
-#endif // header guard 
+#endif // header guard
 

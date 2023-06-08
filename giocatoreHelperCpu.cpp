@@ -78,13 +78,55 @@ size_t giocatoreHelperCpu::gioca(const vector<carta *> &mano, size_t iCarta) {
 }
 
 
+size_t giocatoreHelperCpu::gioca(const vector<carta *> &mano, carta *c, size_t iCarta) {
+	switch(livello) {
+		case 1: return gioca0(mano, c, iCarta); break;
+		case 2: return gioca1(mano, c, iCarta); break;
+		default: return gioca2(mano, c, iCarta);
+	}
+}
+
+size_t giocatoreHelperCpu::gioca0(const vector<carta *> &mano, carta *c, size_t iCarta) {
+	if (mano.size()==0)
+		throw range_error("Chiamata a giocatoreHelperCpu::gioca(mano, c) con mano.size()==0");
+	if (c==NULL)
+		throw range_error("Chiamata a giocatoreHelperUtente::gioca(vector<carta *>, carta *) con carta==NULL");
+
+	size_t i=0; //aggiunge un comportamento un po' piu' casuale
+	i=getBriscola(mano);
+	if (i==mano.size())
+	    i=0; //se non si puo' fare niente si gioca la carta piu' piccola
+	return i;
+}
+
+size_t giocatoreHelperCpu::gioca1(const vector<carta *> &mano, carta *c, size_t iCarta) {
+	size_t i=0; //aggiunge un comportamento un po' piu' casuale
+	if (mano.size()==0)
+		throw range_error("Chiamata a giocatoreHelperCpu::gioca(mano, c) con mano.size()==0");
+	if (c==NULL)
+		throw range_error("Chiamata a giocatoreHelperUtente::gioca(vector<carta *>, carta *) con carta==NULL");
+
+    if (!briscola->stessoSeme(c)) { //se la carta giocata non e' dello stesso seme di briscola
+        if ((i=getSoprataglio(mano, c, true))<mano.size()) //se si puo' sopratagliare
+            return i; //soprataglia
+        if (c->getPunteggio()>0 && (i=getBriscola(mano))<mano.size()) {//se non si puo' sopratagliare e la carta ha un punteggio e si ha una carta di briscola
+            if (c->getPunteggio()>4) //se la carta giocata e' un carico
+                return i; //si gioca la briscola
+            if (mano[i]->getPunteggio()>0) //se la carta che si vuole giocare e' briscola ed ha un punteggio
+                    return i;
+        }
+    }
+    i=0; //se non si puo' fare niente si gioca la carta piu' piccola
+    return i;
+}
+
 /* Richiamata quando la cpu e' seconda di mano
 	PARAMETRI DI INPUT:
 	mano: carte in mano al giocatore da aiutare
 	c: carta giocata dall'laro giocatore
 	iCarta: puramente fittizio. Non serve.
  */
-size_t giocatoreHelperCpu::gioca(const vector<carta *> &mano, carta *c, size_t iCarta) {
+size_t giocatoreHelperCpu::gioca2(const vector<carta *> &mano, carta *c, size_t iCarta) {
 	if (mano.size()==0)
 		throw range_error("Chiamata a giocatoreHelperCpu::gioca(mano, c) con mano.size()==0");
 	if (c==NULL)

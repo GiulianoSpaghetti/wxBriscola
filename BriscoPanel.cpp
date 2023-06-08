@@ -27,7 +27,7 @@ EVT_LEFT_DOWN(BriscoPanel::onClick)
 EVT_TIMER(ID_TIMER, BriscoPanel::onTimer)
 END_EVENT_TABLE()
 
-BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour coloreTesto, wxColour coloreSfondo, bool twitter)  : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(600,500)) {
+BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour coloreTesto, wxColour coloreSfondo, bool twitter, size_t livello)  : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(600,500)) {
 	e=el;
 	b=br;
 	this->coloreTesto=coloreTesto;
@@ -45,7 +45,7 @@ BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHe
 	abilitaTwitter = twitter;
 	m=new mazzo(e);
 	semeBriscola=b->getSeme(e->getCartaBriscola());
-	motoreCpu=new giocatoreHelperCpu(e->getCartaBriscola());
+	motoreCpu=new giocatoreHelperCpu(e->getCartaBriscola(), livello);
 	utente=new giocatore(new giocatoreHelperUtente(), nomeUtente, ordinaCarte);
 	cpu=new giocatore(motoreCpu,nomeCpu);
 
@@ -112,7 +112,6 @@ void BriscoPanel::onPaint(wxPaintEvent &event) {
 	spaziaturaNome=y;
 	p=cpu->paint(dc, y); //disegno della cpu
 	p1=utente->paint(dc, y); //disegno dell'utente
-
 	p.x+=50;
 	p1.x+=50;
 	y=30+dc.GetCharHeight()*4+carta::getAltezzaImmagine()-carta::getLarghezzaImmagine(); //calcolo del punto di disegno
@@ -129,7 +128,6 @@ void BriscoPanel::onPaint(wxPaintEvent &event) {
 			dc.DrawBitmap(*immagineTallone, p.x+(len-carta::getAltezzaImmagine())/2, 30+dc.GetCharHeight()*4);
 		}
 	}
-
 }
 
 void BriscoPanel::onKey(wxKeyEvent &evt){
@@ -174,7 +172,7 @@ void BriscoPanel::onTimer(wxTimerEvent &evt) {
 	} catch (underflow_error &e) { //sono finite le carte
 		if (primaPartita) {//se e' la prima partita
 			if (wxMessageBox(_("Vuoi effettuare la seconda partita?"), _("Continuare?"), wxYES_NO | wxICON_INFORMATION) == wxYES) {
-				nuovaPartita(false, false); //se l'utente dice di si se ne comincia un'altra
+				nuovaPartita(false, false, motoreCpu->getLivello()); //se l'utente dice di si se ne comincia un'altra
 				return;
 			}
 			else mostraRichiesta = false;
@@ -190,7 +188,7 @@ void BriscoPanel::onTimer(wxTimerEvent &evt) {
 			s=_("Hai ")+s+_(" per ")+stringHelper::IntToWxStr(labs(utente->getPunteggio()+punteggioUtente-cpu->getPunteggio()-punteggioCpu))+_(" punti.");
 		}
 		Refresh();
-		if (abilitaTwitter)
+		if (abilitaTwitter && motoreCpu->getLivello()==3)
 			wxLaunchDefaultBrowser(wxT("http://twitter.com/intent/tweet?text=Con%20la%20wxBriscola%20la%20partita%20") + utente->getNome() + wxT("%20contro%20") + cpu->getNome() + wxT("%20con%20mazzo%20") + carta::getNomeMazzo() + wxT("%20%C3%A8%20finita%20") + utente->getPunteggioStr() + wxT("%20a%20") + cpu->getPunteggioStr() +wxT("%20su%20piattaforma%20") + wxPlatformInfo::Get().GetOperatingSystemIdName() + wxT("&url=https%3A%2F%2Fgithub.com%2Fnumerunix%2FwxBriscola"));
 
 		if (mostraRichiesta)
@@ -199,7 +197,7 @@ void BriscoPanel::onTimer(wxTimerEvent &evt) {
 				return;
 			}
 			else {
-				nuovaPartita(false, true);
+				nuovaPartita(false, true, motoreCpu->getLivello());
 				return;
 			}
 		else {
@@ -232,9 +230,14 @@ void BriscoPanel::onTimer(wxTimerEvent &evt) {
 	Refresh();
 }
 
+void BriscoPanel::nuovaPartita(bool avvisa, bool inizializza, size_t livello) {
 //Se si deve giocare una nuova partita
-void BriscoPanel::nuovaPartita(bool avvisa, bool inizializza) {
 	wxString nUser, nCpu;
+	if (motoreCpu->getLivello()!=livello) {
+			wxNotificationMessage* msg = new wxNotificationMessage(_("Attenzione"), _("Hai cambiato livello, comincera' una nuova partita"), this);
+			msg->Show();
+			delete msg;
+	}
 	if (avvisa && wxMessageBox(_("La partita correntemente in corso verra' interrotta. Continuare?"), _("Richiesta conferma"), wxYES_NO|wxICON_INFORMATION)==wxNO) //se si sta giocando una partita non finita
 			return;
 	if (inizializza) { //se bisogna inizializzare le componenti (l'utente ha deciso di chiudere la partita precedente
@@ -258,7 +261,7 @@ void BriscoPanel::nuovaPartita(bool avvisa, bool inizializza) {
 	b=new cartaHelperBriscola(e);
 	semeBriscola=b->getSeme(e->getCartaBriscola());
 	carta::inizializza(40, b, nomeMazzo);
-	motoreCpu=new giocatoreHelperCpu(e->getCartaBriscola());
+	motoreCpu=new giocatoreHelperCpu(e->getCartaBriscola(), livello);
 	utente=new giocatore(new giocatoreHelperUtente(), nUser, ordinaCarte);
 	cpu=new giocatore(motoreCpu, nCpu);
 	primaUtente=!primaUtente;
@@ -317,6 +320,8 @@ bool BriscoPanel::caricaImmagini(wxString mazzo, bool err) {
 	}
 	return !errore;
 }
+
+
 
 void BriscoPanel::setColoreTesto(wxColour &c) {
     coloreTesto=c;

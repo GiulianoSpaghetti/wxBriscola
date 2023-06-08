@@ -29,6 +29,9 @@ EVT_MENU(wxID_ABOUT, BriscoFrame::onInfo)
 EVT_MENU(ID_SITOWEB, BriscoFrame::onSitoWeb)
 EVT_MENU(ID_COLORE_TESTO, BriscoFrame::OnColoreTesto)
 EVT_MENU(ID_COLORE_SFONDO, BriscoFrame::OnColoreSfondo)
+EVT_MENU(ID_LIVELLO0, BriscoFrame::OnMenuLivello0)
+EVT_MENU(ID_LIVELLO1, BriscoFrame::OnMenuLivello1)
+EVT_MENU(ID_LIVELLO2, BriscoFrame::OnMenuLivello2)
 //EVT_MENU(ID_AGGIORNAMENTO, BriscoFrame::onAggiornamenti)
 END_EVENT_TABLE()
 
@@ -40,6 +43,7 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
 	int r, g, b;
 
     bool briscolaDaPunti, ordinaCarte, avvisaFineTallone, avvisaTwitter;
+    size_t livello;
     int millisecondi;
 	if (!config->Read("faiGiocoCartaAlta", &cartaAlta))
 		cartaAlta=true;
@@ -63,6 +67,8 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
         nomeCpu="Cpu";
     if (!config->Read("nomeUtente", &nomeUtente))
         nomeUtente="Utente";
+    if (!config->Read("livello", &livello))
+    	livello=3;
     if (!config->Read("rosso", &r))
         r=254;
     if (!config->Read("verde", &g))
@@ -83,7 +89,7 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
     d1.SetColour(coloreSfondo);
     loc=l;
 	paginaWeb=wxT("https://github.com/numerunix/wxBriscola/releases");
-	versione=wxT("0.5");
+	versione=wxT("0.6");
     leggiFont();
 //    pathTraduzioni=path;
 	//client.SetHeader("Content-type", "text/html; charset=utf-8");
@@ -111,35 +117,42 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
 		return;
 	}
 	giocoCartaAlta();
-	p=new BriscoPanel(this, el, br, primaUtente,briscolaDaPunti, ordinaCarte, millisecondi, avvisaFineTallone, nomeMazzo, nomeUtente, nomeCpu, font, coloreTesto, coloreSfondo, avvisaTwitter);
+	p=new BriscoPanel(this, el, br, primaUtente,briscolaDaPunti, ordinaCarte, millisecondi, avvisaFineTallone, nomeMazzo, nomeUtente, nomeCpu, font, coloreTesto, coloreSfondo, avvisaTwitter, livello);
 	p->SetFocus();
-	aggiungiMenu();
+	aggiungiMenu(livello);
 	p->getDimensioni(dim.x, dim.y);
 	SetClientSize(dim.x, dim.y);
 }
 
 
-void BriscoFrame::aggiungiMenu() {
+void BriscoFrame::aggiungiMenu(size_t livello) {
     wxMenuBar *m=new wxMenuBar();
-    wxMenu *menu=new wxMenu(), *menu1=new wxMenu(), *menu2=new wxMenu();
+    wxMenu *menu=new wxMenu(), *menu1=new wxMenu(), *menu2=new wxMenu(), *livelli=new wxMenu();
 	menuMazzi=new wxMenu();
 	menuTraduzioni=new wxMenu();
-    menu->Append(ID_NUOVA_PARTITA, wxString(_("&Nuova Partita"))+"\tALT+N", _("Inizia una nuova partita senza concludere l'attuale"));
-    menu->Append(ID_OPZIONI, wxString(_("&Opzioni"))+"\tALT+O", _("Imposta le opzioni del programma"));
-	menu->Append(ID_FONT, wxString(_("&Font"))+"\tALT+F", _("Imposta il font utilizzato"));
-    menu->Append(wxID_EXIT, wxString(_("&Esci"))+"\tALT+Q", _("Chiudi il programma"));
+    menu->Append(ID_NUOVA_PARTITA, _("&Nuova Partita")+"\tALT+N", _("Inizia una nuova partita senza concludere l'attuale"));
+    menu->Append(ID_OPZIONI, _("&Opzioni")+"\tALT+O", _("Imposta le opzioni del programma"));
+	menu->Append(ID_FONT, _("&Font")+"\tALT+F", _("Imposta il font utilizzato"));
+    menu->Append(wxID_EXIT, _("&Esci")+"\tALT+Q", _("Chiudi il programma"));
     m->Append(menu, _("&File"));
     menu2->Append(ID_COLORE_TESTO, wxString(_("&Testo")) + "\tALT+T", _("Imposta il colore del testo"));
-    menu2->Append(ID_COLORE_SFONDO, wxString(_("S&fondo")) + "\tALT+N", _("Imposta il colore dello sfondo"));
+    menu2->Append(ID_COLORE_SFONDO, _("S&fondo") + "\tALT+N", _("Imposta il colore dello sfondo"));
     m->Append(menu2, _("&Colori"));
     getMenuMazzi(menuMazzi);
 	m->Append(menuMazzi, _("&Mazzi"));
+	livelli->AppendRadioItem(ID_LIVELLO0, _("Livello 1"), _("gioca col livello 1"));
+	livelli->AppendRadioItem(ID_LIVELLO1, _("Livello 2"), _("gioca col livello 2"));
+	livelli->AppendRadioItem(ID_LIVELLO2, _("Livello 3"), _("gioca col livello 3"));
+	m->Append(livelli, _("Livelli"));
 	getMenuTraduzioni(menuTraduzioni);
 	m->Append(menuTraduzioni, _("&Localizzazioni"));
     //menu1->Append(ID_AGGIORNAMENTO, _("&Verifica aggiornamenti")+_("\tALT+A"), _("Verifica aggiornamenti per il programma"));
-    menu1->Append(ID_SITOWEB, wxString(_("&Sito web del gioco"))+"\tALT+S", _("Apre il sito web ufficiale"));
-    menu1->Append(wxID_ABOUT, wxString(_("&Informazioni"))+"\tALT+I", _("Per segnalare un bug o contattare l'autore"));
+    menu1->Append(ID_SITOWEB, _("&Sito web del gioco")+"\tALT+S", _("Apre il sito web ufficiale"));
+    menu1->Append(wxID_ABOUT, _("&Informazioni")+"\tALT+I", _("Per segnalare un bug o contattare l'autore"));
     m->Append(menu1, _("?"));
+    m->Check(ID_LIVELLO0, livello==1);
+    m->Check(ID_LIVELLO1, livello==2);
+    m->Check(ID_LIVELLO2, livello==3);
     SetMenuBar(m);
 }
 
@@ -162,13 +175,13 @@ void BriscoFrame::onInfo(wxCommandEvent& WXUNUSED(evt)) {
     info.SetDescription(_("Il gioco della briscola a due giocatori"));
     info.SetTranslators(traduttori);
     #ifndef _WIN32
-     //   info.SetIcon(wxIcon(wxBriscola_xpm));
+        info.SetIcon(wxIcon(wxbriscola_xpm));
     #endif
     wxAboutBox(info);
 }
 
 void BriscoFrame::onNuovaPartita(wxCommandEvent& WXUNUSED(evt)) {
-	p->nuovaPartita(true, true);
+	p->nuovaPartita(true, true, p->getLivello());
 }
 
 void BriscoFrame::onOpzioni(wxCommandEvent& WXUNUSED(evt)) {
@@ -340,6 +353,19 @@ void BriscoFrame::OnColoreSfondo(wxCommandEvent& evt) {
         p->setColoreSfondo(coloreSfondo);
     }
     delete coloredlg;
+}
+
+void BriscoFrame::OnMenuLivello0(wxCommandEvent& evt) {
+    config->Write("livello", 1);
+    	p->nuovaPartita(true, true, 1);
+}
+void BriscoFrame::OnMenuLivello1(wxCommandEvent& evt) {
+    config->Write("livello", 2);
+    	p->nuovaPartita(true, true, 2);
+}
+void BriscoFrame::OnMenuLivello2(wxCommandEvent& evt) {
+    config->Write("livello", 3);
+    	p->nuovaPartita(true, true, 3);
 }
 
 BriscoFrame::~BriscoFrame() {

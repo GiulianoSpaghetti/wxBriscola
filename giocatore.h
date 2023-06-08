@@ -59,5 +59,6 @@ class giocatore {
 		wxPoint paint(wxPaintDC &dc, wxCoord c) {return helper->paint(dc, nome, mano, iCartaGiocata);} //disegna i dati del giocatore sul frame
 		bool stessoSemeCartaGiocata(giocatore *g); //se la carta giocata dal giocatore ha lo stesso seme
 		bool stessoSeme(carta *c); //confronta due carte per sapere se hanno lo stesso seme
+		giocatoreHelper *getHelper() {return helper;}
 };
 #endif

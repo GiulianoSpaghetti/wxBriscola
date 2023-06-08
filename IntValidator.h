@@ -17,10 +17,11 @@
  *   Free Software Foundation, Inc.,                                              *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.                    *
  **********************************************************************************/
- 
+
  #ifndef _DOUBLE_VALIDATOR_H_
 #define _DOUBLE_VALIDATOR_H_
 
+#include <wx/wx.h>
 #include <stdexcept>
 #include <wx/validate.h>
 #include <wx/textctrl.h>

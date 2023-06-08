@@ -69,7 +69,7 @@ class BriscoPanel : public wxPanel {
 			briscolaDaPunti, //se l'ultima briscola puo' dare punti
 			ordinaCarte, //se le carte del giocatore umano devono essere ordinate
 			abilitaTwitter; //se aprire twitter al termine delle due partite
-        wxColour coloreTesto, coloreSfondo;
+	        wxColour coloreTesto, coloreSfondo;
 		void onKey(wxKeyEvent &evt); //pressione di un tasto
 		void onTimer(wxTimerEvent &evt); //scade il timer
 		void gioca(int codice); //l'utente deve giocare
@@ -78,7 +78,7 @@ class BriscoPanel : public wxPanel {
 		void onClick(wxMouseEvent& evt) ; //gestisce il click sull'immagine
 		DECLARE_EVENT_TABLE()
 	public:
-		BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour coloreTesto, wxColour coloreSfondo, bool twitter);
+		BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour coloreTesto, wxColour coloreSfondo, bool twitter, size_t livello);
 		wxString& getNomeUtente() {return utente->getNome();}
 		wxString& getNomeCpu() {return cpu->getNome();}
 		bool getFlagBriscola() {return briscolaDaPunti;}
@@ -91,15 +91,16 @@ class BriscoPanel : public wxPanel {
 		void setFlagBriscola(bool flag) {
 			if (briscolaDaPunti!=flag) {
 				briscolaDaPunti=flag;
-				nuovaPartita(true, true);
+				nuovaPartita(true, true, dynamic_cast<giocatoreHelperCpu *>(cpu->getHelper())->getLivello());
 			}
 		}
+		size_t getLivello() {return motoreCpu->getLivello();}
 		void setTwitter(bool twitter) { abilitaTwitter = twitter; }
 		bool getTwitter() { return abilitaTwitter; }
 		void setFlagOrdina(bool o) {ordinaCarte=o; utente->setFlagOrdina(o);}
 		void setIntervallo(double secondi) {millisecondi=static_cast<int>(secondi*1000);}
 		void setFlagAvvisa(bool a) {avvisaFineTallone=a;}
-		void nuovaPartita(bool avvisa, bool inizializza);
+		void nuovaPartita(bool avvisa, bool inizializza, size_t livello);
 		void getDimensioni(wxCoord &x, wxCoord & y);
 		bool caricaImmagini(wxString mazzo, bool err=false);
 		void setColoreTesto(wxColour &c);
