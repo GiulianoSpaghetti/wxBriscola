@@ -45,7 +45,11 @@ BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHe
 	abilitaTwitter = twitter;
 	m=new mazzo(e);
 	semeBriscola=b->getSeme(e->getCartaBriscola());
-	motoreCpu=new giocatoreHelperCpu(e->getCartaBriscola(), livello);
+	switch(livello) {
+        case 1:	motoreCpu=new giocatoreHelperCpu0(e->getCartaBriscola()); break;
+        case 2: motoreCpu=new giocatoreHelperCpu1(e->getCartaBriscola()); break;
+        default: motoreCpu=new giocatoreHelperCpu2(e->getCartaBriscola());
+    }
 	utente=new giocatore(new giocatoreHelperUtente(), nomeUtente, ordinaCarte);
 	cpu=new giocatore(motoreCpu,nomeCpu);
 
@@ -157,7 +161,7 @@ void BriscoPanel::gioca(int codice) {
 	c=primo->getCartaGiocata();
 	c1=secondo->getCartaGiocata();
 	if ((primo->stessoSemeCartaGiocata(secondo) && b->compara(c->getNumero(), c1->getNumero())==2) || (secondo->stessoSeme(carta::getCarta(e->getCartaBriscola())) && !primo->stessoSeme(carta::getCarta(e->getCartaBriscola())))) {
-		temp=primo;
+		temp=primo;motoreCpu=new giocatoreHelperCpu0(e->getCartaBriscola());
 		primo=secondo;
 		secondo=temp;
 	}
@@ -261,7 +265,11 @@ void BriscoPanel::nuovaPartita(bool avvisa, bool inizializza, size_t livello) {
 	b=new cartaHelperBriscola(e);
 	semeBriscola=b->getSeme(e->getCartaBriscola());
 	carta::inizializza(40, b, nomeMazzo);
-	motoreCpu=new giocatoreHelperCpu(e->getCartaBriscola(), livello);
+	switch(livello) {
+        case 1:	motoreCpu=new giocatoreHelperCpu0(e->getCartaBriscola()); break;
+        case 2: motoreCpu=new giocatoreHelperCpu1(e->getCartaBriscola()); break;
+        default: motoreCpu=new giocatoreHelperCpu2(e->getCartaBriscola());
+    }
 	utente=new giocatore(new giocatoreHelperUtente(), nUser, ordinaCarte);
 	cpu=new giocatore(motoreCpu, nCpu);
 	primaUtente=!primaUtente;
