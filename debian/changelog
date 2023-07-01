@@ -1,3 +1,18 @@
+wxbriscola (0.6-2-franca) stable; urgency=low
+
+  * Fatti i livelli in maniera intelligente
+   --Giulio Sorrentino <gsorre84@gmail.com> Sun, 2 Jul 2023 00:07:11 +0200
+
+wxbriscola (0.6-1-franca) stable; urgency=low
+
+  * Aggiunti i livelli
+   --Giulio Sorrentino <gsorre84@gmail.com> Wed, 24 May 2023 20:21:11 +0200
+
+wxbriscola (0.5.2-1-franca) stable; urgency=low
+
+  * Aggiornato a wxwidgets 3.2.2
+   --Giulio Sorrentino <gsorre84@gmail.com> Wed, 24 May 2023 20:21:11 +0200
+
 wxbriscola (0.5.2-franca) stable; urgency=low
 
   * Inserita la versione del sistema operativo nella conivisione su twitter.
