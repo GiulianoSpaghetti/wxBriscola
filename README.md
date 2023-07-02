@@ -23,7 +23,7 @@ Sentitevi liberi di contribuire con localizzazioni e mazzi regionali.
 # L'algoritmo brevettato
 
 Vi spiego come funziona l'algoritmo dell'ia dei livelli 2 e 3, che è brevettato all'ufficio brevetti americano.
-Gli assi sono 4 e valogono 11 punti ciascuno, i 3 10 punti, i 10 4 punti i 9 3 punti 3 gli 8 2 punti, per cui:4*11+4*10+4*4+4*3+4*2=44+40+16+12+8=120
+Gli assi sono 4 e valogono 11 punti ciascuno, i 3 10 punti, i 10 4 punti i 9 3 punti 3 gli 8 2 punti, per cui:4x11+4x10+4x4+4x3+4x2=44+40+16+12+8=120
 I punti totali sono 120 di cui 84 di carichi e 36 di altre carte. Per vincere bisogna giocare a prendere la carta con valore, non il carico, perchè per vincere servono 61 punti e 81-61=20 punti, questo significa che bisogna lasciar stare solo 2 carichi.
 Al contrario prendendo i 36 punti delle carte di valore, servono altri 25 punti per vincere, per cui bastano 3 carichi.
 In generale nei giochi di carte più carte si prendono e più possibilità c'é di far punti, per cui come algoritmo per il primo di mano si sceglie di giocare la carta più difficile da prendere, ossia un 10 ma non di briscola.
