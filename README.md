@@ -1,3 +1,9 @@
+# Bug noti
+
+Nella wxBriscola coi livelli esiste un bug e non si sa a cosa sia dovuto: in pratica nel try-catch finale quando si entra nel catch virtual è come se non venisse visto e getLivello risulta sempre uguale a 1, questo significa che la "seconda" partita verrà effettuata col livello uguale ad 1.
+Anche salvandosi il livello in una variabile al di uori del try catch non ha sortito effetto. Non si sa a cosa sia dovuto.
+
+
 # wxBriscola
 Il gioco della briscola a due giocatori scritto in c++ e wxwidgets.
 Non ha il multiplayer e supporta il caricamento di mazzi regionali ed arbitrari e il caricamento delle localizzazioni.
@@ -133,10 +139,6 @@ Per ovviare al problema e vedere quindi correttamente gli accenti italiani, biso
 
 # Ricompilazione
 Scaricate il file wxBriscola 0.4.1.1 dal [mio sito web](http://numerone.altervista.org), poi prendete tutti i files da git, copiate la cartella Mazzi ed il file debian/rules dalla 0.4.1.1 nelle relative directory della 0.4.2, ed infine date il comando dpkg-buildpackage presente nei package installati da devscripts in ambiente debian.
-
-# Bug noti
-
-Il mazzo fable 3 ha un bug: bisogna rinominare le immagini da 0 a 9 aggiungendo un 2 e bisogna togliere il 2 nelle immagini da 20 a 29
 
 
 # Donazioni
