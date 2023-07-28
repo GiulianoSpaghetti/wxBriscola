@@ -1,7 +1,7 @@
 # Bug noti
 
 Nella wxBriscola coi livelli esiste un bug e non si sa a cosa sia dovuto: in pratica nel try-catch finale quando si entra nel catch virtual è come se non venisse visto e getLivello risulta sempre uguale a 1, questo significa che la "seconda" partita verrà effettuata col livello uguale ad 1.
-Anche salvandosi il livello in una variabile al di uori del try catch non ha sortito effetto. Non si sa a cosa sia dovuto.
+Anche salvandosi il livello in una variabile al di uori del try catch non ha sortito effetto, ho anche provasto a decomprimere la funzione inline. Non si sa a cosa sia dovuto.
 
 # wxBriscola
 Il gioco della briscola a due giocatori scritto in c++ e wxwidgets.
