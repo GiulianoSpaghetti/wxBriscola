@@ -141,7 +141,7 @@ Scaricate il file wxBriscola 0.4.1.1 dal [mio sito web](http://numerone.altervis
 
 # Bug noti
 
-Il mazzo fable 3 ha un bug: bisogna rinominare le immagini da 0 a 9 aggiungendo un 2 e bisogna togliere il 2 nelle immagini da 20 a 29
+La wxbriscola con i livelli permette di giocare solo la prima partita al livello 3, poi scende in automatico al livello 1 e non c'è modo di ripristinarlo.
 
 
 # Donazioni
