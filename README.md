@@ -2,6 +2,7 @@
 
 Nella wxBriscola coi livelli esiste un bug e non si sa a cosa sia dovuto: in pratica nel try-catch finale quando si entra nel catch virtual è come se non venisse visto e getLivello risulta sempre uguale a 1, questo significa che la "seconda" partita verrà effettuata col livello uguale ad 1.
 Anche salvandosi il livello in una variabile al di uori del try catch non ha sortito effetto; ho anche provato a decomprimere la funzione inline. Non si sa a cosa sia dovuto.
+Vi informo che la versione flatpak, non essendo aggiornata, è immune da tale bug.
 
 # wxBriscola
 Il gioco della briscola a due giocatori scritto in c++ e wxwidgets.
@@ -39,12 +40,13 @@ In generale nei giochi di carte più carte si prendono e più possibilità c'é 
 
 # Installazione
 
-# Tramite repository (consigliato)
+# Tramite flatpak  (onsigliato)
+Seguite le istruzioni all'indirizzo http://numeronesoft.ddns.net:8080
+Prestate attenzione: flatpak non include il mazzo napoletano, dovete scaricare il deb e spacchettarlo con fileroller e creare la directort HOME/Mazzi/Napoletano
+
+# Tramite repository (sconsigliato, c'è il bug)
 Seguite le istruzioni all'indirizzo http://numeronesoft.ddns.net
 
-
-# Tramite flatpak  (sconsigliato)
-Seguite le istruzioni all'indirizzo http://numeronesoft.ddns.net:8080
 
 # Tramite Snap Store
 
