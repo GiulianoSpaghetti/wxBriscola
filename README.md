@@ -1,5 +1,7 @@
 # Bug noti
 
+Nella versione 0.6.2-1 presente nel mio repo pare che il bug non ci sia, perché debian ha corretto il gcc, ma non ancora il gdb.
+
 Nella wxBriscola coi livelli esiste un bug e non si sa a cosa sia dovuto: in pratica nel try-catch finale quando si entra nel catch virtual è come se non venisse visto e getLivello risulta sempre uguale a 1, questo significa che la "seconda" partita verrà effettuata col livello uguale ad 1.
 Anche salvandosi il livello in una variabile al di uori del try catch non ha sortito effetto; ho anche provato a decomprimere la funzione inline. Non si sa a cosa sia dovuto.
 Vi informo che la versione flatpak, non essendo aggiornata, è immune da tale bug.
