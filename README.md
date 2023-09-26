@@ -42,15 +42,15 @@ In generale nei giochi di carte più carte si prendono e più possibilità c'é 
 
 # Installazione
 
-# Tramite flatpak  (onsigliato)
+# Tramite repository (consigliato)
+Seguite le istruzioni all'indirizzo http://numeronesoft.ddns.net
+
+# Tramite flatpak  (sconsigliato, non è aggiornato)
 Seguite le istruzioni all'indirizzo http://numeronesoft.ddns.net:8080
 Prestate attenzione: flatpak non include il mazzo napoletano, dovete scaricare il deb e spacchettarlo con fileroller e creare la directort HOME/Mazzi/Napoletano
 
-# Tramite repository (sconsigliato, c'è il bug)
-Seguite le istruzioni all'indirizzo http://numeronesoft.ddns.net
 
-
-# Tramite Snap Store
+# Tramite Snap Store (sconsigliato, mnnon funziona twitter)
 
 [![wxbriscola](https://snapcraft.io/wxbriscola/badge.svg)](https://snapcraft.io/wxbriscola)
 
@@ -140,17 +140,9 @@ Potrebbe comparire il messaggio d'errore all'inizio "Locale xx_xx cannot be set)
 In alcune occasioni, potrebbe apparire il programma in lingua italiana, solo che al posto di avere gli accenti ha gli apostrofi, questo accade quando non trova la libreria di localizzazione richiesta e quindi mostra le stringhe senza nessuna traduzione.
 Per ovviare al problema e vedere quindi correttamente gli accenti italiani, bisogna assicurarsi che il file wxBirscola.mo si trovi nella cartella LC_LOCALES sotto locale nella directory di esecuzione del programma.
 
-# Ricompilazione
-Scaricate il file wxBriscola 0.4.1.1 dal [mio sito web](http://numerone.altervista.org), poi prendete tutti i files da git, copiate la cartella Mazzi ed il file debian/rules dalla 0.4.1.1 nelle relative directory della 0.4.2, ed infine date il comando dpkg-buildpackage presente nei package installati da devscripts in ambiente debian.
-
-# Bug noti
-
-La wxbriscola con i livelli permette di giocare solo la prima partita al livello 3, poi scende in automatico al livello 1 e non c'è modo di ripristinarlo.
-
-
 # Donazioni
 
-[![paypal](https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=H4ZHTFRCETWXG)
+[![paypal](https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JZVR4QQFGLR6Q)
 
 Puoi donare anche tramite carta Hype a patto di avere il mio numero di cellulare nella rubrica. Sai dove lo puoi trovare? Sul mio curriculum.
 Apri l'app Hype, fai il login, seleziona PAGAMENTI, INVIA DENARO, seleziona il mio numero nella rubrica, imposta l'importo, INSERISCI LA CAUSALE e segui le istruzioni a video.
