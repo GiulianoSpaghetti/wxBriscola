@@ -36,7 +36,9 @@ EVT_MENU(ID_LIVELLO2, BriscoFrame::OnMenuLivello2)
 END_EVENT_TABLE()
 
 wxRegConfig* BriscoFrame::config;
+giocatoreHelperCpu* BriscoFrame::motoreCpu;
 
+bool BriscoFrame::abilitaTwitter;
 BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID_ANY, "wxBriscola", wxDefaultPosition,wxSize(600,450),wxMINIMIZE_BOX | wxRESIZE_BORDER | wxSYSTEM_MENU | wxCAPTION | wxCLOSE_BOX | wxCLIP_CHILDREN) {
     wxString nomeUtente, nomeCpu;
 	config=c; //lettura delle opzioni
@@ -118,7 +120,7 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
 		return;
 	}
 	giocoCartaAlta();
-	p=new BriscoPanel(this, el, br, primaUtente,briscolaDaPunti, ordinaCarte, millisecondi, avvisaFineTallone, nomeMazzo, nomeUtente, nomeCpu, font, coloreTesto, coloreSfondo, avvisaTwitter, livello);
+	p=new BriscoPanel(this, el, br, primaUtente,briscolaDaPunti, ordinaCarte, millisecondi, avvisaFineTallone, nomeMazzo, nomeUtente, nomeCpu, font, coloreTesto, coloreSfondo, livello);
 	p->SetFocus();
 	aggiungiMenu(livello);
 	p->getDimensioni(dim.x, dim.y);
@@ -164,7 +166,7 @@ void BriscoFrame::onEsci(wxCommandEvent& WXUNUSED(evt)) {
 void BriscoFrame::onInfo(wxCommandEvent& WXUNUSED(evt)) {
 	wxAboutDialogInfo info;
 	info.AddDeveloper("Giulio Sorrentino <gsorre84@gmail.com>");
-	info.SetCopyright("(c) 2022 Giulio Sorrentino");
+	info.SetCopyright("(c) 2023 Giulio Sorrentino");
 	info.SetLicense(_("GPL v3 o (a tua discrezione) qualsiasi versione successiva.\nLe immagini delle carte sono di proprieta' della Modiano"));
 	info.SetName("wxBriscola");
 	info.SetVersion(versione);
@@ -182,11 +184,11 @@ void BriscoFrame::onInfo(wxCommandEvent& WXUNUSED(evt)) {
 }
 
 void BriscoFrame::onNuovaPartita(wxCommandEvent& WXUNUSED(evt)) {
-	p->nuovaPartita(true, true, p->getLivello());
+	p->nuovaPartita(true, true, getLivello());
 }
 
 void BriscoFrame::onOpzioni(wxCommandEvent& WXUNUSED(evt)) {
-	OpzioniFrame *f=new OpzioniFrame(this, p->getNomeUtente(), p->getNomeCpu(), p->getFlagBriscola(), p->getFlagOrdina(), p->getFlagAvvisa(), cartaAlta, p->getIntervallo(), aggiornamenti, p->getTwitter());
+	OpzioniFrame *f=new OpzioniFrame(this, p->getNomeUtente(), p->getNomeCpu(), p->getFlagBriscola(), p->getFlagOrdina(), p->getFlagAvvisa(), cartaAlta, p->getIntervallo(), aggiornamenti, getTwitter());
     if (f->ShowModal()==wxID_OK) {
 		p->setNomeUtente(f->getNomeUtente());
 		p->setNomeCpu(f->getNomeCpu());
@@ -194,7 +196,7 @@ void BriscoFrame::onOpzioni(wxCommandEvent& WXUNUSED(evt)) {
 		p->setFlagOrdina(f->getOrdinaCarte());
 		p->setFlagAvvisa(f->getAbilitaAvviso());
 		p->setIntervallo(f->getSecondi());
-        p->setTwitter(f->getTwitter());
+        BriscoFrame::setTwitter(f->getTwitter());
 		aggiornamenti=f->getFlagAggiornamenti();
 		cartaAlta=f->getFlagCartaAlta();
 
@@ -388,7 +390,7 @@ BriscoFrame::~BriscoFrame() {
     config->Write("sfondoRosso", coloreSfondo.Red());
     config->Write("sfondoVerde", coloreSfondo.Green());
     config->Write("sfondoBlu", coloreSfondo.Blue());
-    config->Write("twitter", p->getTwitter());
+    config->Write("twitter", getTwitter());
     delete config;
 	delete font;
 }

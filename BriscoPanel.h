@@ -57,7 +57,6 @@ class BriscoPanel : public wxPanel {
 		elaboratoreCarteBriscola *e;
 		cartaHelperBriscola *b;
 		carta *c, *c1;
-		giocatoreHelperCpu *motoreCpu;
 		size_t semeBriscola, punteggioUtente, punteggioCpu;
 		int millisecondi; //per il tempo di presa
 		wxBitmap *immagineBriscola, *immagineTallone;
@@ -69,9 +68,8 @@ class BriscoPanel : public wxPanel {
 			primaUtente, //se deve giocare prima l'utente
 			primaPartita, //se e' la prima o la seconda partita
 			briscolaDaPunti, //se l'ultima briscola puo' dare punti
-			ordinaCarte, //se le carte del giocatore umano devono essere ordinate
-			abilitaTwitter; //se aprire twitter al termine delle due partite
-	        wxColour coloreTesto, coloreSfondo;
+			ordinaCarte; //se le carte del giocatore umano devono essere ordinate
+	    wxColour coloreTesto, coloreSfondo;
 		void onKey(wxKeyEvent &evt); //pressione di un tasto
 		void onTimer(wxTimerEvent &evt); //scade il timer
 		void gioca(int codice); //l'utente deve giocare
@@ -81,7 +79,7 @@ class BriscoPanel : public wxPanel {
 		void showMessage(wxNotificationMessage* msg, bool avvisa);
 		DECLARE_EVENT_TABLE()
 	public:
-		BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour coloreTesto, wxColour coloreSfondo, bool twitter, size_t livello);
+		BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour coloreTesto, wxColour coloreSfondo, size_t livello);
 		wxString& getNomeUtente() {return utente->getNome();}
 		wxString& getNomeCpu() {return cpu->getNome();}
 		bool getFlagBriscola() {return briscolaDaPunti;}
@@ -97,9 +95,6 @@ class BriscoPanel : public wxPanel {
 				nuovaPartita(true, true, dynamic_cast<giocatoreHelperCpu *>(cpu->getHelper())->getLivello());
 			}
 		}
-		size_t getLivello() {return motoreCpu->getLivello();}
-		void setTwitter(bool twitter) { abilitaTwitter = twitter; }
-		bool getTwitter() { return abilitaTwitter; }
 		void setFlagOrdina(bool o) {ordinaCarte=o; utente->setFlagOrdina(o);}
 		void setIntervallo(double secondi) {millisecondi=static_cast<int>(secondi*1000);}
 		void setFlagAvvisa(bool a) {avvisaFineTallone=a;}

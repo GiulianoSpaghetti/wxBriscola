@@ -28,9 +28,10 @@ EVT_LEFT_DOWN(BriscoPanel::onClick)
 EVT_TIMER(ID_TIMER, BriscoPanel::onTimer)
 END_EVENT_TABLE()
 
-BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour coloreTesto, wxColour coloreSfondo, bool twitter, size_t livello)  : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(600,500)) {
+BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour coloreTesto, wxColour coloreSfondo, size_t livello)  : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(600,500)) {
 	e=el;
 	b=br;
+	giocatoreHelperCpu* motoreCpu;
 	this->coloreTesto=coloreTesto;
 	this->coloreSfondo = coloreSfondo;
 	avvisatoFineTallone=false;
@@ -43,7 +44,6 @@ BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHe
     this->millisecondi=millisecondi;
     this->avvisaFineTallone=avvisaFineTallone;
     this->nomeMazzo=nomeMazzo;
-	abilitaTwitter = twitter;
 	m=new mazzo(e);
 	semeBriscola=b->getSeme(e->getCartaBriscola());
 	switch(livello) {
@@ -53,7 +53,7 @@ BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHe
     }
 	utente=new giocatore(new giocatoreHelperUtente(), nomeUtente, ordinaCarte);
 	cpu=new giocatore(motoreCpu,nomeCpu);
-
+	BriscoFrame::setMotoreCpu(cpu);
 	if (primaUtente) {//se dal gioco della carta alta e' risultato prima l'utente o se non si e' fatto proprio
 		primo=utente;
 		secondo=cpu;
@@ -162,7 +162,7 @@ void BriscoPanel::gioca(int codice) {
 	c=primo->getCartaGiocata();
 	c1=secondo->getCartaGiocata();
 	if ((primo->stessoSemeCartaGiocata(secondo) && b->compara(c->getNumero(), c1->getNumero())==2) || (secondo->stessoSeme(carta::getCarta(e->getCartaBriscola())) && !primo->stessoSeme(carta::getCarta(e->getCartaBriscola())))) {
-		temp=primo;motoreCpu=new giocatoreHelperCpu0(e->getCartaBriscola());
+		temp=primo;
 		primo=secondo;
 		secondo=temp;
 	}
@@ -177,7 +177,7 @@ void BriscoPanel::onTimer(wxTimerEvent &evt) {
 	} catch (underflow_error &e) { //sono finite le carte
 		if (primaPartita) {//se e' la prima partita
 			if (wxMessageBox(_("Vuoi effettuare la seconda partita?"), _("Continuare?"), wxYES_NO | wxICON_INFORMATION) == wxYES) {
-				nuovaPartita(false, false, motoreCpu->getLivello()); //se l'utente dice di si se ne comincia un'altra
+				nuovaPartita(false, false, BriscoFrame::getLivello()); //se l'utente dice di si se ne comincia un'altra
 				return;
 			}
 			else mostraRichiesta = false;
@@ -193,7 +193,8 @@ void BriscoPanel::onTimer(wxTimerEvent &evt) {
 			s=_("Hai ")+s+_(" per ")+stringHelper::IntToWxStr(labs(utente->getPunteggio()+punteggioUtente-cpu->getPunteggio()-punteggioCpu))+_(" punti.");
 		}
 		Refresh();
-		if (abilitaTwitter && motoreCpu->getLivello()==3)
+		bool twitter = BriscoFrame::getTwitter();
+		if (BriscoFrame::getTwitter() && BriscoFrame::getLivello() == 3)
 			wxLaunchDefaultBrowser(wxT("http://twitter.com/intent/tweet?text=Con%20la%20wxBriscola%20la%20partita%20") + utente->getNome() + wxT("%20contro%20") + cpu->getNome() + wxT("%20con%20mazzo%20") + carta::getNomeMazzo() + wxT("%20%C3%A8%20finita%20") + utente->getPunteggioStr() + wxT("%20a%20") + cpu->getPunteggioStr() +wxT("%20su%20piattaforma%20") + wxPlatformInfo::Get().GetOperatingSystemIdName() + wxT("&url=https%3A%2F%2Fgithub.com%2Fnumerunix%2FwxBriscola"));
 
 		if (mostraRichiesta)
@@ -202,7 +203,7 @@ void BriscoPanel::onTimer(wxTimerEvent &evt) {
 				return;
 			}
 			else {
-				nuovaPartita(false, true, motoreCpu->getLivello());
+				nuovaPartita(false, true, BriscoFrame::getLivello());
 				return;
 			}
 		else {
@@ -243,7 +244,8 @@ void BriscoPanel::showMessage(wxNotificationMessage* msg, bool avvisa) {
 void BriscoPanel::nuovaPartita(bool avvisa, bool inizializza, size_t livello) {
 //Se si deve giocare una nuova partita
 	wxString nUser, nCpu;
-	if (motoreCpu->getLivello()!=livello) {
+	giocatoreHelperCpu* motoreCpu;
+	if (BriscoFrame::getLivello()!=livello) {
 			wxNotificationMessage* msg = new wxNotificationMessage(_("Attenzione"), _("Hai cambiato livello, comincera' una nuova partita"), this);
 			showMessage(msg, avvisaFineTallone);
 			delete msg;
@@ -271,15 +273,14 @@ void BriscoPanel::nuovaPartita(bool avvisa, bool inizializza, size_t livello) {
 	b=new cartaHelperBriscola(e);
 	semeBriscola=b->getSeme(e->getCartaBriscola());
 	carta::inizializza(40, b, nomeMazzo);
-	if (!BriscoFrame::config->Read("livello", &livello))
-		livello = 3;
-	switch(livello) {
+	switch(BriscoFrame::getLivello()) {
         case 1:	motoreCpu=new giocatoreHelperCpu0(e->getCartaBriscola()); break;
         case 2: motoreCpu=new giocatoreHelperCpu1(e->getCartaBriscola()); break;
         default: motoreCpu=new giocatoreHelperCpu2(e->getCartaBriscola());
     }
 	utente=new giocatore(new giocatoreHelperUtente(), nUser, ordinaCarte);
 	cpu=new giocatore(motoreCpu, nCpu);
+	BriscoFrame::setMotoreCpu(cpu);
 	primaUtente=!primaUtente;
 	if (primaUtente) { //se deve giocare prima l'utente
 		primo=utente;
@@ -310,7 +311,7 @@ bool BriscoPanel::caricaImmagini(wxString mazzo, bool err) {
 		return false;
 	try {
 		carta::caricaImmagini(mazzo); //si caricano le immagini delle carte
-		motoreCpu->caricaImmagine(); //si carica l'immagine della cpu
+		BriscoFrame::caricaImmagineCpu(); //si carica l'immagine della cpu
 	} catch (invalid_argument &e) { //non e' riuscito il caricamento
 		s=wxString(e.what(), wxConvUTF8);
 		errore=true;
