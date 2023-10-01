@@ -193,7 +193,6 @@ void BriscoPanel::onTimer(wxTimerEvent &evt) {
 			s=_("Hai ")+s+_(" per ")+stringHelper::IntToWxStr(labs(utente->getPunteggio()+punteggioUtente-cpu->getPunteggio()-punteggioCpu))+_(" punti.");
 		}
 		Refresh();
-		bool twitter = BriscoFrame::getTwitter();
 		if (BriscoFrame::getTwitter() && BriscoFrame::getLivello() == 3)
 			wxLaunchDefaultBrowser(wxT("http://twitter.com/intent/tweet?text=Con%20la%20wxBriscola%20la%20partita%20") + utente->getNome() + wxT("%20contro%20") + cpu->getNome() + wxT("%20con%20mazzo%20") + carta::getNomeMazzo() + wxT("%20%C3%A8%20finita%20") + utente->getPunteggioStr() + wxT("%20a%20") + cpu->getPunteggioStr() +wxT("%20su%20piattaforma%20") + wxPlatformInfo::Get().GetOperatingSystemIdName() + wxT("&url=https%3A%2F%2Fgithub.com%2Fnumerunix%2FwxBriscola"));
 
@@ -273,7 +272,7 @@ void BriscoPanel::nuovaPartita(bool avvisa, bool inizializza, size_t livello) {
 	b=new cartaHelperBriscola(e);
 	semeBriscola=b->getSeme(e->getCartaBriscola());
 	carta::inizializza(40, b, nomeMazzo);
-	switch(BriscoFrame::getLivello()) {
+	switch(livello) {
         case 1:	motoreCpu=new giocatoreHelperCpu0(e->getCartaBriscola()); break;
         case 2: motoreCpu=new giocatoreHelperCpu1(e->getCartaBriscola()); break;
         default: motoreCpu=new giocatoreHelperCpu2(e->getCartaBriscola());

@@ -46,7 +46,7 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
 	int r, g, b;
 
     bool briscolaDaPunti, ordinaCarte, avvisaFineTallone, avvisaTwitter;
-    size_t livello;
+    int livello;
     int millisecondi;
 	if (!config->Read("faiGiocoCartaAlta", &cartaAlta))
 		cartaAlta=true;
@@ -286,7 +286,8 @@ void BriscoFrame::getMenuMazzi(wxMenu *menu) {
 void BriscoFrame::CreaVoceTraduzione(wxMenu* menu, const wxLanguageInfo* lang) {
     idMenuTraduzioni.Add(wxNewId());
     menu->AppendRadioItem(idMenuTraduzioni.Last(), lang->Description, _("Carica il file del linguaggio corrispondente"));
-    menu->Check(idMenuTraduzioni.Last(), lang->Language==loc);
+    if (lang->Language == loc)
+        menuTradId = idMenuTraduzioni.Last();
     idTraduzioni.Add(lang->Language);
     Connect(idMenuTraduzioni.Last(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(BriscoFrame::OnMenuTraduzioni));
 }
@@ -296,6 +297,7 @@ void BriscoFrame::getMenuTraduzioni(wxMenu *menu) {
     CreaVoceTraduzione(menu, wxLocale::FindLanguageInfo("es"));
     CreaVoceTraduzione(menu, wxLocale::FindLanguageInfo("IT_it"));
     CreaVoceTraduzione(menu, wxLocale::FindLanguageInfo("fr"));
+    menu->Check(menuTradId, true);
 }
 
 void BriscoFrame::onMenuMazzi(wxCommandEvent& evt) {

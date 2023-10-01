@@ -30,7 +30,7 @@ bool BriscoApp::OnInit() {
     wxConfig *config=new wxConfig(GetAppName()); //lettura delle opzioni
 
     if (!config->Read("locale", &loc))
-        loc=wxLANGUAGE_ITALIAN;
+        loc=wxLANGUAGE_ITALIAN_ITALY;
 
     wxLocale *m_locale;
     m_locale=new wxLocale( loc, wxLOCALE_DONT_LOAD_DEFAULT );
