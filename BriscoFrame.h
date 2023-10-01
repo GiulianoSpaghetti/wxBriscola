@@ -45,7 +45,6 @@ class BriscoFrame: public wxFrame {
 	private:
 		enum {ID_NUOVA_PARTITA=10001, ID_OPZIONI, ID_FONT, ID_AGGIORNAMENTO, ID_SITOWEB, ID_COLORE_TESTO, ID_COLORE_SFONDO, ID_LIVELLO0, ID_LIVELLO1, ID_LIVELLO2};
 		BriscoPanel *p;
-		wxConfig *config;
 		wxMenu *menuMazzi,
                 *menuTraduzioni;
         wxArrayLong idTraduzioni,
@@ -88,6 +87,7 @@ class BriscoFrame: public wxFrame {
 		void OnMenuLivello2(wxCommandEvent& evt);
 		DECLARE_EVENT_TABLE()
 	public:
+		static wxConfig* config;
 		BriscoFrame(int l, wxConfig *c, wxString path);
 		~BriscoFrame();
 		void giocoCartaAlta();

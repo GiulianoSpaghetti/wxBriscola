@@ -35,6 +35,7 @@ EVT_MENU(ID_LIVELLO2, BriscoFrame::OnMenuLivello2)
 //EVT_MENU(ID_AGGIORNAMENTO, BriscoFrame::onAggiornamenti)
 END_EVENT_TABLE()
 
+wxRegConfig* BriscoFrame::config;
 
 BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID_ANY, "wxBriscola", wxDefaultPosition,wxSize(600,450),wxMINIMIZE_BOX | wxRESIZE_BORDER | wxSYSTEM_MENU | wxCAPTION | wxCLOSE_BOX | wxCLIP_CHILDREN) {
     wxString nomeUtente, nomeCpu;
@@ -58,7 +59,7 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
 	if (!config->Read("millisecondi", &millisecondi))
 		millisecondi=1000;
 	if (!config->Read("avvisaFineTallone", &avvisaFineTallone))
-		avvisaFineTallone=true;
+		avvisaFineTallone=false;
 	if (!config->Read("nomeMazzo", &nomeMazzo))
 		nomeMazzo="Napoletano";
 	if (!config->Read("avvisaFineTallone", &avvisaFineTallone))
@@ -89,7 +90,7 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
     d1.SetColour(coloreSfondo);
     loc=l;
 	paginaWeb=wxT("https://github.com/numerunix/wxBriscola/releases");
-	versione=wxT("0.6");
+	versione=wxT("0.6.1");
     leggiFont();
 //    pathTraduzioni=path;
 	//client.SetHeader("Content-type", "text/html; charset=utf-8");

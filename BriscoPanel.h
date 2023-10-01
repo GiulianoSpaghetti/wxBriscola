@@ -78,6 +78,7 @@ class BriscoPanel : public wxPanel {
 		void giocoCartaAlta(); //da' inizio al gioco della carta alta
 		void onPaint(wxPaintEvent &event);
 		void onClick(wxMouseEvent& evt) ; //gestisce il click sull'immagine
+		void showMessage(wxNotificationMessage* msg, bool avvisa);
 		DECLARE_EVENT_TABLE()
 	public:
 		BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour coloreTesto, wxColour coloreSfondo, bool twitter, size_t livello);

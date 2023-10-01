@@ -19,6 +19,7 @@
  **********************************************************************************/
 
 #include "BriscoPanel.h"
+#include "BriscoFrame.h"
 
 BEGIN_EVENT_TABLE(BriscoPanel, wxPanel)
 EVT_PAINT(BriscoPanel::onPaint)
@@ -210,9 +211,9 @@ void BriscoPanel::onTimer(wxTimerEvent &evt) {
 			return;
 		}
 	}
-	if (m->getNumeroCarte()==2 && !avvisatoFineTallone && avvisaFineTallone) { //se e' finito il tallone
+	if (m->getNumeroCarte() == 2 && !avvisatoFineTallone && avvisaFineTallone) { //se e' finito il tallone
 		wxNotificationMessage *msg = new wxNotificationMessage(_("Tallone finito"), _("Il tallone e' finito"), this);
-		msg->Show();
+		showMessage(msg, avvisaFineTallone);
 		delete msg;
 		msg = NULL;
 		avvisatoFineTallone=true;
@@ -221,17 +222,22 @@ void BriscoPanel::onTimer(wxTimerEvent &evt) {
 		primo->gioca(0);
 		if (primo->getCartaGiocata()->stessoSeme(carta::getCarta(e->getCartaBriscola()))) {
 			wxNotificationMessage* msg = new wxNotificationMessage(_("Carta di Briscola"), _("La cpu ha giocato il ") + stringHelper::IntToWxStr(primo->getCartaGiocata()->getValore() + 1) + _(" di briscola"), this);
-			msg->Show();
+			showMessage(msg, avvisaFineTallone);
 			delete msg;
 		}
 		else if (primo->getCartaGiocata()->getPunteggio() > 0)
 		{
 			wxNotificationMessage* msg = new wxNotificationMessage(_("Carta con valore"), _("La cpu ha giocato il ") + stringHelper::IntToWxStr(primo->getCartaGiocata()->getValore() + 1) + _(" di ") + primo->getCartaGiocata()->getSemeStr(), this);
-			msg->Show();
+			showMessage(msg, avvisaFineTallone);
 			delete msg;
 		}
 	}
 	Refresh();
+}
+
+void BriscoPanel::showMessage(wxNotificationMessage* msg, bool avvisa) {
+	if (avvisa)
+		msg->Show();
 }
 
 void BriscoPanel::nuovaPartita(bool avvisa, bool inizializza, size_t livello) {
@@ -239,7 +245,7 @@ void BriscoPanel::nuovaPartita(bool avvisa, bool inizializza, size_t livello) {
 	wxString nUser, nCpu;
 	if (motoreCpu->getLivello()!=livello) {
 			wxNotificationMessage* msg = new wxNotificationMessage(_("Attenzione"), _("Hai cambiato livello, comincera' una nuova partita"), this);
-			msg->Show();
+			showMessage(msg, avvisaFineTallone);
 			delete msg;
 	}
 	if (avvisa && wxMessageBox(_("La partita correntemente in corso verra' interrotta. Continuare?"), _("Richiesta conferma"), wxYES_NO|wxICON_INFORMATION)==wxNO) //se si sta giocando una partita non finita
@@ -265,6 +271,8 @@ void BriscoPanel::nuovaPartita(bool avvisa, bool inizializza, size_t livello) {
 	b=new cartaHelperBriscola(e);
 	semeBriscola=b->getSeme(e->getCartaBriscola());
 	carta::inizializza(40, b, nomeMazzo);
+	if (!BriscoFrame::config->Read("livello", &livello))
+		livello = 3;
 	switch(livello) {
         case 1:	motoreCpu=new giocatoreHelperCpu0(e->getCartaBriscola()); break;
         case 2: motoreCpu=new giocatoreHelperCpu1(e->getCartaBriscola()); break;
