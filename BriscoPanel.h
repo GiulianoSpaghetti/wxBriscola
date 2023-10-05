@@ -32,18 +32,11 @@
 #include "cartaHelper.h"
 #include "CartaAltaFrame.h"
 #include "carta.h"
+#include "stringHelper.h"
 
-#include <wx/filefn.h>
-#include <wx/panel.h>
-#include <wx/event.h>
-#include <wx/image.h>
-#include <wx/bitmap.h>
-#include <wx/timer.h>
 #include <wx/wx.h>
-#include <wx/config.h>
-#include <wx/cmndata.h>
-#include <wx/string.h>
 #include <wx/notifmsg.h>
+#include <wx/config.h>
 
 class BriscoPanel : public wxPanel {
 	private:
@@ -66,7 +59,6 @@ class BriscoPanel : public wxPanel {
 		bool avvisaFineTallone, //se deve avvisare che il tallone e' finito
 			avvisatoFineTallone, //se si e' stati avvisati che il tallone e' finito
 			primaUtente, //se deve giocare prima l'utente
-			primaPartita, //se e' la prima o la seconda partita
 			briscolaDaPunti, //se l'ultima briscola puo' dare punti
 			ordinaCarte; //se le carte del giocatore umano devono essere ordinate
 	    wxColour coloreTesto, coloreSfondo;

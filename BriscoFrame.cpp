@@ -39,6 +39,8 @@ wxRegConfig* BriscoFrame::config;
 giocatoreHelperCpu* BriscoFrame::motoreCpu;
 
 bool BriscoFrame::abilitaTwitter;
+size_t BriscoFrame::partite;
+
 BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID_ANY, "wxBriscola", wxDefaultPosition,wxSize(600,450),wxMINIMIZE_BOX | wxRESIZE_BORDER | wxSYSTEM_MENU | wxCAPTION | wxCLOSE_BOX | wxCLIP_CHILDREN) {
     wxString nomeUtente, nomeCpu;
 	config=c; //lettura delle opzioni
@@ -184,6 +186,10 @@ void BriscoFrame::onInfo(wxCommandEvent& WXUNUSED(evt)) {
 }
 
 void BriscoFrame::onNuovaPartita(wxCommandEvent& WXUNUSED(evt)) {
+    if (partite % 2 == 0)
+        partite += 2;
+    else
+        partite++;
 	p->nuovaPartita(true, true, getLivello());
 }
 

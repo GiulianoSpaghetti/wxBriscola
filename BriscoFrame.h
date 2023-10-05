@@ -90,6 +90,7 @@ class BriscoFrame: public wxFrame {
 		void OnMenuLivello2(wxCommandEvent& evt);
 		DECLARE_EVENT_TABLE()
 	public:
+		static size_t partite;
 		static wxConfig* config;
 		BriscoFrame(int l, wxConfig *c, wxString path);
 		~BriscoFrame();

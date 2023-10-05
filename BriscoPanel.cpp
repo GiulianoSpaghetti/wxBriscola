@@ -35,7 +35,6 @@ BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHe
 	this->coloreTesto=coloreTesto;
 	this->coloreSfondo = coloreSfondo;
 	avvisatoFineTallone=false;
-    primaPartita=true;
     primaUtente=primaUt;
     punteggioUtente=0;
     punteggioCpu=0;
@@ -171,30 +170,39 @@ void BriscoPanel::gioca(int codice) {
 
 void BriscoPanel::onTimer(wxTimerEvent &evt) {
 	bool mostraRichiesta = true;
-	primo->aggiornaPunteggio(secondo);	try {
+	primo->aggiornaPunteggio(secondo);	
+	try {
 		primo->addCarta(m);
 		secondo->addCarta(m);
 	} catch (underflow_error &e) { //sono finite le carte
-		if (primaPartita) {//se e' la prima partita
-			if (wxMessageBox(_("Vuoi effettuare la seconda partita?"), _("Continuare?"), wxYES_NO | wxICON_INFORMATION) == wxYES) {
+		++BriscoFrame::partite;
+		if (BriscoFrame::partite == 0) {
+			wxMessageBox("Errore", "Stai Giocando un po' troppo.", wxICON_EXCLAMATION);
+			exit(1);
+		}
+		punteggioUtente += utente->getPunteggio();
+		punteggioCpu += cpu->getPunteggio();
+		if (BriscoFrame::partite%2==1) {//se e' la prima partita
+			if (wxMessageBox(_("Vuoi effettuare la seconda partita?"), _("Continuare?"), wxYES_NO | wxICON_INFORMATION) == wxYES) 
 				nuovaPartita(false, false, BriscoFrame::getLivello()); //se l'utente dice di si se ne comincia un'altra
 				return;
 			}
-			else mostraRichiesta = false;
-        }
+		else {
+			mostraRichiesta = false;
+			if (BriscoFrame::getTwitter() && BriscoFrame::getLivello() == 3)
+				wxLaunchDefaultBrowser(wxT("http://twitter.com/intent/tweet?text=Con%20la%20wxBriscola%20la%20partita%20") + utente->getNome() + wxT("%20contro%20") + cpu->getNome() + wxT("%20con%20mazzo%20") + carta::getNomeMazzo() + wxT("%20%C3%A8%20finita%20") + stringHelper::IntToWxStr(punteggioUtente) + wxT("%20a%20") + stringHelper::IntToWxStr(punteggioCpu) + wxT("%20su%20piattaforma%20") + wxPlatformInfo::Get().GetOperatingSystemIdName() + wxT("&url=https%3A%2F%2Fgithub.com%2Fnumerunix%2FwxBriscola"));
+		}
 		wxString s; //si mette insieme la stringa dell'esito
-		if (utente->getPunteggio()+punteggioUtente==cpu->getPunteggio()+punteggioCpu)
+		if (punteggioUtente==punteggioCpu)
 			s=_("La partita e' patta.");
 		else {
-			if (utente->getPunteggio()+punteggioUtente>cpu->getPunteggio()+punteggioCpu)
+			if (punteggioUtente>punteggioCpu)
 				s=_("vinto ");
 			else
 				s=_("perso");
-			s=_("Hai ")+s+_(" per ")+stringHelper::IntToWxStr(labs(utente->getPunteggio()+punteggioUtente-cpu->getPunteggio()-punteggioCpu))+_(" punti.");
+			s=_("Hai ")+s+_(" per ")+stringHelper::IntToWxStr(labs(punteggioUtente-punteggioCpu))+_(" punti.");
 		}
 		Refresh();
-		if (BriscoFrame::getTwitter() && BriscoFrame::getLivello() == 3)
-			wxLaunchDefaultBrowser(wxT("http://twitter.com/intent/tweet?text=Con%20la%20wxBriscola%20la%20partita%20") + utente->getNome() + wxT("%20contro%20") + cpu->getNome() + wxT("%20con%20mazzo%20") + carta::getNomeMazzo() + wxT("%20%C3%A8%20finita%20") + utente->getPunteggioStr() + wxT("%20a%20") + cpu->getPunteggioStr() +wxT("%20su%20piattaforma%20") + wxPlatformInfo::Get().GetOperatingSystemIdName() + wxT("&url=https%3A%2F%2Fgithub.com%2Fnumerunix%2FwxBriscola"));
 
 		if (mostraRichiesta)
 			if (wxMessageBox(wxString(_("La partita e' finita.")) + "\n" + s + "\n" + _("Vuoi effettuare una nuova partita?"), _("Partita finita"), wxYES_NO | wxICON_QUESTION) == wxNO) {
@@ -248,18 +256,14 @@ void BriscoPanel::nuovaPartita(bool avvisa, bool inizializza, size_t livello) {
 			wxNotificationMessage* msg = new wxNotificationMessage(_("Attenzione"), _("Hai cambiato livello, comincera' una nuova partita"), this);
 			showMessage(msg, avvisaFineTallone);
 			delete msg;
+			inizializza = true;
+			avvisa = false;
+			BriscoFrame::partite = 0;
 	}
 	if (avvisa && wxMessageBox(_("La partita correntemente in corso verra' interrotta. Continuare?"), _("Richiesta conferma"), wxYES_NO|wxICON_INFORMATION)==wxNO) //se si sta giocando una partita non finita
 			return;
-	if (inizializza) { //se bisogna inizializzare le componenti (l'utente ha deciso di chiudere la partita precedente
-		punteggioUtente=0; //inizializzazione dei punteggi
-		punteggioCpu=0;
-		primaPartita=true;//e' una nuova prima partita
-	} else { //non bisogna inizializzare le componenti perche' e' una seconda partita
-		punteggioUtente=utente->getPunteggio(); //salvataggio dei punteggi
-		punteggioCpu=cpu->getPunteggio();
-		primaPartita=false;
-	}
+	if (inizializza)
+		punteggioUtente=punteggioCpu = 0;
 	nUser=utente->getNome();
 	nCpu=cpu->getNome();
 	carta::dealloca();
