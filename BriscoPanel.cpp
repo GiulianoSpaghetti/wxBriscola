@@ -188,9 +188,9 @@ void BriscoPanel::onTimer(wxTimerEvent &evt) {
 				return;
 			}
 		else {
-			mostraRichiesta = false;
+			mostraRichiesta = true;
 			if (BriscoFrame::getTwitter() && BriscoFrame::getLivello() == 3)
-				wxLaunchDefaultBrowser(wxT("http://twitter.com/intent/tweet?text=Con%20la%20wxBriscola%20la%20partita%20") + utente->getNome() + wxT("%20contro%20") + cpu->getNome() + wxT("%20con%20mazzo%20") + carta::getNomeMazzo() + wxT("%20%C3%A8%20finita%20") + stringHelper::IntToWxStr(punteggioUtente) + wxT("%20a%20") + stringHelper::IntToWxStr(punteggioCpu) + wxT("%20su%20piattaforma%20") + wxPlatformInfo::Get().GetOperatingSystemIdName() + wxT("&url=https%3A%2F%2Fgithub.com%2Fnumerunix%2FwxBriscola"));
+				wxLaunchDefaultBrowser(wxT("http://twitter.com/intent/tweet?text=Con%20la%20wxBriscola%20la%20partita%20numero%20") + stringHelper::IntToWxStr(BriscoFrame::partite)+wxT("%20")+utente->getNome() + wxT("%20contro%20") + cpu->getNome() + wxT("%20con%20mazzo%20") + carta::getNomeMazzo() + wxT("%20%C3%A8%20finita%20") + stringHelper::IntToWxStr(punteggioUtente) + wxT("%20a%20") + stringHelper::IntToWxStr(punteggioCpu) + wxT("%20su%20piattaforma%20") + wxPlatformInfo::Get().GetOperatingSystemIdName() + wxT("&url=https%3A%2F%2Fgithub.com%2Fnumerunix%2FwxBriscola"));
 		}
 		wxString s; //si mette insieme la stringa dell'esito
 		if (punteggioUtente==punteggioCpu)
