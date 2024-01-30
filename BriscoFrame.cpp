@@ -35,7 +35,7 @@ EVT_MENU(ID_LIVELLO2, BriscoFrame::OnMenuLivello2)
 //EVT_MENU(ID_AGGIORNAMENTO, BriscoFrame::onAggiornamenti)
 END_EVENT_TABLE()
 
-wxRegConfig* BriscoFrame::config;
+wxFileConfig* BriscoFrame::config;
 giocatoreHelperCpu* BriscoFrame::motoreCpu;
 
 bool BriscoFrame::abilitaTwitter;

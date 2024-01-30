@@ -54,7 +54,7 @@ void carta::caricaImmagini(wxString mazzo) {
 #ifdef _WIN32
 	pathCompleta = wxT("C:\\Program Files\\wxBriscola");
 #else
-	pathCompleta = wxGetHomeDir();
+        pathCompleta = wxGetHomeDir();
 #endif //_WIN32
 	path=pathCompleta+wxFileName::GetPathSeparator()+wxT("Mazzi")+wxFileName::GetPathSeparator(); //recuperiamo la path completa della cartella mazzi
 	nomeMazzo=mazzo;
