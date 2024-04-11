@@ -1,4 +1,4 @@
-:flag_it: Made in Italy. Da oltre 20 anni al vostro fianco.
+:it: Made in Italy. Da oltre 20 anni al vostro fianco.
 
 # Sviluppi futuri
 
