@@ -1,3 +1,5 @@
+:flag_it: Made in Italy. Da oltre 20 anni al vostro fianco.
+
 # Sviluppi futuri
 
 É ora di svegliarsi. Dal momento che la wxbriscola sta venendo boicottata, che tutti giocano alla scopa col tutto che si accoppia le carte invece di impararsi un gioco equo, che mi ricattano per avere il brevetto arrivando addirittura ad ammazzarmi il gatto, la wxbriscola entra in stato legacy.
