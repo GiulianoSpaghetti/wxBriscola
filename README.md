@@ -1,4 +1,5 @@
 :it: Made in Italy. Da oltre 20 anni al vostro fianco.
+Questo software offre i primi dlc free software.
 
 # Sviluppi futuri
 
