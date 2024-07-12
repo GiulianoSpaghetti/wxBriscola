@@ -1,6 +1,10 @@
 :it: Made in Italy. Da oltre 20 anni al vostro fianco.
 Questo software offre i primi dlc per un gioco free software.
 
+![Napoli-Logo](https://github.com/user-attachments/assets/c3689a1f-ac2d-4e6a-813f-e4f28a88ec0f)
+
+![made in parco grifeo](https://github.com/user-attachments/assets/4d2192e8-2fbf-44ae-b724-643aacf4eba2)
+
 # Sviluppi futuri
 
 É ora di svegliarsi. Dal momento che la wxbriscola sta venendo boicottata, che tutti giocano alla scopa col tutto che si accoppia le carte invece di impararsi un gioco equo, che mi ricattano per avere il brevetto arrivando addirittura ad ammazzarmi il gatto, la wxbriscola entra in stato legacy.
