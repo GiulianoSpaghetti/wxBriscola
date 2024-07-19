@@ -5,7 +5,7 @@ Questo software offre i primi dlc per un gioco free software.
 ![made in parco grifeo](https://github.com/user-attachments/assets/c1d40b56-101a-462f-9970-006c81937300)
 
 
-# Sviluppi futuri
+## Sviluppi futuri
 
 É ora di svegliarsi. Dal momento che la wxbriscola sta venendo boicottata, che tutti giocano alla scopa col tutto che si accoppia le carte invece di impararsi un gioco equo, che mi ricattano per avere il brevetto arrivando addirittura ad ammazzarmi il gatto, la wxbriscola entra in stato legacy.
 Continuerò ad occuparmente, ma nel tempo libero, tanto le wxsocket attualmente non permettono di limitare le connessioni e quindi un multiplayer cross platform risulta impossibile, ed è l'unica cosa che rimane da fare.
@@ -14,7 +14,7 @@ O le vostre brutali tattiche cessano, oppure io la lascio alla comunità, come f
 Happy Hacking.
 
 
-# wxBriscola
+## wxBriscola
 Il gioco della briscola a due giocatori scritto in c++ e wxwidgets.
 Non ha il multiplayer e supporta il caricamento di mazzi regionali ed arbitrari e il caricamento delle localizzazioni.
 
@@ -36,7 +36,7 @@ Il programma le vedrà in automatico e aggiornerà il menù.
 
 Sentitevi liberi di contribuire con localizzazioni e mazzi regionali.
 
-# L'algoritmo brevettato
+## L'algoritmo brevettato
 
 Vi spiego come funziona l'algoritmo dell'ia dei livelli 2 e 3, che è brevettato all'ufficio brevetti americano.
 Gli assi sono 4 e valogono 11 punti ciascuno, i 3 10 punti, i 10 4 punti i 9 3 punti 3 gli 8 2 punti, per cui:4x11+4x10+4x4+4x3+4x2=44+40+16+12+8=120
@@ -44,24 +44,20 @@ I punti totali sono 120 di cui 84 di carichi e 36 di altre carte. Per vincere bi
 Al contrario prendendo i 36 punti delle carte di valore, servono altri 25 punti per vincere, per cui bastano 3 carichi.
 In generale nei giochi di carte più carte si prendono e più possibilità c'é di far punti, per cui come algoritmo per il primo di mano si sceglie di giocare la carta più difficile da prendere, ossia un 10 ma non di briscola.
 
-# L'attestato
+## L'attestato
 Sui server di google è disponibile l'attestato che spiega che la wxbriscola prova per il gioco della briscola la teoria dei giochi.
 
-# Gameplay
-[![youtube](https://i.ibb.co/YRJwZHm/mq2.jpg)](https://youtu.be/8gezs7pv26o)
-[![youtube](https://i.ibb.co/M82pkwY/mq2-1.jpg)](https://youtu.be/dvE60cja1rY)
+## Installazione
 
-# Installazione
-
-# Tramite repository (consigliato)
+## Tramite repository (consigliato)
 Seguite le istruzioni all'indirizzo http://numeronesoft.ddns.net
 
-# Tramite flatpak  (sconsigliato, non è aggiornato)
+## Tramite flatpak  (sconsigliato, non è aggiornato)
 Seguite le istruzioni all'indirizzo http://numeronesoft.ddns.net:8080
 Prestate attenzione: flatpak non include il mazzo napoletano, dovete scaricare il deb e spacchettarlo con fileroller e creare la directort HOME/Mazzi/Napoletano
 
 
-# Tramite Snap Store (sconsigliato, mnnon funziona twitter)
+## Tramite Snap Store (sconsigliato, non funziona twitter)
 
 [![wxbriscola](https://snapcraft.io/wxbriscola/badge.svg)](https://snapcraft.io/wxbriscola)
 
@@ -121,7 +117,7 @@ Si ringrazia Francesca Milano per la contribuzione alla localizzazione Francese
 Richiedo esplicitamente la localizzazione in tedesco e portoghese.
 
 
-# Problemi di localizzazione
+## Problemi di localizzazione
 Ho provveduto a localizzare la wxbriscola in italiano, spagnolo e inglese.
 Su windows non tutto il programma esce localizzato. I files di localizzazione delle librerie wxwidgets sono inclusi e le chiamate alle librerie di sistema si basano sulla lingua di sistema, per cui se si prova a mettere la lingua spagnola, la schermata del font non sarà tradotta in spagnolo e per averla bisogna cambiare la lingua del sistema operativo.
 
@@ -132,6 +128,10 @@ Potrebbe comparire il messaggio d'errore all'inizio "Locale xx_xx cannot be set)
 In alcune occasioni, potrebbe apparire il programma in lingua italiana, solo che al posto di avere gli accenti ha gli apostrofi, questo accade quando non trova la libreria di localizzazione richiesta e quindi mostra le stringhe senza nessuna traduzione.
 Per ovviare al problema e vedere quindi correttamente gli accenti italiani, bisogna assicurarsi che il file wxBirscola.mo si trovi nella cartella LC_LOCALES sotto locale nella directory di esecuzione del programma.
 
-# Donazioni
+## Donazioni
 
 http://numerone.altervista.org/donazioni.php
+
+## Bug noti
+
+Se si prova a cambiare il locale di default, ma all'interno della applicazione, l'interfaccia wxwidgets dependents risulta inglese, bisogna cambiare il locale dell'intero sistema.
