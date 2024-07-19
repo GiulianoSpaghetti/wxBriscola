@@ -128,6 +128,16 @@ Potrebbe comparire il messaggio d'errore all'inizio "Locale xx_xx cannot be set)
 In alcune occasioni, potrebbe apparire il programma in lingua italiana, solo che al posto di avere gli accenti ha gli apostrofi, questo accade quando non trova la libreria di localizzazione richiesta e quindi mostra le stringhe senza nessuna traduzione.
 Per ovviare al problema e vedere quindi correttamente gli accenti italiani, bisogna assicurarsi che il file wxBirscola.mo si trovi nella cartella LC_LOCALES sotto locale nella directory di esecuzione del programma.
 
+## Interfaccia
+
+![Schermata del 2024-07-19 06-32-51](https://github.com/user-attachments/assets/3be3e328-94b5-4f99-8adf-abd35982f663)
+![Schermata del 2024-07-19 06-33-23](https://github.com/user-attachments/assets/4a73d769-d2fe-4b14-9b16-8cd36da75823)
+![Schermata del 2024-07-19 09-15-50](https://github.com/user-attachments/assets/14deeb7f-96e4-4ed3-b7c9-74301abd1eef)
+![Schermata del 2024-07-19 09-16-09](https://github.com/user-attachments/assets/8a3fd495-9f7f-4f95-9be3-1fe8c1617b41)
+![Schermata del 2024-07-19 09-16-23](https://github.com/user-attachments/assets/da0e253e-0e40-4721-aca6-bab654a5511d)
+![Schermata del 2024-07-19 09-16-30](https://github.com/user-attachments/assets/1e7a437a-356c-47db-974f-d04567d6eae7)
+
+
 ## Donazioni
 
 http://numerone.altervista.org/donazioni.php
