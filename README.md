@@ -123,7 +123,7 @@ Su windows non tutto il programma esce localizzato. I files di localizzazione de
 
 Su GNU/Linux c'è bisogno del package di localizzazione di wxwidgets (wxwidgets-i18n) ma il programma risulterà tutto correttamente localizzato.
 
-Potrebbe comparire il messaggio d'errore all'inizio "Locale xx_xx cannot be set) ed è perché il sistema non in uso non ha installate tutte le librerie di traduzioni (tipicamente quelle di gnome), però il programma risulterà lo stesso correttamente localizzato.
+Potrebbe comparire il messaggio d'errore all'inizio "Locale xx_xx cannot be set) ed è perché il locale di sistema (tipicamente quello di gnome) non coincide con quello selezionato.
 
 In alcune occasioni, potrebbe apparire il programma in lingua italiana, solo che al posto di avere gli accenti ha gli apostrofi, questo accade quando non trova la libreria di localizzazione richiesta e quindi mostra le stringhe senza nessuna traduzione.
 Per ovviare al problema e vedere quindi correttamente gli accenti italiani, bisogna assicurarsi che il file wxBirscola.mo si trovi nella cartella LC_LOCALES sotto locale nella directory di esecuzione del programma.
