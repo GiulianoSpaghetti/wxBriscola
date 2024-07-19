@@ -112,7 +112,7 @@ In alternativa è possibile aprire il file mo con un file di testo, modificare s
 Potete mandarmi in po di traduzione quando volete, basta fare il commit su questa piattaforma, sarò ben felice di compilarlo e inserirlo nel programma dandovi il credit.
 
 Si ringrazia una certa Alice Victoria conosciuta dalle mie parti per la contribuzione della localizzazione spagnola.
-Si ringrazia Francesca Milano per la contribuzione alla localizzazione Francese
+Si ringrazia Francesca San Severino per la contribuzione alla localizzazione Francese
 
 Richiedo esplicitamente la localizzazione in tedesco e portoghese.
 
