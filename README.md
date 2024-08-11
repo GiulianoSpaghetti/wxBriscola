@@ -1,5 +1,6 @@
 :it: Made in Italy. Da oltre 20 anni al vostro fianco.
 Questo software offre i primi dlc per un gioco free software.
+QUesto software offre la prima versione di un progetto wxwidgets destinato al pubblico su windows arm64.
 
 ![Napoli-Logo](https://github.com/user-attachments/assets/fc1773c1-6823-429d-8760-e7d7e79f7d8f)
 ![made in parco grifeo](https://github.com/user-attachments/assets/c1d40b56-101a-462f-9970-006c81937300)
