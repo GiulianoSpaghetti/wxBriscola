@@ -4,6 +4,8 @@ Questo software offre i primi dlc per un gioco free software.
 
 Questo software offre la prima versione di un progetto wxwidgets destinato al pubblico su windows arm64.
 
+Questi software è il primo di terze parti a supportare windows 24h2, anche arm64.
+
 ![Napoli-Logo](https://github.com/user-attachments/assets/fc1773c1-6823-429d-8760-e7d7e79f7d8f)
 ![made in parco grifeo](https://github.com/user-attachments/assets/c1d40b56-101a-462f-9970-006c81937300)
 
