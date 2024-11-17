@@ -9,18 +9,9 @@ Questi software è il primo di terze parti a supportare windows 24h2, anche arm6
 ![Napoli-Logo](https://github.com/user-attachments/assets/fc1773c1-6823-429d-8760-e7d7e79f7d8f)
 ![made in parco grifeo](https://github.com/user-attachments/assets/c1d40b56-101a-462f-9970-006c81937300)
 
-
-## Sviluppi futuri
-
-É ora di svegliarsi. Dal momento che la wxbriscola sta venendo boicottata, che tutti giocano alla scopa col tutto che si accoppia le carte invece di impararsi un gioco equo, che mi ricattano per avere il brevetto arrivando addirittura ad ammazzarmi il gatto, la wxbriscola entra in stato legacy.
-Continuerò ad occuparmente, ma nel tempo libero, tanto le wxsocket attualmente non permettono di limitare le connessioni e quindi un multiplayer cross platform risulta impossibile, ed è l'unica cosa che rimane da fare.
-O le vostre brutali tattiche cessano, oppure io la lascio alla comunità, come fa linus torvalds col kernellinux.
-
-Happy Hacking.
-
-
 ## wxBriscola
-Il gioco della briscola a due giocatori scritto in c++ e wxwidgets.
+Quello che avete davanti non è il gioco della briscola come si intende oggi, perché oggi tutti i simulatori di briscola dicono "hai preso l'asso, bravo" e finisce lì. Quello che avete davanti è un simulatore equo e professionale, con punteggio aggiornato in tempo reale, in modo da poter decidere se "rischiare" o meno coscientemente, scritto in c++ e wxwidgets.
+
 Non ha il multiplayer e supporta il caricamento di mazzi regionali ed arbitrari e il caricamento delle localizzazioni.
 
 Per compilare è necessario impostare le seguenti librerie di wxwidgets:
