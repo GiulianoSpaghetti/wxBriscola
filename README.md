@@ -46,7 +46,7 @@ Sui server di google è disponibile l'attestato che spiega che la wxbriscola pro
 ## Installazione
 
 ## Tramite repository (consigliato)
-Seguite le istruzioni all'indirizzo http://numeronesoft.ddns.net
+Seguite le istruzioni all'indirizzo http://numeronesoft.ddns.net:8080
 
 ## Tramite flatpak  (sconsigliato, non è aggiornato)
 Seguite le istruzioni all'indirizzo http://numeronesoft.ddns.net:8080
