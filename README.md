@@ -1,5 +1,7 @@
 :it: Made in Italy. Da oltre 20 anni al vostro fianco.
 
+Questo è il primo gioco che dimostra che la teoria dei giochi è vera: l'algorimo brevettato funziona su tutti i giochi di carte senza piatto.
+
 Questo software offre i primi dlc per un gioco free software.
 
 Questo software offre la prima versione di un progetto wxwidgets destinato al pubblico su windows arm64.
