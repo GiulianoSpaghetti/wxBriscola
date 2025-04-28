@@ -31,7 +31,6 @@ END_EVENT_TABLE()
 BriscoPanel::BriscoPanel(wxWindow *parent, elaboratoreCarteBriscola *el, cartaHelperBriscola *br, bool primaUt, bool briscolaDaPunti, bool ordinaCarte, int millisecondi, bool avvisaFineTallone, wxString& nomeMazzo, wxString& nomeUtente, wxString& nomeCpu, wxFont *f, wxColour coloreTesto, wxColour coloreSfondo, size_t livello)  : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(600,500)) {
 	e=el;
 	b=br;
-	giocatoreHelperCpu* motoreCpu;
 	this->coloreTesto=coloreTesto;
 	this->coloreSfondo = coloreSfondo;
 	avvisatoFineTallone=false;

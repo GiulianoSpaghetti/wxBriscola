@@ -200,6 +200,7 @@ void BriscoFrame::onOpzioni(wxCommandEvent& WXUNUSED(evt)) {
 		p->setFlagOrdina(f->getOrdinaCarte());
 		p->setFlagAvvisa(f->getAbilitaAvviso());
 		p->setIntervallo(f->getSecondi());
+		p->setTwitter(f->getTwitter());
 		aggiornamenti=f->getFlagAggiornamenti();
 		cartaAlta=f->getFlagCartaAlta();
 
