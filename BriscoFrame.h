@@ -59,8 +59,6 @@ class BriscoFrame: public wxFrame {
 		bool cartaAlta, //se si deve fare il gioco della carta alta
 			primaUtente,
 			aggiornamenti;
-		static bool	abilitaTwitter;
-		static giocatoreHelperCpu* motoreCpu;
 		elaboratoreCarteBriscola *el;
 		cartaHelperBriscola *br;
        // wxHTTP client;
@@ -95,11 +93,6 @@ class BriscoFrame: public wxFrame {
 		BriscoFrame(int l, wxConfig *c, wxString path);
 		~BriscoFrame();
 		void giocoCartaAlta();
-		static size_t getLivello() { return motoreCpu->getLivello(); }
-		static bool getTwitter() { return BriscoFrame::abilitaTwitter; }
-		static void setTwitter(bool abilita) { BriscoFrame::abilitaTwitter = abilita; }
-		static void setMotoreCpu(giocatore* g) { motoreCpu = dynamic_cast<giocatoreHelperCpu *> (g->getHelper()); }
-		static void caricaImmagineCpu() { motoreCpu->caricaImmagine(); }
 };
 
 #endif

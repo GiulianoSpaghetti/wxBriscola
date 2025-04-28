@@ -60,7 +60,9 @@ class BriscoPanel : public wxPanel {
 			avvisatoFineTallone, //se si e' stati avvisati che il tallone e' finito
 			primaUtente, //se deve giocare prima l'utente
 			briscolaDaPunti, //se l'ultima briscola puo' dare punti
-			ordinaCarte; //se le carte del giocatore umano devono essere ordinate
+			ordinaCarte,
+			abilitaTiwtter; //se le carte del giocatore umano devono essere ordinate
+		giocatoreHelperCpu* motoreCpu;
 	    wxColour coloreTesto, coloreSfondo;
 		void onKey(wxKeyEvent &evt); //pressione di un tasto
 		void onTimer(wxTimerEvent &evt); //scade il timer
@@ -76,6 +78,9 @@ class BriscoPanel : public wxPanel {
 		wxString& getNomeCpu() {return cpu->getNome();}
 		bool getFlagBriscola() {return briscolaDaPunti;}
 		bool getFlagOrdina() {return utente->getFlagOrdina();}
+		unsigned int getLivelloCpu() { return motoreCpu->getLivello(); }
+		bool getTwitter() { return abilitaTiwtter; }
+		void setTwitter(bool t) { abilitaTiwtter = t; }
 		double getIntervallo() {return millisecondi/1000;}
 		int getMilliSecondi() {return millisecondi;}
 		bool getFlagAvvisa() {return avvisaFineTallone;}

@@ -19,7 +19,7 @@
  **********************************************************************************/
 
 #include "BriscoFrame.h"
-
+#include "Resource.h"
 BEGIN_EVENT_TABLE(BriscoFrame, wxFrame)
 EVT_MENU(wxID_EXIT, BriscoFrame::onEsci)
 EVT_MENU(ID_NUOVA_PARTITA, BriscoFrame::onNuovaPartita)
@@ -35,10 +35,7 @@ EVT_MENU(ID_LIVELLO2, BriscoFrame::OnMenuLivello2)
 //EVT_MENU(ID_AGGIORNAMENTO, BriscoFrame::onAggiornamenti)
 END_EVENT_TABLE()
 
-wxFileConfig* BriscoFrame::config;
-giocatoreHelperCpu* BriscoFrame::motoreCpu;
-
-bool BriscoFrame::abilitaTwitter;
+wxRegConfig* BriscoFrame::config;
 size_t BriscoFrame::partite;
 
 BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID_ANY, "wxBriscola", wxDefaultPosition,wxSize(600,450),wxMINIMIZE_BOX | wxRESIZE_BORDER | wxSYSTEM_MENU | wxCAPTION | wxCLOSE_BOX | wxCLIP_CHILDREN) {
@@ -46,7 +43,7 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
 	config=c; //lettura delle opzioni
 	d=wxColourData();
 	int r, g, b;
-
+    SetIcon(wxIcon(_("IDI_ICON1")));
     bool briscolaDaPunti, ordinaCarte, avvisaFineTallone, avvisaTwitter;
     int livello;
     int millisecondi;
@@ -88,13 +85,13 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
     if (!config->Read("sfondoBlu", &b))
         b = 0;
     coloreSfondo = wxColour(r, g, b);
-    if (!config->Read("twitter", &BriscoFrame::abilitaTwitter))
-        BriscoFrame::abilitaTwitter = true;
+    if (!config->Read("twitter", &avvisaTwitter))
+        avvisaTwitter = true;
     d.SetColour(coloreTesto);
     d1.SetColour(coloreSfondo);
     loc=l;
 	paginaWeb=wxT("https://github.com/numerunix/wxBriscola/releases");
-	versione=wxT("0.6.2");
+	versione=wxT("0.6.3");
     leggiFont();
 //    pathTraduzioni=path;
 	//client.SetHeader("Content-type", "text/html; charset=utf-8");
@@ -126,7 +123,8 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
 	p->SetFocus();
 	aggiungiMenu(livello);
 	p->getDimensioni(dim.x, dim.y);
-	SetClientSize(dim.x, dim.y);
+    p->setTwitter(avvisaTwitter);
+    SetClientSize(dim.x, dim.y);
 }
 
 
@@ -167,16 +165,16 @@ void BriscoFrame::onEsci(wxCommandEvent& WXUNUSED(evt)) {
 
 void BriscoFrame::onInfo(wxCommandEvent& WXUNUSED(evt)) {
 	wxAboutDialogInfo info;
-	info.AddDeveloper("Giulio Sorrentino <gsorre84@gmail.com>");
-	info.SetCopyright("(c) 2023 Giulio Sorrentino");
+	info.AddDeveloper("Giulio Sorrentino <numerone@fastwebnet.it>");
+	info.SetCopyright("(c) 2007-2024 Giulio Sorrentino");
 	info.SetLicense(_("GPL v3 o (a tua discrezione) qualsiasi versione successiva.\nLe immagini delle carte sono di proprieta' della Modiano"));
 	info.SetName("wxBriscola");
 	info.SetVersion(versione);
 	info.SetWebSite(paginaWeb);
     wxArrayString traduttori = wxArrayString();
-    traduttori.Add("Giulio Sorrentino <gsorre84@gmail.com>");
+    traduttori.Add("Giulio Sorrentino <numerone@fastwebnet.it>");
     traduttori.Add("Alice Victoria");
-    traduttori.Add("Francesca Milano <francesca.milano@gmail.com>");
+    traduttori.Add("Francesca San Severino");
     info.SetDescription(_("Il gioco della briscola a due giocatori"));
     info.SetTranslators(traduttori);
     #ifndef _WIN32
@@ -190,11 +188,11 @@ void BriscoFrame::onNuovaPartita(wxCommandEvent& WXUNUSED(evt)) {
         partite += 2;
     else
         partite++;
-	p->nuovaPartita(true, true, getLivello());
+	p->nuovaPartita(true, true, p->getLivelloCpu());
 }
 
 void BriscoFrame::onOpzioni(wxCommandEvent& WXUNUSED(evt)) {
-	OpzioniFrame *f=new OpzioniFrame(this, p->getNomeUtente(), p->getNomeCpu(), p->getFlagBriscola(), p->getFlagOrdina(), p->getFlagAvvisa(), cartaAlta, p->getIntervallo(), aggiornamenti, BriscoFrame::abilitaTwitter);
+	OpzioniFrame *f=new OpzioniFrame(this, p->getNomeUtente(), p->getNomeCpu(), p->getFlagBriscola(), p->getFlagOrdina(), p->getFlagAvvisa(), cartaAlta, p->getIntervallo(), aggiornamenti, p->getTwitter());
     if (f->ShowModal()==wxID_OK) {
 		p->setNomeUtente(f->getNomeUtente());
 		p->setNomeCpu(f->getNomeCpu());
@@ -202,7 +200,6 @@ void BriscoFrame::onOpzioni(wxCommandEvent& WXUNUSED(evt)) {
 		p->setFlagOrdina(f->getOrdinaCarte());
 		p->setFlagAvvisa(f->getAbilitaAvviso());
 		p->setIntervallo(f->getSecondi());
-        BriscoFrame::setTwitter(f->getTwitter());
 		aggiornamenti=f->getFlagAggiornamenti();
 		cartaAlta=f->getFlagCartaAlta();
 
@@ -300,9 +297,9 @@ void BriscoFrame::CreaVoceTraduzione(wxMenu* menu, const wxLanguageInfo* lang) {
 
 void BriscoFrame::getMenuTraduzioni(wxMenu *menu) {
     CreaVoceTraduzione(menu, wxLocale::FindLanguageInfo("EN_us"));
-    CreaVoceTraduzione(menu, wxLocale::FindLanguageInfo("es"));
+    CreaVoceTraduzione(menu, wxLocale::FindLanguageInfo("es_ES"));
     CreaVoceTraduzione(menu, wxLocale::FindLanguageInfo("IT_it"));
-    CreaVoceTraduzione(menu, wxLocale::FindLanguageInfo("fr"));
+    CreaVoceTraduzione(menu, wxLocale::FindLanguageInfo("fr_FR"));
     menu->Check(menuTradId, true);
 }
 
@@ -398,7 +395,7 @@ BriscoFrame::~BriscoFrame() {
     config->Write("sfondoRosso", coloreSfondo.Red());
     config->Write("sfondoVerde", coloreSfondo.Green());
     config->Write("sfondoBlu", coloreSfondo.Blue());
-    config->Write("twitter", getTwitter());
+    config->Write("twitter", p->getTwitter());
     delete config;
 	delete font;
 }
