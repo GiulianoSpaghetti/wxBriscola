@@ -130,7 +130,7 @@ Per ovviare al problema e vedere quindi correttamente gli accenti italiani, biso
 
 ![Schermata del 2024-07-19 06-32-51](https://github.com/user-attachments/assets/3be3e328-94b5-4f99-8adf-abd35982f663)
 ![Schermata del 2024-07-19 06-33-23](https://github.com/user-attachments/assets/4a73d769-d2fe-4b14-9b16-8cd36da75823)
-![Schermata del 2024-07-19 09-15-50](https://github.com/user-attachments/assets/14deeb7f-96e4-4ed3-b7c9-74301abd1eef)
+![Schermata del 2024-07-19 09-15-50](https://github.com/user-attachments/assets/14deeb7f-96e4-4ed3-b7c9-74301abd1eef)ù
 ![Schermata del 2024-07-19 09-16-09](https://github.com/user-attachments/assets/8a3fd495-9f7f-4f95-9be3-1fe8c1617b41)
 ![Schermata del 2024-07-19 09-16-23](https://github.com/user-attachments/assets/da0e253e-0e40-4721-aca6-bab654a5511d)
 ![Schermata del 2024-07-19 09-16-30](https://github.com/user-attachments/assets/1e7a437a-356c-47db-974f-d04567d6eae7)
@@ -143,3 +143,7 @@ http://numerone.altervista.org/donazioni.php
 ## Bug noti
 
 Se si prova a cambiare il locale di default, ma all'interno della applicazione, l'interfaccia wxwidgets dependents risulta inglese, bisogna cambiare il locale dell'intero sistema.
+
+La disinstallazione del mazzo di carte non è gestita, ma nel file di configurazione del gioco ne rimane traccia, quindi disinstallando un mazzo il programma potrebbe  non avviarsi più.
+
+Per ovviare al problema inserire il nome di un subdirectory di /usr/share/wxBriscola indiccante il vostro mazzo di default, che può non essere necessariamene il napoletano, perché in GNU/Linux le immagini non possono essere integrate nell'eseguibile.
