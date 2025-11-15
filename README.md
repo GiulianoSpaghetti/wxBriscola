@@ -47,12 +47,7 @@ Sui server di google è disponibile l'attestato che spiega che la wxbriscola pro
 
 ## Installazione
 
-## Tramite repository (consigliato)
-Seguite le istruzioni all'indirizzo http://numeronesoft.ddns.net:8080
-
-## Tramite flatpak  (sconsigliato, non è aggiornato)
-Seguite le istruzioni all'indirizzo http://numeronesoft.ddns.net:8080
-Prestate attenzione: flatpak non include il mazzo napoletano, dovete scaricare il deb e spacchettarlo con fileroller e creare la directort HOME/Mazzi/Napoletano
+[![pling](http://numeronesoft.ddns.net:8080/images/pling.png)](https://www.pling.com/p/2310373)
 
 
 ## Tramite Snap Store (sconsigliato, non funziona twitter)
