@@ -1,3 +1,5 @@
+Il progetto è dedicato a Franca, la badante di mia nonna paterna che è diventata la mia nonna adottiva.
+
 :it: Made in Italy. Da oltre 20 anni al vostro fianco.
 
 Questo è il primo gioco che dimostra che la teoria dei giochi è vera: l'algorimo brevettato funziona su tutti i giochi di carte senza piatto.
