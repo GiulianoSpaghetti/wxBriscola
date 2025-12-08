@@ -1,6 +1,6 @@
 Il progetto è dedicato a Franca, la badante di mia nonna paterna che è diventata la mia nonna adottiva.
 
-Come farsi spiegare il progetto da Gemini: https://g.co/gemini/share/312d692f36b0 , basta loggarsi col proprio account di Google.
+[Fatti spiegare il progetto da Gemini](https://gemini.google.com/share/9c59ffb4342d): basta loggarsi col proprio account di Google.
 
 :it: Made in Italy. Da oltre 20 anni al vostro fianco.
 
