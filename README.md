@@ -153,6 +153,8 @@ I mazzi regionali somno stati presi dalla rivista italiana Carte, vendunta in ed
 
 Il mazzo binario è stato preso dalla rivista IoProgrammo
 
-Il mazzo fable3 è stato preso dalla limited dition di fable 3 per xbox 360
+Il mazzo fable3 è stato preso dalla limited edition di fable 3 per xbox 360
 
 Il mazzo tomb raider è stato preso dalla limited edition di tomb raider anniversary.
+
+Il mazzo playing mario è stato distribuito dalla nintendo nel programma a punti my nintendo.
