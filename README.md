@@ -155,4 +155,4 @@ Il mazzo binario è stato preso dalla rivista IoProgrammo
 
 Il mazzo fable3 è stato preso dalla limited dition di fable 3 per xbox 360
 
-Il mazzo tomb raider è stato preso dalla limited editiomn di tomb raider anniversary.
+Il mazzo tomb raider è stato preso dalla limited edition di tomb raider anniversary.
