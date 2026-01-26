@@ -146,3 +146,10 @@ Se si prova a cambiare il locale di default, ma all'interno della applicazione, 
 La disinstallazione del mazzo di carte non è gestita, ma nel file di configurazione del gioco ne rimane traccia, quindi disinstallando un mazzo il programma potrebbe  non avviarsi più.
 
 Per ovviare al problema inserire il nome di una subdirectory di /usr/share/wxBriscola indicante il vostro mazzo di default, che può non essere necessariamene il napoletano, perché in GNU/Linux le immagini non possono essere integrate nell'eseguibile.
+
+## Note
+
+I mazzi regionali somno stati presi dalla rivista italiana Carte, vednuta in edicola dalla deagostini.
+Il mazzo binario è stato preso dalla rivista IoProgrammo
+Il mazzo fable3 è stato preso dalla limited dition di fable 3 per xbox 360
+Il mazzo tomb raider è stato preso dalla limited editiomn di tomb raider anniversary.
