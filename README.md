@@ -149,7 +149,7 @@ Per ovviare al problema inserire il nome di una subdirectory di /usr/share/wxBri
 
 ## Note
 
-I mazzi regionali sono stati presi dalla rivista italiana Carte, vendunta in edicola dalla deagostini.
+I mazzi regionali sono stati presi dalla rivista italiana Carte, venduta in edicola dalla deagostini.
 
 Il mazzo binario è stato preso dalla rivista IoProgrammo
 
