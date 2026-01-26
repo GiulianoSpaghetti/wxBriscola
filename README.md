@@ -150,6 +150,9 @@ Per ovviare al problema inserire il nome di una subdirectory di /usr/share/wxBri
 ## Note
 
 I mazzi regionali somno stati presi dalla rivista italiana Carte, vednuta in edicola dalla deagostini.
+
 Il mazzo binario è stato preso dalla rivista IoProgrammo
+
 Il mazzo fable3 è stato preso dalla limited dition di fable 3 per xbox 360
+
 Il mazzo tomb raider è stato preso dalla limited editiomn di tomb raider anniversary.
