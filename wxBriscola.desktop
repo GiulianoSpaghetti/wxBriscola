@@ -1,9 +1,10 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
 Version=1.1
 Type=Application
-Name=wxBriscola
+Name=wxbriscola
 Comment=Simulatore della briscola a 2 giocatori
-Icon=/usr/share/icons/wxBriscola.png
-Exec=/usr/bin/wxbriscola
+Icon=/snap/wxbriscola/current/usr/share/icons/wxbriscola.png
+Exec=/snap/bin/wxbriscola
 Actions=
 Categories=CardGame;Game;

@@ -263,17 +263,15 @@ void BriscoPanel::nuovaPartita(bool avvisa, bool inizializza, size_t livello) {
 		punteggioUtente=punteggioCpu = 0;
 	nUser=utente->getNome();
 	nCpu=cpu->getNome();
-	carta::dealloca();
 	delete utente; //deallocazione dei vecchi oggetti
 	delete cpu;
 	delete m;
 	delete immagineBriscola;
-	delete motoreCpu;
 	e=new elaboratoreCarteBriscola(briscolaDaPunti); //nuovi oggetti
 	m=new mazzo(e);
 	b=new cartaHelperBriscola(e);
+	carta::setHelper(b);
 	semeBriscola=b->getSeme(e->getCartaBriscola());
-	carta::inizializza(40, b, nomeMazzo);
 	switch(livello) {
         case 1:	motoreCpu=new giocatoreHelperCpu0(e->getCartaBriscola()); break;
         case 2: motoreCpu=new giocatoreHelperCpu1(e->getCartaBriscola()); break;

@@ -133,7 +133,7 @@ class carta {
 			PARAMETRI:
 				Input: quale - indice della carta di cui si vuole il seme*/
 		static wxString getSemeStr(size_t quale);
-
+		static void setHelper(cartaHelper* h) { if (helper == NULL) throw new logic_error("Chiamata a carta::setgelper con helper NULL"); helper = h; }
 		size_t getTipo();
 };
 

@@ -43,7 +43,7 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
 	config=c; //lettura delle opzioni
 	d=wxColourData();
 	int r, g, b;
-    SetIcon(wxIcon(_("IDI_ICON1")));
+    SetIcon(wxIcon(_("IDI_WXBRISCOLA")));
     bool briscolaDaPunti, ordinaCarte, avvisaFineTallone, avvisaTwitter;
     int livello;
     int millisecondi;
@@ -90,8 +90,8 @@ BriscoFrame::BriscoFrame(int l, wxConfig *c, wxString path) : wxFrame(NULL, wxID
     d.SetColour(coloreTesto);
     d1.SetColour(coloreSfondo);
     loc=l;
-	paginaWeb=wxT("https://github.com/numerunix/wxBriscola/releases");
-	versione=wxT("0.6.3");
+	paginaWeb=wxT("https://github.com/GiulianoSpaghetti/wxBriscola/releases");
+	versione=wxT("0.6.4");
     leggiFont();
 //    pathTraduzioni=path;
 	//client.SetHeader("Content-type", "text/html; charset=utf-8");
@@ -166,7 +166,7 @@ void BriscoFrame::onEsci(wxCommandEvent& WXUNUSED(evt)) {
 void BriscoFrame::onInfo(wxCommandEvent& WXUNUSED(evt)) {
 	wxAboutDialogInfo info;
 	info.AddDeveloper("Giulio Sorrentino <numerone@fastwebnet.it>");
-	info.SetCopyright("(c) 2007-2024 Giulio Sorrentino");
+	info.SetCopyright("(c) 2007-2026 Giulio Sorrentino");
 	info.SetLicense(_("GPL v3 o (a tua discrezione) qualsiasi versione successiva.\nLe immagini delle carte sono di proprieta' della Modiano"));
 	info.SetName("wxBriscola");
 	info.SetVersion(versione);

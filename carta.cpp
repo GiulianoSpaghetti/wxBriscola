@@ -108,13 +108,6 @@ const wxString carta::getValoreStr() {
 	return s;
 }
 
-void carta::dealloca() {
-	for (size_t i=0; i<carte.size(); i++)
-		delete carte[i];
-	carte.clear();
-	delete helper;
-}
-
 carta::~carta() {
 	delete img;
 }
