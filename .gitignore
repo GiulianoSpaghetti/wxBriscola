@@ -1,0 +1,12 @@
+﻿################################################################################
+# Il file gitignore è stato creato automaticamente da Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/wxBriscola/CopilotIndices/18.7.1253.33689
+/.vs/wxBriscola.slnx
+/.vs/wxBriscola_linux.slnx/v18
+/.vs
+/Resource.h
+/resources.aps
+/small.ico.ico
+/wxBriscola.rc
