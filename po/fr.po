@@ -391,7 +391,7 @@ msgstr "Nom de la CPU:  "
 
 #: OpzioniFrame.cpp:49
 msgid "Secondi in cui mostrare le giocate"
-msgstr "Controle les nouvelles versions au démarrage"
+msgstr "Secondes pendant lesquelles montrer les pièces"
 
 #: cartaHelperBriscola.h:79
 msgid "Bastoni"
