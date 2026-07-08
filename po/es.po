@@ -97,7 +97,7 @@ msgstr "&Salir"
 
 #: BriscoFrame.cpp:130
 msgid "Chiudi il programma"
-msgstr "Cierra el programa"
+msgstr "Salir el programa"
 
 #: BriscoFrame.cpp:131
 msgid "&File"
@@ -166,7 +166,7 @@ msgstr "El juego de triunfo de dos jugadores"
 
 #: BriscoFrame.cpp:261
 msgid "Carica il mazzo corrispondente"
-msgstr "Carga la baraja corrispondiente"
+msgstr "Carga il mazo corrispondiente"
 
 #: BriscoFrame.cpp:272
 msgid "Carica il file del linguaggio corrispondente"
@@ -179,11 +179,11 @@ msgstr "Imposible llevar acabo la operacion"
 #: BriscoFrame.cpp:300
 msgid ""
 "Il programma si chiudera'. Riaprirlo di nuovo per cambiare il linguaggio."
-msgstr "El programa serà cerrado abrelo otra vez para cambiar el lenguaje."
+msgstr "El programa serà cerrado. Abrelo otra vez para cambiar el lenguaje."
 
 #: BriscoPanel.cpp:85 BriscoPanel.cpp:107
 msgid "Nel mazzo rimangono "
-msgstr "En la baraja sobra "
+msgstr "En el mazo sobra "
 
 #: BriscoPanel.cpp:85 BriscoPanel.cpp:107
 msgid " carte."
@@ -199,7 +199,7 @@ msgstr ": "
 
 #: BriscoPanel.cpp:121
 msgid "Il seme di briscola e': "
-msgstr "Il seme de briscola es: "
+msgstr "El palo de triunfo es: "
 
 #: BriscoPanel.cpp:174
 msgid "Vuoi effettuare la seconda partita?"
@@ -243,15 +243,15 @@ msgstr "¿Quieres hacer otra jugada?"
 
 #: BriscoPanel.cpp:195 BriscoPanel.cpp:204
 msgid "Partita finita"
-msgstr "Jugada acabada"
+msgstr "Juego terminado"
 
 #: BriscoPanel.cpp:210
 msgid "Tallone finito"
-msgstr "Baraja terminada"
+msgstr "Mazo terminado"
 
 #: BriscoPanel.cpp:210
 msgid "Il tallone e' finito"
-msgstr "La baraja está terminada"
+msgstr "El mazo está terminado"
 
 #: BriscoPanel.cpp:219
 msgid "Carta di Briscola"
@@ -259,7 +259,7 @@ msgstr "Carta de triunfo"
 
 #: BriscoPanel.cpp:219 BriscoPanel.cpp:225
 msgid "La cpu ha giocato il "
-msgstr "La cpu reprodujo el "
+msgstr "La cpu jugado el "
 
 #: BriscoPanel.cpp:219
 msgid " di briscola"
@@ -291,7 +291,7 @@ msgstr " no existe."
 
 #: BriscoPanel.cpp:312
 msgid " Il programma provera' a ricaricare il mazzo precedente."
-msgstr " El programa probarà a recargar la baraja antecediente."
+msgstr " El programa probarà a recargar el mazo antecediente."
 
 #: BriscoPanel.cpp:314
 msgid ""
@@ -299,8 +299,8 @@ msgid ""
 "significa non poterlo avviare piu'. Caricare un mazzo completo prima di "
 "uscire."
 msgstr ""
-"No fue posible cargar la baraja antecediente salir del programa significa no "
-"poder comenzar de nuevo. Cargue una baraja completa antes de cerrar."
+"No fue posible cargar el mazo antecediente salir del programa significa no "
+"poder comenzar de nuevo. Cargue un mazo completo antes de cerrar."
 
 #: CartaAltaFrame.cpp:30
 msgid "Gioco della carta alta"
@@ -310,7 +310,7 @@ msgstr "Juego de quien tiene la carta con mayor valor"
 msgid ""
 "Scrivere un numero da 1 a 40 che identifica la carta del mazzo da scegliere."
 msgstr ""
-"Escribir un numero de 1 a 40 que identifica la carta de la barja da eligir."
+"Escribir un numero de 1 a 40 que identifica la carta del mazo da eligir."
 
 #: CartaAltaFrame.cpp:43
 msgid "Numero della carta da prendere: "
@@ -356,7 +356,7 @@ msgstr "Aajustes"
 
 #: OpzioniFrame.cpp:34
 msgid "La carta che designa la briscola puo' dar punti"
-msgstr "La carta que representa la briscola puede dar puntos"
+msgstr "La carta que representa el palo e triunfo puede tener peso"
 
 #: OpzioniFrame.cpp:36
 msgid "Ordina le carte che mi capitano"
@@ -364,7 +364,7 @@ msgstr "Ordena las cartas que me ocurren"
 
 #: OpzioniFrame.cpp:38
 msgid "Avvisa quando il tallone finisce"
-msgstr "Avisar cuando las cartas que tienes que coger acaban"
+msgstr "avisar cuando el mazo sale"
 
 #: OpzioniFrame.cpp:40
 msgid "Fai il gioco della carta piu' alta all'avvio"
@@ -380,11 +380,11 @@ msgstr "Avisa nuenas versiones"
 
 #: OpzioniFrame.cpp:47
 msgid "Nome utente: "
-msgstr "Nome utente: "
+msgstr "Nombre de usuraio: "
 
 #: OpzioniFrame.cpp:48
 msgid "Nome cpu: "
-msgstr "Nome cpu: "
+msgstr "Nombre de la cpu: "
 
 #: OpzioniFrame.cpp:49
 msgid "Secondi in cui mostrare le giocate"
@@ -425,7 +425,7 @@ msgstr "Picas"
 #, fuzzy
 #~| msgid "Partita finita"
 #~ msgid "Parita finita"
-#~ msgstr "Jugada acabada"
+#~ msgstr "Jugado terminato"
 
 #~ msgid "Continuare"
 #~ msgstr "Continuar"
@@ -434,7 +434,7 @@ msgstr "Picas"
 #~ msgstr "Traducciones"
 
 #~ msgid "Colore del testo"
-#~ msgstr "Text colour"
+#~ msgstr "color del texto"
 
 #~ msgid "Questo linguaggio non e' supportato dal sistema operativo."
 #~ msgstr "THis Language is not supported by operating system."
